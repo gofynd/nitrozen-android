@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NBtn">
+        <!-- Image -->
+        <attr name="nb_icon" format="color|reference" />
+        <attr name="nb_iconColor" format="color" />
+        <attr name="nb_iconWidth" format="dimension" />
+        <attr name="nb_iconHeight" format="dimension" />
+        <attr name="nb_iconMarginStart" format="dimension" />
+        <attr name="nb_iconMarginTop" format="dimension" />
+        <attr name="nb_iconMarginEnd" format="dimension" />
+        <attr name="nb_iconMarginBottom" format="dimension" />
+        <attr name="nb_iconPosition">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="left" value="2" />
+            <enum name="right" value="3" />
+            <enum name="center" value="4" />
+        </attr>
+        <attr name="nb_iconVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
+
+        <!-- Divider -->
+        <attr name="nb_divColor" format="color" />
+        <attr name="nb_divWidth" format="dimension" />
+        <attr name="nb_divHeight" format="dimension" />
+        <attr name="nb_divMarginTop" format="dimension" />
+        <attr name="nb_divMarginBottom" format="dimension" />
+        <attr name="nb_divMarginStart" format="dimension" />
+        <attr name="nb_divMarginEnd" format="dimension" />
+        <attr name="nb_divVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
+
+        <!-- Text -->
+        <attr name="nb_text" format="string|reference" />
+        <attr name="nb_textPaddingStart" format="dimension" />
+        <attr name="nb_textPaddingTop" format="dimension" />
+        <attr name="nb_textPaddingEnd" format="dimension" />
+        <attr name="nb_textPaddingBottom" format="dimension" />
+        <attr name="nb_fontFamilyRes" format="reference" />
+        <attr name="nb_isStorke" format="boolean" />
+        <attr name="nb_textStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <attr name="nb_textSize" format="dimension" />
+        <attr name="nb_textColor" format="color" />
+        <attr name="nb_textAllCaps" format="boolean" />
+        <attr name="nb_textVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
+
+        <!-- Button -->
+        <attr name="nb_backgroundColor" format="color|reference" />
+        <attr name="nb_disableColor" format="color|reference" />
+        <attr name="nb_disableElementsColor" format="color|reference" />
+        <attr name="nb_cornerRadius" format="dimension" />
+        <attr name="nb_enableRipple" format="boolean" />
+        <attr name="nb_rippleColor" format="color|reference" />
+        <attr name="nb_shape">
+            <enum name="rectangle" value="0" />
+            <enum name="square" value="1" />
+            <enum name="circle" value="2" />
+            <enum name="oval" value="3" />
+        </attr>
+        <attr name="android:enabled" format="boolean" />
+        <attr name="nb_isLoader" format="boolean" />
+        <attr name="nb_shadow" format="dimension" />
+
+        <!-- Border -->
+        <attr name="nb_borderColor" format="color" />
+        <attr name="nb_borderWidth" format="dimension" />
+    </declare-styleable>
+</resources>
