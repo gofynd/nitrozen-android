@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.core.content.ContextCompat
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.model.Shape
@@ -23,7 +24,8 @@ internal class AttributeController(private val view: View, private val attrs: At
     }
 
     private fun initAttr() {
-        val typedArray = view.context.obtainStyledAttributes(attrs,
+        val typedArray = view.context.obtainStyledAttributes(
+            attrs,
             R.styleable.NBtn
         )
         // Init button image
@@ -62,12 +64,15 @@ internal class AttributeController(private val view: View, private val attrs: At
         val fontRes = typedArray.getResourceId(R.styleable.NBtn_nb_fontFamilyRes, 0)
         val textStyle = typedArray.getInt(R.styleable.NBtn_nb_textStyle, Typeface.NORMAL)
         val textSize = typedArray.getDimension(R.styleable.NBtn_nb_textSize, txtPxToSp(16f))
-        val textColor = typedArray.getColor(R.styleable.NBtn_nb_textColor, Color.DKGRAY)
+        val textColor = typedArray.getColor(R.styleable.NBtn_nb_textColor, Color.WHITE)
         val textAllCaps = typedArray.getBoolean(R.styleable.NBtn_nb_textAllCaps, false)
         val textVisibility = typedArray.getInt(R.styleable.NBtn_nb_textVisibility, View.VISIBLE)
 
         // Init button
-        val btnColor = typedArray.getColor(R.styleable.NBtn_nb_backgroundColor, 0)
+        val btnColor = typedArray.getColor(
+            R.styleable.NBtn_nb_backgroundColor,
+            ContextCompat.getColor(view.context, R.color.btn_primary_color)
+        )
         val disableColor = typedArray.getColor(R.styleable.NBtn_nb_disableColor, 0)
         val elDisableColor = typedArray.getColor(R.styleable.NBtn_nb_disableElementsColor, 0)
         val cornerRadius = typedArray.getDimension(R.styleable.NBtn_nb_cornerRadius, 0f)
