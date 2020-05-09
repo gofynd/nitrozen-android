@@ -19,7 +19,6 @@
         app:nb_shape="rectangle"
         app:nb_text="Primary"
         app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
         app:nb_textSize="16sp" />
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn

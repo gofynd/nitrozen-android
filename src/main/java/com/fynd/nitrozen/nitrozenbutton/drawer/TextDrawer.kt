@@ -3,6 +3,7 @@ package com.fynd.nitrozen.nitrozenbutton.drawer
 import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
@@ -29,6 +30,7 @@ internal class TextDrawer(val view: NBtn, val button: NitrozenButton) :
     private fun initText() {
         tv.layoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
         tv.text = button.text
+        tv.gravity = Gravity.CENTER
         tv.includeFontPadding = false
         tv.textSize = button.textSize / getDensity()
         tv.isAllCaps = button.textAllCaps
