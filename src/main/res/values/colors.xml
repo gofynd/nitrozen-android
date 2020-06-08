@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="btn_primary_color">#36cc9b</color>
+    <color name="nitrozen_seconday_color">#3f51b5</color>
+
     <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="colorError">#fa3f4d</color>
+    <color name="colorTitle">#9b9b9b</color>
+    <color name="colorTextDefault">#41434c</color>
+    <color name="colorUneditable">#f2f2f2</color>
+
+    <color name="ninput_edge_color">#D6D6D6</color>
 </resources>

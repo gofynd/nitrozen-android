@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="NInput">
+        <attr name="nb_title" format="string|reference" />
+        <attr name="nb_titleTextSize" format="dimension" />
+        <attr name="nb_placeHolder" format="string|reference" />
+        <attr name="nb_placeHolderTextSize" format="dimension" />
+        <attr name="nb_hint" format="string|reference" />
+        <attr name="nb_hintTextSize" format="dimension" />
+        <attr name="nb_leadingIcon" format="reference" />
+        <attr name="nb_trailingIcon" format="reference" />
+        <attr name="nb_enabled" format="boolean" />
+        <attr name="nb_editable" format="boolean" />
+        <attr name="nb_showError" format="boolean" />
+        <attr name="nb_showSuccessText" format="string|reference" />
+        <attr name="nb_showLoader" format="boolean" />
+    </declare-styleable>
     <declare-styleable name="NBtn">
         <!-- Image -->
         <attr name="nb_icon" format="color|reference" />
