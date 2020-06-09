@@ -1,6 +1,7 @@
 package com.fynd.nitrozen.nitrozeninput
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.LinearLayout
 
@@ -37,18 +38,124 @@ class NInput : LinearLayout {
         manager?.changeMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
-    fun getShowError(): Boolean = manager!!.getInput().showError
-
-    fun setShowError(showError: Boolean): NInput {
-        manager!!.getInput().showError = showError
+    fun setLayoutHeight(layoutHeight: Int): NInput {
+        manager!!.getInput().layoutHeight = layoutHeight
         updateView()
         return this
     }
 
-    fun getTitleText(): String = manager!!.getInput().titleText ?: ""
+    fun getLayoutHeight(): Int = manager!!.getInput().layoutHeight
 
-    fun setTitleText(text: String): NInput {
-        manager!!.getInput().titleText = text
+
+    fun setLayoutWidth(layoutWidth: Int): NInput {
+        manager!!.getInput().layoutWidth = layoutWidth
+        updateView()
+        return this
+    }
+
+    fun getLayoutWidth(): Int = manager!!.getInput().layoutWidth
+
+
+    fun setTitleText(titleText: String?): NInput {
+        manager!!.getInput().titleText = titleText
+        updateView()
+        return this
+    }
+
+    fun getTitleText(): String? = manager!!.getInput().titleText
+
+    fun setTitleTextSize(titleTextSize: Float): NInput {
+        manager!!.getInput().titleTextSize = titleTextSize
+        updateView()
+        return this
+    }
+
+    fun getTitleTextSize(): Float = manager!!.getInput().titleTextSize
+
+    fun setPlaceHolderText(placeHolderText: String?): NInput {
+        manager!!.getInput().hintText = placeHolderText
+        updateView()
+        return this
+    }
+
+    fun getPlaceHolderText(): String? = manager!!.getInput().placeHolderText
+
+    fun setHintText(hintText: String?): NInput {
+        manager!!.getInput().hintText = hintText
+        updateView()
+        return this
+    }
+
+    fun getHintText(): String? = manager!!.getInput().hintText
+
+    fun setHintTextSize(hintTextSize: Float): NInput {
+        manager!!.getInput().hintTextSize = hintTextSize
+        updateView()
+        return this
+    }
+
+    fun getHintTextSize(): Float = manager!!.getInput().hintTextSize
+
+    fun setLeadingIcon(leadingIcon: Drawable?): NInput {
+        manager!!.getInput().leadingIcon = leadingIcon
+        updateView()
+        return this
+    }
+
+    fun getLeadingIcon(): Drawable? = manager!!.getInput().leadingIcon
+
+    fun setTrailingIcon(trailingIcon: Drawable?): NInput {
+        manager!!.getInput().trailingIcon = trailingIcon
+        updateView()
+        return this
+    }
+
+    fun getTrailingIcon(): Drawable? = manager!!.getInput().trailingIcon
+
+    fun setIsEnabled(isEnabled: Boolean): NInput {
+        manager!!.getInput().isEnabled = isEnabled
+        updateView()
+        return this
+    }
+
+    fun getIsEnabled(): Boolean = manager!!.getInput().isEnabled
+
+    fun setIsEditable(isEditable: Boolean): NInput {
+        manager!!.getInput().isEditable = isEditable
+        updateView()
+        return this
+    }
+
+    fun getIsEditable(): Boolean = manager!!.getInput().isEditable
+
+    fun setIsFocused(isFocused: Boolean): NInput {
+        manager!!.getInput().isFocused = isFocused
+        updateView()
+        return this
+    }
+
+    fun getIsFocused(): Boolean = manager!!.getInput().isFocused
+
+    fun getSuccessText(): String = manager!!.getInput().successText ?: ""
+
+    fun setSuccessText(text: String): NInput {
+        manager!!.getInput().successText = text
+        updateView()
+        return this
+    }
+
+    fun getShowLoader(): Boolean = manager!!.getInput().showLoader
+
+    fun setShowLoader(showLoader: Boolean): NInput {
+        manager!!.getInput().showLoader = showLoader
+        updateView()
+        return this
+    }
+
+    fun getShowError(): Boolean = manager!!.getInput().showError
+
+    fun setShowError(showError: Boolean): NInput {
+        manager!!.getInput().showError = showError
         updateView()
         return this
     }
