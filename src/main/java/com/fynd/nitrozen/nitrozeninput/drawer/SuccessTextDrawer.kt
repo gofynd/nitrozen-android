@@ -3,12 +3,11 @@ package com.fynd.nitrozen.nitrozeninput.drawer
 import android.graphics.Typeface
 import android.text.TextUtils
 import android.view.Gravity
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import com.fynd.nitrozen.nitrozenbutton.drawer.Drawer
+import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/ndropdown_list_background"
+    android:layout_height="wrap_content">
+
+    <com.fynd.nitrozen.nitrozeninput.views.LoaderView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:text="Loading.."
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="Loading.."
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Loading.."
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="Loading.."
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</FrameLayout>

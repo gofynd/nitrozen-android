@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="false"
+    android:padding="@dimen/activity_vertical_margin"
+    android:scrollbarSize="0dp"
+    tools:context=".ui.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.fynd.nitrozen.nitrozendropdown.NDropdown
+            android:id="@+id/sp_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:nd_title="Normal NDropdown" />
+
+        <com.fynd.nitrozen.nitrozendropdown.NDropdown
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:nd_title="Placeholder NDropdown" />
+
+        <com.fynd.nitrozen.nitrozendropdown.NDropdown
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:nd_showLoader="true"
+            app:nd_title="Loader NDropdown" />
+
+        <com.fynd.nitrozen.nitrozendropdown.NDropdown
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:nd_showError="true"
+            app:nd_errorText="Please select valid option"
+            app:nd_title="Error NDropdown" />
+
+        <com.fynd.nitrozen.nitrozendropdown.NDropdown
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:nd_editable="false"
+            app:nd_title="Disabled NDropdown" />
+
+        <com.fynd.nitrozen.nitrozendropdown.NDropdown
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:nd_enabled="false"
+            app:nd_title="Blocked NDropdown" />
+    </LinearLayout>
+</ScrollView>

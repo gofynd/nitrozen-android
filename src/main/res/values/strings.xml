@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Nitrozen</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Nitrozen Components</string>
+    <string name="nav_header_subtitle">https://github.com/gofynd/nitrozen-android</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">NButton</string>
+    <string name="menu_gallery">NInput</string>
+    <string name="menu_slideshow">NDropdown</string>
+    <string name="menu_checkbox">NCheckbox</string>
+    <string name="menu_radio">NRadio</string>
+    <string name="menu_autocomplete">NAutocomplete</string>
+
+    <string name="home_second">Home Second</string>
+</resources>

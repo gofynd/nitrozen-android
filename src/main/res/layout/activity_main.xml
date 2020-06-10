@@ -1,107 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_text="Primary"
-        app:nb_textColor="#fff"
-        app:nb_textSize="16sp" />
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="true"
-        app:nb_icon="@android:drawable/ic_input_add"
-        app:nb_iconColor="#fff"
-        app:nb_iconPosition="left"
-        app:nb_rippleColor="#ccc"
-        app:nb_text="Primary"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 
-    <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="false"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_iconColor="#fff"
-        app:nb_isLoader="true"
-        app:nb_rippleColor="#ccc"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
-
-    <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:enabled="false"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="false"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_iconColor="#fff"
-        app:nb_rippleColor="#ccc"
-        app:nb_text="Disabled"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
-
-    <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="true"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_isStorke="true"
-        app:nb_rippleColor="#ccc"
-        app:nb_shape="rectangle"
-        app:nb_text="Primary"
-        app:nb_textColor="#5c6bdd"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp"
-        app:nb_textStyle="bold" />
-
-
-    <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="30dp"
-        app:nb_enableRipple="true"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_isStorke="false"
-        app:nb_rippleColor="#ccc"
-        app:nb_shape="rectangle"
-        app:nb_text="Primary"
-        app:nb_textColor="@color/white"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp"
-        app:nb_textStyle="bold" />
-
-
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

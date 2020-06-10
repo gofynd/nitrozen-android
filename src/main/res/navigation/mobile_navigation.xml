@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.fynd.nitrozen.ui.fragments.NButtonFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_nbutton"/>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.fynd.nitrozen.ui.fragments.NInputFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_ninput" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.fynd.nitrozen.ui.fragments.NDropdownFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_ndropdown" />
+    <fragment
+        android:id="@+id/nav_check"
+        android:name="com.fynd.nitrozen.ui.fragments.NCheckboxFragment"
+        android:label="@string/menu_checkbox"
+        tools:layout="@layout/fragment_ncheckbox" />
+    <fragment
+        android:id="@+id/nav_radio"
+        android:name="com.fynd.nitrozen.ui.fragments.NRadioFragment"
+        android:label="@string/menu_radio"
+        tools:layout="@layout/fragment_nradio" />
+    <fragment
+        android:id="@+id/nav_auto"
+        android:name="com.fynd.nitrozen.ui.fragments.NAutocompleteFragment"
+        android:label="@string/menu_autocomplete"
+        tools:layout="@layout/fragment_nautocomplete" />
+</navigation>

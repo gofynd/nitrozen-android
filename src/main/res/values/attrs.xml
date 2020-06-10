@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="NInput">
-        <attr name="nb_title" format="string|reference" />
-        <attr name="nb_titleTextSize" format="dimension" />
-        <attr name="nb_placeHolder" format="string|reference" />
-        <attr name="nb_placeHolderTextSize" format="dimension" />
-        <attr name="nb_hint" format="string|reference" />
-        <attr name="nb_hintTextSize" format="dimension" />
-        <attr name="nb_leadingIcon" format="reference" />
-        <attr name="nb_trailingIcon" format="reference" />
-        <attr name="nb_enabled" format="boolean" />
-        <attr name="nb_editable" format="boolean" />
-        <attr name="nb_showError" format="boolean" />
-        <attr name="nb_showSuccessText" format="string|reference" />
-        <attr name="nb_showLoader" format="boolean" />
+        <attr name="ni_title" format="string|reference" />
+        <attr name="ni_titleTextSize" format="dimension" />
+        <attr name="ni_placeHolder" format="string|reference" />
+        <attr name="ni_placeHolderTextSize" format="dimension" />
+        <attr name="ni_hint" format="string|reference" />
+        <attr name="ni_hintTextSize" format="dimension" />
+        <attr name="ni_leadingIcon" format="reference" />
+        <attr name="ni_trailingIcon" format="reference" />
+        <attr name="ni_enabled" format="boolean" />
+        <attr name="ni_editable" format="boolean" />
+        <attr name="ni_showError" format="boolean" />
+        <attr name="ni_showSuccessText" format="string|reference" />
+        <attr name="ni_showLoader" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="NDropdown">
+        <attr name="nd_title" format="string|reference" />
+        <attr name="nd_titleTextSize" format="dimension" />
+        <attr name="nd_placeHolder" format="string|reference" />
+        <attr name="nd_placeHolderTextSize" format="dimension" />
+        <attr name="nd_showLoader" format="boolean" />
+        <attr name="nd_showError" format="boolean" />
+        <attr name="nd_errorText" format="string|reference" />
+        <attr name="nd_enabled" format="boolean" />
+        <attr name="nd_editable" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="NCheckBox">
+        <attr name="ncb_text" format="string|reference" />
+        <attr name="ncb_textSize" format="dimension" />
+        <attr name="ncb_enabled" format="boolean" />
+        <attr name="ncb_checked" format="boolean" />
+        <attr name="ncb_isIndeterminate" format="boolean" />
+        <attr name="ncb_textColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="NRadio">
+        <attr name="nrb_text" format="string|reference" />
+        <attr name="nrb_textSize" format="dimension" />
+        <attr name="nrb_enabled" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="NAutocomplete">
+        <attr name="na_hint" format="string|reference" />
     </declare-styleable>
     <declare-styleable name="NBtn">
         <!-- Image -->

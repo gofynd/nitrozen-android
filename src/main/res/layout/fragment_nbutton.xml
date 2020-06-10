@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        app:nb_backgroundColor="@color/btn_primary_color"
+        app:nb_cornerRadius="6dp"
+        app:nb_enableRipple="true"
+        app:nb_fontFamilyRes="@font/poppins"
+        app:nb_rippleColor="#ccc"
+        app:nb_shape="rectangle"
+        app:nb_text="Primary"
+        app:nb_textColor="#fff"
+        app:nb_textPaddingStart="4dp"
+        app:nb_textSize="16sp" />
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        app:nb_backgroundColor="@color/btn_primary_color"
+        app:nb_cornerRadius="6dp"
+        app:nb_enableRipple="true"
+        app:nb_fontFamilyRes="@font/poppins"
+        app:nb_icon="@drawable/ic_android_black_24dp"
+        app:nb_iconColor="#fff"
+        app:nb_iconPosition="left"
+        app:nb_rippleColor="#ccc"
+        app:nb_text="Primary"
+        app:nb_textColor="#fff"
+        app:nb_textPaddingStart="4dp"
+        app:nb_textSize="16sp" />
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        app:nb_backgroundColor="@color/btn_primary_color"
+        app:nb_cornerRadius="6dp"
+        app:nb_enableRipple="false"
+        app:nb_fontFamilyRes="@font/poppins"
+        app:nb_iconColor="#fff"
+        app:nb_isLoader="true"
+        app:nb_rippleColor="#ccc"
+        app:nb_textColor="#fff"
+        app:nb_textPaddingStart="4dp"
+        app:nb_textSize="16sp" />
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:enabled="false"
+        android:gravity="center"
+        app:nb_backgroundColor="@color/btn_primary_color"
+        app:nb_cornerRadius="6dp"
+        app:nb_enableRipple="false"
+        app:nb_fontFamilyRes="@font/poppins"
+        app:nb_iconColor="#fff"
+        app:nb_rippleColor="#ccc"
+        app:nb_text="Disabled"
+        app:nb_textColor="#fff"
+        app:nb_textPaddingStart="4dp"
+        app:nb_textSize="16sp" />
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        app:nb_backgroundColor="@color/btn_primary_color"
+        app:nb_cornerRadius="6dp"
+        app:nb_enableRipple="true"
+        app:nb_fontFamilyRes="@font/poppins"
+        app:nb_isStorke="true"
+        app:nb_rippleColor="#ccc"
+        app:nb_shape="rectangle"
+        app:nb_text="Primary"
+        app:nb_textColor="#5c6bdd"
+        app:nb_textPaddingStart="4dp"
+        app:nb_textSize="16sp"
+        app:nb_textStyle="bold" />
+
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        app:nb_backgroundColor="@color/btn_primary_color"
+        app:nb_cornerRadius="30dp"
+        app:nb_enableRipple="true"
+        app:nb_fontFamilyRes="@font/poppins"
+        app:nb_isStorke="false"
+        app:nb_rippleColor="#ccc"
+        app:nb_shape="rectangle"
+        app:nb_text="Primary"
+        app:nb_textColor="@color/white"
+        app:nb_textPaddingStart="4dp"
+        app:nb_textSize="16sp"
+        app:nb_textStyle="bold" />
+
+
+</LinearLayout>

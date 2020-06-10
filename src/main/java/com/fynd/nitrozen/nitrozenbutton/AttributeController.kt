@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.core.content.ContextCompat
-import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.model.Shape
 import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
+import com.fynd.nitrozen.R
 
 internal class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
@@ -61,7 +61,7 @@ internal class AttributeController(private val view: View, private val attrs: At
         val textPaddingTop = typedArray.getDimension(R.styleable.NBtn_nb_textPaddingTop, 0f)
         val textPaddingEnd = typedArray.getDimension(R.styleable.NBtn_nb_textPaddingEnd, 0f)
         val textPaddingBottom = typedArray.getDimension(R.styleable.NBtn_nb_textPaddingBottom, 0f)
-        val fontRes = R.font.poppins//typedArray.getResourceId(R.styleable.NBtn_nb_fontFamilyRes, 0)
+        val fontRes = typedArray.getResourceId(R.styleable.NBtn_nb_fontFamilyRes, 0)
         val textStyle = typedArray.getInt(R.styleable.NBtn_nb_textStyle, Typeface.NORMAL)
         val textSize = typedArray.getDimension(R.styleable.NBtn_nb_textSize, txtPxToSp(16f))
         val textColor = typedArray.getColor(R.styleable.NBtn_nb_textColor, Color.WHITE)
@@ -75,10 +75,10 @@ internal class AttributeController(private val view: View, private val attrs: At
         )
         val disableColor = typedArray.getColor(R.styleable.NBtn_nb_disableColor, 0)
         val elDisableColor = typedArray.getColor(R.styleable.NBtn_nb_disableElementsColor, 0)
-        val cornerRadius = typedArray.getDimension(R.styleable.NBtn_nb_cornerRadius, 6f)
+        val cornerRadius = typedArray.getDimension(R.styleable.NBtn_nb_cornerRadius, 0f)
         val enableRipple = typedArray.getBoolean(R.styleable.NBtn_nb_enableRipple, true)
         val rippleColor =
-            typedArray.getColor(R.styleable.NBtn_nb_rippleColor, Color.parseColor("#CCCCCC"))
+            typedArray.getColor(R.styleable.NBtn_nb_rippleColor, Color.parseColor("#42FFFFFF"))
         val shape = typedArray.getInt(R.styleable.NBtn_nb_shape, Shape.RECTANGLE.shape)
         val enable = typedArray.getBoolean(R.styleable.NBtn_android_enabled, true)
         val borderColor = typedArray.getColor(R.styleable.NBtn_nb_borderColor, Color.TRANSPARENT)

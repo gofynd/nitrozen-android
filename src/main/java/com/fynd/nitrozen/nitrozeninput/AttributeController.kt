@@ -24,24 +24,24 @@ internal class AttributeController(private val view: View, private val attrs: At
             R.styleable.NInput
         )
 
-        val titleText = typedArray.getString(R.styleable.NInput_nb_title)
+        val titleText = typedArray.getString(R.styleable.NInput_ni_title)
         val titleTextSize = typedArray.getDimension(
-            R.styleable.NInput_nb_titleTextSize,
+            R.styleable.NInput_ni_titleTextSize,
             pxToDp(12f)
         )
-        val placeHolderText = typedArray.getString(R.styleable.NInput_nb_placeHolder)
-        val hintText = typedArray.getString(R.styleable.NInput_nb_hint)
+        val placeHolderText = typedArray.getString(R.styleable.NInput_ni_placeHolder)
+        val hintText = typedArray.getString(R.styleable.NInput_ni_hint)
         val hintTextSize = typedArray.getDimension(
-            R.styleable.NInput_nb_hintTextSize,
+            R.styleable.NInput_ni_hintTextSize,
             pxToDp(12f)
         )
-        val showError = typedArray.getBoolean(R.styleable.NInput_nb_showError, false)
-        val successText = typedArray.getString(R.styleable.NInput_nb_showSuccessText)
-        val showLoader = typedArray.getBoolean(R.styleable.NInput_nb_showLoader, false)
-        val leadingIcon = typedArray.getDrawable(R.styleable.NInput_nb_leadingIcon)
-        val trailingIcon = typedArray.getDrawable(R.styleable.NInput_nb_trailingIcon)
-        val isEnabled = typedArray.getBoolean(R.styleable.NInput_nb_enabled, true)
-        val isEditable = typedArray.getBoolean(R.styleable.NInput_nb_editable, true)
+        val showError = typedArray.getBoolean(R.styleable.NInput_ni_showError, false)
+        val successText = typedArray.getString(R.styleable.NInput_ni_showSuccessText)
+        val showLoader = typedArray.getBoolean(R.styleable.NInput_ni_showLoader, false)
+        val leadingIcon = typedArray.getDrawable(R.styleable.NInput_ni_leadingIcon)
+        val trailingIcon = typedArray.getDrawable(R.styleable.NInput_ni_trailingIcon)
+        val isEnabled = typedArray.getBoolean(R.styleable.NInput_ni_enabled, true)
+        val isEditable = typedArray.getBoolean(R.styleable.NInput_ni_editable, true)
 
         val layoutHeight =
             attrs?.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")

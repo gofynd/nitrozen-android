@@ -284,9 +284,6 @@ class NBtn : LinearLayout {
         return this
     }
 
-    override fun setGravity(gravity: Int) {
-        super.setGravity(gravity)
-    }
     /**
      * Get the divider start margin
      * @return divider start margin [Float]

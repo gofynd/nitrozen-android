@@ -1,6 +1,6 @@
-package com.fynd.nitrozen.nitrozenbutton.drawer
+package com.fynd.nitrozen.utils
 
-internal abstract class Drawer<V, T> constructor(private val view: V, private val button: T) {
+internal abstract class Drawer<V, T> constructor(private val view: V, private val component: T) {
 
     companion object {
         const val MAX_ALPHA = 255

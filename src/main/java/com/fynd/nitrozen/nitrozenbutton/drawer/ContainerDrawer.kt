@@ -2,8 +2,10 @@ package com.fynd.nitrozen.nitrozenbutton.drawer
 
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
+import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
+import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
@@ -27,6 +29,7 @@ internal class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
     }
 
     private fun initContainer() {
+        view.gravity = Gravity.CENTER
         container = GradientDrawable()
         container.cornerRadius = pxToDp(button.cornerRadius)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

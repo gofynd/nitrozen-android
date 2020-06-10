@@ -7,8 +7,8 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
+import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
-import com.fynd.nitrozen.nitrozenbutton.drawer.Drawer
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
@@ -37,10 +37,8 @@ internal class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
                 RelativeLayout.LayoutParams.MATCH_PARENT,
                 Gravity.END
             )
-            (loaderView.layoutParams as FrameLayout.LayoutParams).setMargins(
-                0, 0,
-                pxToDp(10f).toInt(), 0
-            )
+            (loaderView.layoutParams as FrameLayout.LayoutParams).setMargins(0, 0,
+                pxToDp(10f).toInt(), 0)
             relativeLayout.addView(et)
             relativeLayout.addView(loaderView)
             view.addView(relativeLayout)
@@ -69,7 +67,7 @@ internal class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
             et.isEnabled = false
             et.setBackgroundResource(R.drawable.ninput_background)
         } else if (!input.isEditable) {
-            et.setBackgroundResource(R.drawable.ninput_uneditable_background)
+            et.setBackgroundResource(R.drawable.uneditable_background)
             et.isEnabled = false
         } else {
             et.isEnabled = true

@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
     android:nestedScrollingEnabled="false"
-    android:scrollbarSize="0dp">
+    android:scrollbarSize="0dp"
+    tools:context=".ui.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,74 +19,74 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_placeHolder="e.g. John"
-            app:nb_title="Name" />
+            app:ni_placeHolder="e.g. John"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_hint="Enter your first name"
-            app:nb_placeHolder="e.g. John"
-            app:nb_showSuccessText="Success"
-            app:nb_title="Name" />
+            app:ni_hint="Enter your first name"
+            app:ni_placeHolder="e.g. John"
+            app:ni_showSuccessText="Success"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_placeHolder="e.g. John"
-            app:nb_showSuccessText="Success"
-            app:nb_title="Name" />
+            app:ni_placeHolder="e.g. John"
+            app:ni_showSuccessText="Success"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_hint="Enter your first name"
-            app:nb_placeHolder="e.g. John"
-            app:nb_title="Name" />
+            app:ni_hint="Enter your first name"
+            app:ni_placeHolder="e.g. John"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_hint="Enter your first name"
-            app:nb_placeHolder="e.g. John"
-            app:nb_showError="true"
-            app:nb_title="Name" />
+            app:ni_hint="Enter your first name"
+            app:ni_placeHolder="e.g. John"
+            app:ni_showError="true"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_placeHolder="e.g. John"
-            app:nb_showLoader="true"
-            app:nb_title="Name" />
+            app:ni_placeHolder="e.g. John"
+            app:ni_showLoader="true"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_leadingIcon="@drawable/ic_search"
-            app:nb_placeHolder="e.g. John"
-            app:nb_title="Name"
-            app:nb_trailingIcon="@drawable/ic_close" />
+            app:ni_leadingIcon="@drawable/ic_search"
+            app:ni_placeHolder="e.g. John"
+            app:ni_title="Name"
+            app:ni_trailingIcon="@drawable/ic_close" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_enabled="false"
-            app:nb_placeHolder="e.g. John"
-            app:nb_title="Name" />
+            app:ni_enabled="false"
+            app:ni_placeHolder="e.g. John"
+            app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nb_editable="false"
-            app:nb_placeHolder="e.g. John"
-            app:nb_title="Name" />
+            app:ni_editable="false"
+            app:ni_placeHolder="e.g. John"
+            app:ni_title="Name" />
     </LinearLayout>
 </ScrollView>
