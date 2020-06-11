@@ -5,7 +5,7 @@ import android.view.View
 import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
-import com.fynd.nitrozen.nitrozenbutton.views.SpinKitView
+import com.fynd.nitrozen.nitrozenloader.NLoader
 
 internal class LoaderDrawer(val view: NBtn, val button: NitrozenButton) :
     Drawer<NBtn, NitrozenButton>(view, button) {
@@ -27,7 +27,7 @@ internal class LoaderDrawer(val view: NBtn, val button: NitrozenButton) :
     private fun initView() {
         view.setVerticalGravity(Gravity.BOTTOM)
         view.addView(
-            SpinKitView(view.context)
+            NLoader(view.context)
         )
     }
 }

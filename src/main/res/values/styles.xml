@@ -15,4 +15,205 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="NLoaderView">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:minWidth">48dip</item>
+        <item name="android:maxWidth">48dip</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:maxHeight">48dip</item>
+    </style>
+
+    <style name="NLoaderView.ChasingDots">
+        <item name="NLoader_Style">ChasingDots</item>
+    </style>
+
+    <style name="NLoaderView.Circle">
+        <item name="NLoader_Style">Circle</item>
+    </style>
+
+    <style name="NLoaderView.CubeGrid">
+        <item name="NLoader_Style">CubeGrid</item>
+    </style>
+
+    <style name="NLoaderView.DoubleBounce">
+        <item name="NLoader_Style">DoubleBounce</item>
+    </style>
+
+    <style name="NLoaderView.FadingCircle">
+        <item name="NLoader_Style">FadingCircle</item>
+    </style>
+
+    <style name="NLoaderView.FoldingCube">
+        <item name="NLoader_Style">FoldingCube</item>
+    </style>
+
+    <style name="NLoaderView.Pulse">
+        <item name="NLoader_Style">Pulse</item>
+    </style>
+
+    <style name="NLoaderView.RotatingPlane">
+        <item name="NLoader_Style">RotatingPlane</item>
+    </style>
+
+    <style name="NLoaderView.RotatingCircle">
+        <item name="NLoader_Style">RotatingCircle</item>
+    </style>
+
+    <style name="NLoaderView.ThreeBounce">
+        <item name="NLoader_Style">ThreeBounce</item>
+    </style>
+
+    <style name="NLoaderView.WanderingCubes">
+        <item name="NLoader_Style">WanderingCubes</item>
+    </style>
+
+    <style name="NLoaderView.Wave">
+        <item name="NLoader_Style">Wave</item>
+    </style>
+
+    <style name="NLoaderView.MultiplePulse">
+        <item name="NLoader_Style">MultiplePulse</item>
+    </style>
+
+    <style name="NLoaderView.PulseRing">
+        <item name="NLoader_Style">PulseRing</item>
+    </style>
+
+    <style name="NLoaderView.MultiplePulseRing">
+        <item name="NLoader_Style">MultiplePulseRing</item>
+    </style>
+
+    <style name="NLoaderView.Large">
+        <item name="android:minWidth">76dip</item>
+        <item name="android:maxWidth">76dip</item>
+        <item name="android:minHeight">76dip</item>
+        <item name="android:maxHeight">76dip</item>
+    </style>
+
+    <style name="NLoaderView.Large.ChasingDots">
+        <item name="NLoader_Style">ChasingDots</item>
+    </style>
+
+    <style name="NLoaderView.Large.Circle">
+        <item name="NLoader_Style">Circle</item>
+    </style>
+
+    <style name="NLoaderView.Large.CubeGrid">
+        <item name="NLoader_Style">CubeGrid</item>
+    </style>
+
+    <style name="NLoaderView.Large.DoubleBounce">
+        <item name="NLoader_Style">DoubleBounce</item>
+    </style>
+
+    <style name="NLoaderView.Large.FadingCircle">
+        <item name="NLoader_Style">FadingCircle</item>
+    </style>
+
+    <style name="NLoaderView.Large.FoldingCube">
+        <item name="NLoader_Style">FoldingCube</item>
+    </style>
+
+    <style name="NLoaderView.Large.Pulse">
+        <item name="NLoader_Style">Pulse</item>
+    </style>
+
+    <style name="NLoaderView.Large.RotatingPlane">
+        <item name="NLoader_Style">RotatingPlane</item>
+    </style>
+
+    <style name="NLoaderView.Large.RotatingCircle">
+        <item name="NLoader_Style">RotatingCircle</item>
+    </style>
+
+    <style name="NLoaderView.Large.ThreeBounce">
+        <item name="NLoader_Style">ThreeBounce</item>
+    </style>
+
+    <style name="NLoaderView.Large.WanderingCubes">
+        <item name="NLoader_Style">WanderingCubes</item>
+    </style>
+
+    <style name="NLoaderView.Large.Wave">
+        <item name="NLoader_Style">Wave</item>
+    </style>
+
+    <style name="NLoaderView.Large.MultiplePulse">
+        <item name="NLoader_Style">MultiplePulse</item>
+    </style>
+
+    <style name="NLoaderView.Large.PulseRing">
+        <item name="NLoader_Style">PulseRing</item>
+    </style>
+
+    <style name="NLoaderView.Large.MultiplePulseRing">
+        <item name="NLoader_Style">MultiplePulseRing</item>
+    </style>
+
+    <style name="NLoaderView.Small">
+        <item name="android:minWidth">16dip</item>
+        <item name="android:maxWidth">16dip</item>
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+    </style>
+
+    <style name="NLoaderView.Small.ChasingDots">
+        <item name="NLoader_Style">ChasingDots</item>
+    </style>
+
+    <style name="NLoaderView.Small.Circle">
+        <item name="NLoader_Style">Circle</item>
+    </style>
+
+    <style name="NLoaderView.Small.CubeGrid">
+        <item name="NLoader_Style">CubeGrid</item>
+    </style>
+
+    <style name="NLoaderView.Small.DoubleBounce">
+        <item name="NLoader_Style">DoubleBounce</item>
+    </style>
+
+    <style name="NLoaderView.Small.FadingCircle">
+        <item name="NLoader_Style">FadingCircle</item>
+    </style>
+
+    <style name="NLoaderView.Small.FoldingCube">
+        <item name="NLoader_Style">FoldingCube</item>
+    </style>
+
+    <style name="NLoaderView.Small.Pulse">
+        <item name="NLoader_Style">Pulse</item>
+    </style>
+
+    <style name="NLoaderView.Small.RotatingPlane">
+        <item name="NLoader_Style">RotatingPlane</item>
+    </style>
+
+    <style name="NLoaderView.Small.RotatingCircle">
+        <item name="NLoader_Style">RotatingCircle</item>
+    </style>
+
+    <style name="NLoaderView.Small.ThreeBounce">
+        <item name="NLoader_Style">ThreeBounce</item>
+    </style>
+
+    <style name="NLoaderView.Small.WanderingCubes">
+        <item name="NLoader_Style">WanderingCubes</item>
+    </style>
+
+    <style name="NLoaderView.Small.Wave">
+        <item name="NLoader_Style">Wave</item>
+    </style>
+
+    <style name="NLoaderView.Small.MultiplePulse">
+        <item name="NLoader_Style">MultiplePulse</item>
+    </style>
+
+    <style name="NLoaderView.Small.PulseRing">
+        <item name="NLoader_Style">PulseRing</item>
+    </style>
+
+    <style name="NLoaderView.Small.MultiplePulseRing">
+        <item name="NLoader_Style">MultiplePulseRing</item>
+    </style>
 </resources>

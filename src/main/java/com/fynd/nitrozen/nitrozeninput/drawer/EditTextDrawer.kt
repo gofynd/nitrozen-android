@@ -12,7 +12,7 @@ import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
-import com.fynd.nitrozen.nitrozeninput.views.LoaderView
+import com.fynd.nitrozen.nitrozenloader.NLoader
 import java.lang.reflect.Field
 
 
@@ -21,7 +21,10 @@ internal class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
 
     private var et: EditText = EditText(view.context)
     private var relativeLayout: FrameLayout = FrameLayout(view.context)
-    private var loaderView = LoaderView(view.context)
+    private var loaderView =
+        NLoader(view.context).apply {
+            setColor(R.color.nitrozen_seconday_color)
+        }
 
     override fun draw() {
         init()

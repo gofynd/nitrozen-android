@@ -1,5 +1,6 @@
 package com.fynd.nitrozen.nitrozencheckbox.drawer
 
+import android.view.Gravity
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.ContextCompat
@@ -38,7 +39,8 @@ internal class CheckBoxDrawer(val view: NCheckBox, val nCheckBox: NitrozenCheckB
         checkBox.setPadding(pxToDp(10f).toInt(), 0, 0, 0)
         checkBox.isEnabled = nCheckBox.isEnabled
         checkBox.isChecked = nCheckBox.isChecked
-        checkBox.setTextSize(nCheckBox.textSize)
+        checkBox.textSize = nCheckBox.textSize
+        checkBox.gravity = Gravity.CENTER_VERTICAL
         if (nCheckBox.isIndeterminate) {
             if (nCheckBox.isEnabled) {
                 checkBox.setButtonDrawable(R.drawable.ncheckbox_indeterminate_background)
