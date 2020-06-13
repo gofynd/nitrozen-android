@@ -208,12 +208,10 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     override fun onSpinnerOpened() {
         nDropdown.isFocused = true
         init()
-        view.invalidate()
     }
 
     override fun onSpinnerClosed() {
         nDropdown.isFocused = false
         init()
-        view.invalidate()
     }
 }
