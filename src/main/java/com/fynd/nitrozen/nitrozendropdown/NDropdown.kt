@@ -51,6 +51,18 @@ class NDropdown : LinearLayout {
         manager?.getDropdown()?.spinner?.onItemSelectedListener = listener
     }
 
+    fun setTitle(text: String?): NDropdown {
+        manager?.getDropdown()?.titleText = text
+        updateView()
+        return this
+    }
+
+    fun setErrorText(text: String?): NDropdown {
+        manager?.getDropdown()?.errorText = text
+        updateView()
+        return this
+    }
+
     fun getOnItemSelectedListener(): AdapterView.OnItemSelectedListener? {
         return manager?.getDropdown()?.spinner?.onItemSelectedListener
     }

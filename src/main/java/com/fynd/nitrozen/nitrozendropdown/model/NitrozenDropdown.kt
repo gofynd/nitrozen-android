@@ -13,8 +13,7 @@ class NitrozenDropdown {
     var placeHolder: String = "Placeholder"
     var placeHolderTextSize: Float = 12f
     var spinner: AppCompatSpinner? = null
-    var showError: Boolean = false
-    var errorText: String = "Error"
+    var errorText: String? = null
     var editable: Boolean = true
     var enabled: Boolean = true
 }

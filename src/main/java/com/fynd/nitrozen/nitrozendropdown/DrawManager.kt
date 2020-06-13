@@ -34,13 +34,9 @@ class DrawManager constructor(view: NDropdown, attrs: AttributeSet?) {
     }
 
     private fun defineDrawingOrder() {
-        if (text.isReady()) {
-            text.draw()
-        }
+        text.draw()
         spinner.draw()
-        if (errorTextDrawer.isReady()) {
-            errorTextDrawer.draw()
-        }
+        errorTextDrawer.draw()
     }
 
     fun updateViews() {

@@ -383,7 +383,6 @@
         <attr name="nd_placeHolder" format="string|reference" />
         <attr name="nd_placeHolderTextSize" format="dimension" />
         <attr name="nd_showLoader" format="boolean" />
-        <attr name="nd_showError" format="boolean" />
         <attr name="nd_errorText" format="string|reference" />
         <attr name="nd_enabled" format="boolean" />
         <attr name="nd_editable" format="boolean" />
@@ -505,6 +504,6 @@
             <enum name="PulseRing" value="13" />
             <enum name="MultiplePulseRing" value="14" />
         </attr>
-        <attr name="SpinKit_Color" format="color" />
+        <attr name="nl_color" format="color|reference" />
     </declare-styleable>
 </resources>
