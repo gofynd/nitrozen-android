@@ -33,6 +33,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
 
     override fun draw() {
         if (isReady()) {
+            isViewAdded = true
             nDropdown.spinner = appCompatSpinner
 
             try {
