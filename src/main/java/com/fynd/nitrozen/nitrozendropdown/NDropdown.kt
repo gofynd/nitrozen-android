@@ -3,10 +3,8 @@ package com.fynd.nitrozen.nitrozendropdown
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.SpinnerAdapter
-import androidx.annotation.Nullable
 
 class NDropdown : LinearLayout {
 
@@ -42,16 +40,21 @@ class NDropdown : LinearLayout {
     fun setSelection(index: Int) {
         manager?.getDropdown()?.spinner?.setSelection(index)
     }
+
     fun setOnItemSelectedListener(listener: AdapterView.OnItemSelectedListener?) {
         manager?.getDropdown()?.spinner?.onItemSelectedListener = listener
     }
 
-    fun getOnItemSelectedListener() :AdapterView.OnItemSelectedListener?{
+    fun getOnItemSelectedListener(): AdapterView.OnItemSelectedListener? {
         return manager?.getDropdown()?.spinner?.onItemSelectedListener
     }
 
     fun getSelectedItem(): Any {
         return manager?.getDropdown()?.spinner?.selectedItem ?: Any()
+    }
+
+    fun getSelectedItemPosition(): Int? {
+        return manager?.getDropdown()?.spinner?.selectedItemPosition
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
