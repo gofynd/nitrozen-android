@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
@@ -40,6 +41,7 @@ class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
         tv.layoutParams = params
         tv.text = input.titleText
         tv.textSize = input.titleTextSize
+        tv.minimumHeight = dpToPx(20f).toInt()
         tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorTitle))
         if (!input.errorText.isNullOrEmpty()) {
             tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorError))

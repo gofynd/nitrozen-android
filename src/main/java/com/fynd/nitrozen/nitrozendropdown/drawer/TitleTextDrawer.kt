@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
@@ -43,6 +44,7 @@ class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
         tv.setSingleLine()
         tv.ellipsize = TextUtils.TruncateAt.END
         tv.setLines(1)
+        tv.minimumHeight = dpToPx(20f).toInt()
         tv.layoutParams = params
         tv.text = nDropdown.titleText
         tv.textSize = nDropdown.titleTextSize
