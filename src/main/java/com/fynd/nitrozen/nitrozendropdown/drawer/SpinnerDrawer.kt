@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
@@ -58,7 +59,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             )
         )
         appCompatSpinner.setSpinnerEventsListener(this)
-        appCompatSpinner.minimumHeight = pxToDp(75f).toInt()
+        appCompatSpinner.minimumHeight = dpToPx(40f).toInt()
         appCompatSpinner.setPopupBackgroundResource(R.drawable.ndropdown_list_background)
         imgDropDown.layoutParams = imageParams
         imgDropDown.setBackgroundResource(R.drawable.ic_dropdown)
