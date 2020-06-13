@@ -3,17 +3,20 @@ package com.fynd.nitrozen.nitrozendropdown.drawer
 import android.graphics.Typeface
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.RelativeLayout
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 import com.fynd.nitrozen.nitrozendropdown.views.CustomSpinner
+import com.fynd.nitrozen.utils.Drawer
 
 
 class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
@@ -29,7 +32,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     private val DROPDOWN_LIST_TAG = "DROPDOWN_LIST"
 
     override fun draw() {
-        if(isReady()){
+        if (isReady()) {
             nDropdown.spinner = appCompatSpinner
 
             try {
@@ -39,11 +42,17 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             }
             init()
             val rootParams: RelativeLayout.LayoutParams =
-                RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT).apply {
+                RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
                     addRule(RelativeLayout.CENTER_VERTICAL)
                 }
             val spinnerParams: RelativeLayout.LayoutParams =
-                RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+                RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                )
             val imageParams: RelativeLayout.LayoutParams =
                 RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -163,7 +172,11 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     }
 
     override fun updateLayout() {
-        init()
+        if (isViewAdded) {
+            init()
+        } else {
+            draw()
+        }
     }
 
     private fun getBlankAdapter(): ArrayAdapter<String> {
