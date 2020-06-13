@@ -38,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:nd_showError="true"
             app:nd_errorText="Please select valid option"
             app:nd_title="Error NDropdown" />
 
