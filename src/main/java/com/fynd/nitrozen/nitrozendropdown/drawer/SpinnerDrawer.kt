@@ -29,66 +29,68 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     private val DROPDOWN_LIST_TAG = "DROPDOWN_LIST"
 
     override fun draw() {
-        nDropdown.spinner = appCompatSpinner
+        if(isReady()){
+            nDropdown.spinner = appCompatSpinner
 
-        try {
-            val tf = ResourcesCompat.getFont(view.context, R.font.poppins)
-            tvPlaceHolder.setTypeface(tf, Typeface.NORMAL)
-        } catch (e: Exception) {
-        }
-        init()
-        val rootParams: RelativeLayout.LayoutParams =
-            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT).apply {
-                addRule(RelativeLayout.CENTER_VERTICAL)
+            try {
+                val tf = ResourcesCompat.getFont(view.context, R.font.poppins)
+                tvPlaceHolder.setTypeface(tf, Typeface.NORMAL)
+            } catch (e: Exception) {
             }
-        val spinnerParams: RelativeLayout.LayoutParams =
-            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
-        val imageParams: RelativeLayout.LayoutParams =
-            RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
-            )
-        imageParams.setMargins(0, 0, pxToDp(10f).toInt(), 0)
-        imageParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
-        imageParams.addRule(RelativeLayout.CENTER_VERTICAL)
-        appCompatSpinner.layoutParams = spinnerParams
-        appCompatSpinner.setBackgroundColor(
-            ContextCompat.getColor(
-                view.context,
-                android.R.color.transparent
-            )
-        )
-        appCompatSpinner.setSpinnerEventsListener(this)
-        appCompatSpinner.minimumHeight = dpToPx(40f).toInt()
-        appCompatSpinner.setPopupBackgroundResource(R.drawable.ndropdown_list_background)
-        imgDropDown.layoutParams = imageParams
-        imgDropDown.setBackgroundResource(R.drawable.ic_dropdown)
-        rootLayout.layoutParams = rootParams
-
-        setPlaceHolder()
-        rootLayout.addView(tvPlaceHolder)
-        rootLayout.addView(appCompatSpinner)
-        rootLayout.addView(imgDropDown)
-        rootLayout.isClickable = true
-        view.addView(rootLayout)
-        if (nDropdown.showLoader) {
-            val v = View.inflate(view.context, R.layout.ndropdown_loader, null)
-            v.tag = DROPDOWN_LIST_TAG
-            val params: RelativeLayout.LayoutParams =
+            init()
+            val rootParams: RelativeLayout.LayoutParams =
+                RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT).apply {
+                    addRule(RelativeLayout.CENTER_VERTICAL)
+                }
+            val spinnerParams: RelativeLayout.LayoutParams =
+                RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+            val imageParams: RelativeLayout.LayoutParams =
                 RelativeLayout.LayoutParams(
-                    nDropdown.layoutWidth,
-                    nDropdown.layoutHeight
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
                 )
-            v.layoutParams = params
-            v.visibility = when {
-                nDropdown.isFocused -> {
-                    View.VISIBLE
+            imageParams.setMargins(0, 0, pxToDp(10f).toInt(), 0)
+            imageParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
+            imageParams.addRule(RelativeLayout.CENTER_VERTICAL)
+            appCompatSpinner.layoutParams = spinnerParams
+            appCompatSpinner.setBackgroundColor(
+                ContextCompat.getColor(
+                    view.context,
+                    android.R.color.transparent
+                )
+            )
+            appCompatSpinner.setSpinnerEventsListener(this)
+            appCompatSpinner.minimumHeight = dpToPx(40f).toInt()
+            appCompatSpinner.setPopupBackgroundResource(R.drawable.ndropdown_list_background)
+            imgDropDown.layoutParams = imageParams
+            imgDropDown.setBackgroundResource(R.drawable.ic_dropdown)
+            rootLayout.layoutParams = rootParams
+
+            setPlaceHolder()
+            rootLayout.addView(tvPlaceHolder)
+            rootLayout.addView(appCompatSpinner)
+            rootLayout.addView(imgDropDown)
+            rootLayout.isClickable = true
+            view.addView(rootLayout)
+            if (nDropdown.showLoader) {
+                val v = View.inflate(view.context, R.layout.ndropdown_loader, null)
+                v.tag = DROPDOWN_LIST_TAG
+                val params: RelativeLayout.LayoutParams =
+                    RelativeLayout.LayoutParams(
+                        nDropdown.layoutWidth,
+                        nDropdown.layoutHeight
+                    )
+                v.layoutParams = params
+                v.visibility = when {
+                    nDropdown.isFocused -> {
+                        View.VISIBLE
+                    }
+                    else -> {
+                        View.GONE
+                    }
                 }
-                else -> {
-                    View.GONE
-                }
+                view.addView(v)
             }
-            view.addView(v)
         }
     }
 
