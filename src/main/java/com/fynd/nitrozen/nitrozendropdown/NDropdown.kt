@@ -38,7 +38,7 @@ class NDropdown : LinearLayout {
         layoutParams = params
     }
 
-    fun setAdapter(adapter: SpinnerAdapter?) : NDropdown{
+    fun setAdapter(adapter: SpinnerAdapter?): NDropdown {
         manager?.getDropdown()?.spinner?.adapter = adapter
         updateView()
         return this
@@ -74,6 +74,10 @@ class NDropdown : LinearLayout {
 
     fun getSelectedItemPosition(): Int? {
         return manager?.getDropdown()?.spinner?.selectedItemPosition
+    }
+
+    fun getItemAtPosition(position: Int): Any? {
+        return manager?.getDropdown()?.spinner?.getItemAtPosition(position)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

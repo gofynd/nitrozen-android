@@ -220,7 +220,7 @@ class NInput : LinearLayout {
         return this
     }
 
-    fun setErrorText(errorText: String): NInput {
+    fun setErrorText(errorText: String?): NInput {
         manager!!.getInput().errorText = errorText
         //manager!!.getEditText().requestFocus()
         updateView()
