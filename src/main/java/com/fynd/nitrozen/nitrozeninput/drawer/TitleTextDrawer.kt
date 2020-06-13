@@ -31,10 +31,6 @@ class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
     private fun init() {
         val params: LinearLayout.LayoutParams =
             LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT,  LinearLayout.LayoutParams.WRAP_CONTENT)
-        params.setMargins(
-            pxToDp(5f).toInt(),
-            0, 0,  pxToDp(5f).toInt()
-        )
         tv.setSingleLine()
         tv.ellipsize = TextUtils.TruncateAt.END
         tv.setLines(1)
