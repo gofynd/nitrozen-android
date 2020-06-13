@@ -59,7 +59,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                     RelativeLayout.LayoutParams.WRAP_CONTENT,
                     RelativeLayout.LayoutParams.WRAP_CONTENT
                 )
-            imageParams.setMargins(0, 0, pxToDp(10f).toInt(), 0)
+            imageParams.setMargins(0, 0, dpToPx(5f).toInt(), 0)
             imageParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
             imageParams.addRule(RelativeLayout.CENTER_VERTICAL)
             appCompatSpinner.layoutParams = spinnerParams
@@ -76,7 +76,15 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             imgDropDown.setBackgroundResource(R.drawable.ic_dropdown)
             rootLayout.layoutParams = rootParams
 
-            setPlaceHolder()
+            val params: RelativeLayout.LayoutParams =
+                RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                )
+            params.setMargins(dpToPx(10f).toInt(), 0, dpToPx(30f).toInt(), 0)
+            params.addRule(RelativeLayout.CENTER_VERTICAL)
+            tvPlaceHolder.layoutParams = params
+
             rootLayout.addView(tvPlaceHolder)
             rootLayout.addView(appCompatSpinner)
             rootLayout.addView(imgDropDown)
@@ -85,12 +93,12 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             if (nDropdown.showLoader) {
                 val v = View.inflate(view.context, R.layout.ndropdown_loader, null)
                 v.tag = DROPDOWN_LIST_TAG
-                val params: RelativeLayout.LayoutParams =
+                val loaderParams: RelativeLayout.LayoutParams =
                     RelativeLayout.LayoutParams(
                         nDropdown.layoutWidth,
                         nDropdown.layoutHeight
                     )
-                v.layoutParams = params
+                v.layoutParams = loaderParams
                 v.visibility = when {
                     nDropdown.isFocused -> {
                         View.VISIBLE
@@ -105,15 +113,12 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     }
 
     fun setPlaceHolder() {
-        val params: RelativeLayout.LayoutParams =
-            RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
-            )
-        params.setMargins(pxToDp(15f).toInt(), 0, 0, 0)
-        params.addRule(RelativeLayout.CENTER_VERTICAL)
-        tvPlaceHolder.layoutParams = params
         tvPlaceHolder.text = nDropdown.placeHolder
+        if(nDropdown.placeHolder.isNotEmpty()){
+            tvPlaceHolder.visibility = View.VISIBLE
+        }else{
+            tvPlaceHolder.visibility = View.GONE
+        }
     }
 
     fun hidePlaceHolder() {
@@ -156,6 +161,8 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                 }
             }
         }
+
+        setPlaceHolder()
         if (!nDropdown.enabled) {
             rootLayout.setBackgroundResource(R.drawable.disabled_background)
         } else if (!nDropdown.editable) {
