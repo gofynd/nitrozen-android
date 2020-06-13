@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home,
-                R.id.nav_gallery,
-                R.id.nav_slideshow,
+                R.id.nav_button,
+                R.id.nav_input,
+                R.id.nav_dropdown,
                 R.id.nav_check,
                 R.id.nav_radio,
                 R.id.nav_auto
