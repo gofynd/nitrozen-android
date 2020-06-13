@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenradiobutton.model.NitrozenRadio
 
-internal class AttributeController(private val view: View, private val attrs: AttributeSet?) {
+class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
 
     lateinit var nitrozenRadio: NitrozenRadio

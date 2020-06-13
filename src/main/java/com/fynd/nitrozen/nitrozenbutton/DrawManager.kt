@@ -6,7 +6,7 @@ import com.fynd.nitrozen.nitrozenbutton.drawer.*
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 
-internal class DrawManager constructor(view: NBtn, attrs: AttributeSet?) {
+class DrawManager constructor(view: NBtn, attrs: AttributeSet?) {
 
     private val controller =
         AttributeController(view, attrs)

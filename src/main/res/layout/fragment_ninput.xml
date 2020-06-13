@@ -52,8 +52,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             app:ni_placeHolder="e.g. John"
-            app:ni_showError="true"
-            app:ni_errorText="Test"
             app:ni_title="Name" />
 
         <com.fynd.nitrozen.nitrozeninput.NInput

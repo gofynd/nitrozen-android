@@ -15,7 +15,7 @@ import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 import com.fynd.nitrozen.nitrozendropdown.views.CustomSpinner
 
 
-internal class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
+class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     Drawer<NDropdown, NitrozenDropdown>(view, nDropdown), CustomSpinner.OnSpinnerEventsListener {
 
     private var appCompatSpinner: CustomSpinner = CustomSpinner(
@@ -56,7 +56,7 @@ internal class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdow
             )
         )
         appCompatSpinner.setSpinnerEventsListener(this)
-        appCompatSpinner.minimumHeight = pxToDp(120f).toInt()
+        appCompatSpinner.minimumHeight = pxToDp(75f).toInt()
         appCompatSpinner.setPopupBackgroundResource(R.drawable.ndropdown_list_background)
         imgDropDown.layoutParams = imageParams
         imgDropDown.setBackgroundResource(R.drawable.ic_dropdown)

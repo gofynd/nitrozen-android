@@ -8,6 +8,11 @@ abstract class Drawer<V, T> constructor(private val view: V, private val compone
     }
 
     /**
+     * To check if view is already added
+     */
+    var isViewAdded = false
+
+    /**
      * Draw an element in the view
      */
     abstract fun draw()

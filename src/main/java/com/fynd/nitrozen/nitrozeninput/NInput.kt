@@ -6,6 +6,7 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.fynd.nitrozen.nitrozeninput.view.NitrozenEditText
 
@@ -30,6 +31,12 @@ class NInput : LinearLayout {
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
+        val params =
+            LinearLayout.LayoutParams(
+                manager!!.getInput().layoutWidth,
+                manager!!.getInput().layoutHeight
+            )
+        layoutParams = params
         if (manager != null) {
             if (!manager!!.getInput().isEnabled) {
                 alpha = 0.5f
@@ -214,16 +221,9 @@ class NInput : LinearLayout {
         return this
     }
 
-    fun getShowError(): Boolean = manager!!.getInput().showError
-
-    fun setShowError(showError: Boolean): NInput {
-        manager!!.getInput().showError = showError
-        updateView()
-        return this
-    }
-
     fun setErrorText(errorText: String): NInput {
         manager!!.getInput().errorText = errorText
+        //manager!!.getEditText().requestFocus()
         updateView()
         return this
     }

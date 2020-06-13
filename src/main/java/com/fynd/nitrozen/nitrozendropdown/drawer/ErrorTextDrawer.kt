@@ -13,7 +13,7 @@ import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 
 
-internal class ErrorTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
+class ErrorTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     Drawer<NDropdown, NitrozenDropdown>(view, nDropdown) {
 
     private var tv: TextView = TextView(view.context)

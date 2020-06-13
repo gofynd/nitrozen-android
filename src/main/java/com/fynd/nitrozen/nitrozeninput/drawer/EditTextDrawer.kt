@@ -118,8 +118,9 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
 
 
     fun setText(text:String) {
-        input.text = text
+        et.setText(text)
     }
+
     fun setDrawableClickListener(listener: NitrozenEditText.DrawableClickListener) {
         et.setDrawableClickListener {
             when (it) {
@@ -156,7 +157,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
             et.isEnabled = false
         } else {
             et.isEnabled = true
-            if (input.showError) {
+            if (!input.errorText.isNullOrEmpty()) {
                 et.setBackgroundResource(R.drawable.ninput_error_background)
             } else {
                 et.setBackgroundResource(R.drawable.ninput_background)
@@ -202,8 +203,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         } catch (e: Exception) {
         }
 
-        et.setText(input.text)
-        //et.setSelection(input.text?.length ?: 0)
+        //et.setText(input.text)
         et.textSize = input.textSize
         if (isValueProvided(input.ellipSize)) {
             et.ellipsize = TextUtils.TruncateAt.values()[input.ellipSize!!]

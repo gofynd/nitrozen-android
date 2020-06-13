@@ -5,7 +5,7 @@ import com.fynd.nitrozen.nitrozeninput.drawer.*
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
 import com.fynd.nitrozen.nitrozenradiobutton.model.NitrozenRadio
 
-internal class DrawManager constructor(view: NRadio, attrs: AttributeSet?) {
+class DrawManager constructor(view: NRadio, attrs: AttributeSet?) {
 
     private val controller =
         AttributeController(view, attrs)

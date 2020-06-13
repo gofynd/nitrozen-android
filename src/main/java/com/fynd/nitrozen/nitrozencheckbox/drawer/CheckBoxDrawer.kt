@@ -12,7 +12,7 @@ import com.fynd.nitrozen.nitrozencheckbox.model.NitrozenCheckBox
 import com.fynd.nitrozen.utils.Drawer
 
 
-internal class CheckBoxDrawer(val view: NCheckBox, val nCheckBox: NitrozenCheckBox) :
+class CheckBoxDrawer(val view: NCheckBox, val nCheckBox: NitrozenCheckBox) :
     Drawer<NCheckBox, NitrozenCheckBox>(view, nCheckBox) {
 
     private var checkBox: AppCompatCheckBox = AppCompatCheckBox(view.context)

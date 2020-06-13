@@ -4,7 +4,7 @@ import android.util.AttributeSet
 import com.fynd.nitrozen.nitrozencheckbox.drawer.CheckBoxDrawer
 import com.fynd.nitrozen.nitrozencheckbox.model.NitrozenCheckBox
 
-internal class DrawManager constructor(view: NCheckBox, attrs: AttributeSet?) {
+class DrawManager constructor(view: NCheckBox, attrs: AttributeSet?) {
 
     private val controller =
         AttributeController(view, attrs)

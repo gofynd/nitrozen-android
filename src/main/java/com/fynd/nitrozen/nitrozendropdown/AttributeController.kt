@@ -8,7 +8,7 @@ import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 
-internal class AttributeController(private val view: View, private val attrs: AttributeSet?) {
+class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
 
     lateinit var nitrozenDropdown: NitrozenDropdown

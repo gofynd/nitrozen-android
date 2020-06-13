@@ -13,7 +13,7 @@ import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
 
 
-internal class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
+class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
     Drawer<NInput, NitrozenInput>(view, input) {
 
     private var tv: TextView = TextView(view.context)
@@ -41,7 +41,7 @@ internal class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
         tv.text = input.titleText
         tv.textSize = input.titleTextSize
         tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorTitle))
-        if (input.showError) {
+        if (!input.errorText.isNullOrEmpty()) {
             tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorError))
         } else {
             if (input.isFocused) {

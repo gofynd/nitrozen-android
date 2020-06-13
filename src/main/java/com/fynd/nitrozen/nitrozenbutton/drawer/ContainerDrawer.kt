@@ -13,7 +13,7 @@ import com.fynd.nitrozen.nitrozenbutton.model.Shape
 import com.fynd.nitrozen.nitrozenbutton.utils.RippleEffect
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 
-internal class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
+class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
     : Drawer<NBtn, NitrozenButton>(view, button) {
 
     private lateinit var container: GradientDrawable

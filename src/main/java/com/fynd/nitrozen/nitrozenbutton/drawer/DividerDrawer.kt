@@ -8,7 +8,7 @@ import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.model.Shape
 
-internal class DividerDrawer(val view: NBtn, val button: NitrozenButton)
+class DividerDrawer(val view: NBtn, val button: NitrozenButton)
     : Drawer<NBtn, NitrozenButton>(view, button) {
 
     private var div: View = View(view.context)

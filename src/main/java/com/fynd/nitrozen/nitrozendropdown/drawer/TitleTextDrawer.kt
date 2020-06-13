@@ -13,7 +13,7 @@ import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 
 
-internal class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
+class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     Drawer<NDropdown, NitrozenDropdown>(view, nDropdown) {
 
     private var tv: TextView = TextView(view.context)

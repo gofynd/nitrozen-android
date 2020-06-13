@@ -9,7 +9,7 @@ import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 
 
-internal class IconDrawer(val view: NBtn, val button: NitrozenButton) :
+class IconDrawer(val view: NBtn, val button: NitrozenButton) :
     Drawer<NBtn, NitrozenButton>(view, button) {
 
     private var iv: ImageView = ImageView(view.context)

@@ -6,7 +6,7 @@ import com.fynd.nitrozen.nitrozendropdown.drawer.SpinnerDrawer
 import com.fynd.nitrozen.nitrozendropdown.drawer.TitleTextDrawer
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 
-internal class DrawManager constructor(view: NDropdown, attrs: AttributeSet?) {
+class DrawManager constructor(view: NDropdown, attrs: AttributeSet?) {
 
     private val controller =
         AttributeController(view, attrs)

@@ -7,7 +7,7 @@ import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenloader.NLoader
 
-internal class LoaderDrawer(val view: NBtn, val button: NitrozenButton) :
+class LoaderDrawer(val view: NBtn, val button: NitrozenButton) :
     Drawer<NBtn, NitrozenButton>(view, button) {
 
     override fun draw() {

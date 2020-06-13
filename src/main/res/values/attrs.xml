@@ -15,7 +15,6 @@
         <attr name="ni_trailingIconTint" format="color" />
         <attr name="ni_enabled" format="boolean" />
         <attr name="ni_editable" format="boolean" />
-        <attr name="ni_showError" format="boolean" />
         <attr name="ni_errorText" format="string|reference" />
         <attr name="ni_showSuccessText" format="string|reference" />
         <attr name="ni_showLoader" format="boolean" />

@@ -8,7 +8,7 @@ import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
 import com.fynd.nitrozen.nitrozencheckbox.model.NitrozenCheckBox
 
-internal class AttributeController(private val view: View, private val attrs: AttributeSet?) {
+class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
 
     lateinit var nitrozenCheckBox: NitrozenCheckBox

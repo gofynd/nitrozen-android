@@ -13,7 +13,7 @@ import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.utils.getDensity
 
-internal class TextDrawer(val view: NBtn, val button: NitrozenButton) :
+class TextDrawer(val view: NBtn, val button: NitrozenButton) :
     Drawer<NBtn, NitrozenButton>(view, button) {
 
     private var tv: TextView = TextView(view.context)

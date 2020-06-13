@@ -14,7 +14,7 @@ import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
 import com.fynd.nitrozen.R
 
-internal class AttributeController(private val view: View, private val attrs: AttributeSet?) {
+class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
 
     lateinit var button: NitrozenButton

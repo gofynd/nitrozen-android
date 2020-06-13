@@ -9,7 +9,7 @@ import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
 
-internal class AttributeController(private val view: View, private val attrs: AttributeSet?) {
+class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
 
     lateinit var nitrozenInput: NitrozenInput
@@ -41,7 +41,6 @@ internal class AttributeController(private val view: View, private val attrs: At
             R.styleable.NInput_ni_hintTextSize,
             pxToDp(12f)
         )
-        val showError = typedArray.getBoolean(R.styleable.NInput_ni_showError, false)
         val successText = typedArray.getString(R.styleable.NInput_ni_showSuccessText)
         val errorText = typedArray.getString(R.styleable.NInput_ni_errorText)
         val showLoader = typedArray.getBoolean(R.styleable.NInput_ni_showLoader, false)
@@ -105,7 +104,6 @@ internal class AttributeController(private val view: View, private val attrs: At
             placeHolderText = placeHolderText,
             hintText = hintText,
             hintTextSize = hintTextSize,
-            showError = showError,
             successText = successText,
             showLoader = showLoader,
             leadingIcon = leadingIcon,
