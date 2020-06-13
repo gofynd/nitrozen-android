@@ -13,6 +13,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
@@ -146,7 +147,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         } catch (ignored: Exception) {
         }
         et.hint = input.placeHolderText
-
+        et.minimumHeight = dpToPx(40f).toInt()
         if (!input.isEnabled) {
             et.isEnabled = false
             et.setBackgroundResource(R.drawable.ninput_background)
