@@ -38,10 +38,6 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             R.styleable.NDropdown_nd_showLoader,
             false
         )
-        val nd_showError = typedArray.getBoolean(
-            R.styleable.NDropdown_nd_showError,
-            false
-        )
         val nd_errorText = typedArray.getString(R.styleable.NDropdown_nd_errorText)
 
         val nd_editable = typedArray.getBoolean(
@@ -92,7 +88,6 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             showLoader = nd_showLoader
             placeHolder = nd_placeHolder ?: "Placeholder"
             placeHolderTextSize = nd_placeHolderTextSize
-            showError = nd_showError
             errorText = nd_errorText ?: ""
             editable = nd_editable
             enabled = nd_enabled

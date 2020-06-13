@@ -47,7 +47,7 @@ class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
         tv.layoutParams = params
         tv.text = nDropdown.titleText
         tv.textSize = nDropdown.titleTextSize
-        if (nDropdown.showError) {
+        if (!nDropdown.errorText.isNullOrEmpty()) {
             tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorError))
         } else {
             if (nDropdown.isFocused) {

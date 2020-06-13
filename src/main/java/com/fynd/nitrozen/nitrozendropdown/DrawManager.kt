@@ -41,5 +41,7 @@ class DrawManager constructor(view: NDropdown, attrs: AttributeSet?) {
 
     fun updateViews() {
         text.updateLayout()
+        spinner.draw()
+        errorTextDrawer.draw()
     }
 }
