@@ -38,9 +38,11 @@ class NDropdown : LinearLayout {
         layoutParams = params
     }
 
-    fun setAdapter(adapter: SpinnerAdapter?) {
+    fun setAdapter(adapter: SpinnerAdapter?) : NDropdown{
         manager?.getDropdown()?.spinner?.adapter = adapter
         manager?.spinner?.hidePlaceHolder()
+        updateView()
+        return this
     }
 
     fun setSelection(index: Int) {
