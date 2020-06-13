@@ -38,6 +38,7 @@ class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
         tv.setSingleLine()
         tv.ellipsize = TextUtils.TruncateAt.END
         tv.setLines(1)
+        tv.includeFontPadding = false
         tv.layoutParams = params
         tv.text = input.titleText
         tv.textSize = input.titleTextSize

@@ -41,6 +41,7 @@ class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             0, 0,
             pxToDp(5f).toInt()
         )
+        tv.includeFontPadding = false
         tv.setSingleLine()
         tv.ellipsize = TextUtils.TruncateAt.END
         tv.setLines(1)
