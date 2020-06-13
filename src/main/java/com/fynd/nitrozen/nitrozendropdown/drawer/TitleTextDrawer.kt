@@ -2,6 +2,7 @@ package com.fynd.nitrozen.nitrozendropdown.drawer
 
 import android.graphics.Typeface
 import android.text.TextUtils
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -19,11 +20,9 @@ class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     private var tv: TextView = TextView(view.context)
 
     override fun draw() {
-        if (isReady()) {
-            init()
-            isViewAdded = true
-            view.addView(tv)
-        }
+        init()
+        isViewAdded = true
+        view.addView(tv)
     }
 
     override fun isReady(): Boolean {
@@ -65,6 +64,11 @@ class TitleTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             val tf = ResourcesCompat.getFont(view.context, R.font.poppins)
             tv.setTypeface(tf, Typeface.NORMAL)
         } catch (e: Exception) {
+        }
+        if (isReady()) {
+            tv.visibility = View.VISIBLE
+        } else {
+            tv.visibility = View.GONE
         }
     }
 
