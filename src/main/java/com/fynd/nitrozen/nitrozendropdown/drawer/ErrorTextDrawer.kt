@@ -29,7 +29,7 @@ class ErrorTextDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
 
     private fun init() {
         val params: LinearLayout.LayoutParams =
-            LinearLayout.LayoutParams(nDropdown.layoutWidth, nDropdown.layoutHeight)
+            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         params.setMargins(
             pxToDp(5f).toInt(),
             pxToDp(10f).toInt(), 0,

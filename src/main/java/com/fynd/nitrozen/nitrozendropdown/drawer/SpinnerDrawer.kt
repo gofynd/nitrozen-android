@@ -37,9 +37,11 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
         }
         init()
         val rootParams: RelativeLayout.LayoutParams =
-            RelativeLayout.LayoutParams(nDropdown.layoutWidth, nDropdown.layoutHeight)
+            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT).apply {
+                addRule(RelativeLayout.CENTER_VERTICAL)
+            }
         val spinnerParams: RelativeLayout.LayoutParams =
-            RelativeLayout.LayoutParams(nDropdown.layoutWidth, nDropdown.layoutHeight)
+            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
         val imageParams: RelativeLayout.LayoutParams =
             RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,

@@ -3,9 +3,7 @@ package com.fynd.nitrozen.nitrozeninput.drawer
 import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.os.Build
-import android.text.Editable
 import android.text.TextUtils
-import android.text.TextWatcher
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
@@ -37,10 +35,10 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         init()
         if (input.showLoader) {
             relativeLayout.layoutParams = FrameLayout.LayoutParams(
-                input.layoutWidth, input.layoutHeight
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT
             )
             et.layoutParams = FrameLayout.LayoutParams(
-                input.layoutWidth, input.layoutHeight
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT
             ).apply {
                 if (input.layoutGravity != null) {
                     gravity = input.layoutGravity!!
@@ -60,7 +58,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
             view.addView(relativeLayout)
         } else {
             et.layoutParams = FrameLayout.LayoutParams(
-                input.layoutWidth, input.layoutHeight
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT
             )
             view.addView(et)
         }
@@ -117,7 +115,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
     }
 
 
-    fun setText(text:String) {
+    fun setText(text: String) {
         et.setText(text)
     }
 

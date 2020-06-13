@@ -30,6 +30,12 @@ class NDropdown : LinearLayout {
         if (manager?.getDropdown()?.editable == true || manager?.getDropdown()?.enabled == true) {
             isEnabled = false
         }
+        val params =
+            LayoutParams(
+                manager!!.getDropdown().layoutWidth,
+                manager!!.getDropdown().layoutHeight
+            )
+        layoutParams = params
     }
 
     fun setAdapter(adapter: SpinnerAdapter?) {

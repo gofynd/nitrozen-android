@@ -36,8 +36,8 @@ class SuccessTextDrawer(val view: NInput, val input: NitrozenInput) :
         if(isReady()){
             val params =
                 LinearLayout.LayoutParams(
-                    input.layoutWidth,
-                    input.layoutHeight
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
                 )
 
             textView.includeFontPadding = false

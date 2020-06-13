@@ -6,7 +6,6 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.fynd.nitrozen.nitrozeninput.view.NitrozenEditText
 
@@ -32,7 +31,7 @@ class NInput : LinearLayout {
         manager = DrawManager(this, attrs)
         manager?.draw()
         val params =
-            LinearLayout.LayoutParams(
+            LayoutParams(
                 manager!!.getInput().layoutWidth,
                 manager!!.getInput().layoutHeight
             )
