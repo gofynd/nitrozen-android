@@ -40,7 +40,6 @@ class NDropdown : LinearLayout {
 
     fun setAdapter(adapter: SpinnerAdapter?) : NDropdown{
         manager?.getDropdown()?.spinner?.adapter = adapter
-        manager?.spinner?.hidePlaceHolder()
         updateView()
         return this
     }

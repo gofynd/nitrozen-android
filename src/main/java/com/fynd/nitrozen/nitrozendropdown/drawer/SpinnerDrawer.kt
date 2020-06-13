@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
-import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 import com.fynd.nitrozen.nitrozendropdown.views.CustomSpinner
@@ -114,15 +113,11 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
 
     fun setPlaceHolder() {
         tvPlaceHolder.text = nDropdown.placeHolder
-        if(nDropdown.placeHolder.isNotEmpty()){
+        if (nDropdown.placeHolder.isNotEmpty() && appCompatSpinner.adapter == null) {
             tvPlaceHolder.visibility = View.VISIBLE
-        }else{
+        } else {
             tvPlaceHolder.visibility = View.GONE
         }
-    }
-
-    fun hidePlaceHolder() {
-        tvPlaceHolder.visibility = View.GONE
     }
 
     override fun isReady(): Boolean {
