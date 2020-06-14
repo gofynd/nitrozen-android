@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.util.AttributeSet
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -28,6 +29,14 @@ class NRadio : AppCompatRadioButton {
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
+
+        val params =
+            LinearLayout.LayoutParams(
+                manager!!.getRadio().layoutWidth,
+                manager!!.getRadio().layoutHeight
+            )
+        layoutParams = params
+
         if (manager != null) {
             if (!manager!!.getRadio().isEnabled) {
                 alpha = 0.5f
@@ -62,6 +71,7 @@ class NRadio : AppCompatRadioButton {
             setTextColor(ContextCompat.getColor(context, R.color.colorCheckBoxText))
         }
         includeFontPadding = false
+        updateView()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
