@@ -49,6 +49,10 @@ class NCheckBox : LinearLayout {
         return manager?.checkBoxDrawer?.getCheckBox()!!.isChecked
     }
 
+    fun setChecked(isChecked: Boolean) {
+        manager?.checkBoxDrawer?.getCheckBox()!!.isChecked = isChecked
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         manager?.changeMeasure(widthMeasureSpec, heightMeasureSpec)
