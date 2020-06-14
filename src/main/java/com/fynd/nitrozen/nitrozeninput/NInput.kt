@@ -94,7 +94,7 @@ class NInput : LinearLayout {
         return manager!!.getEditText().text.toString()
     }
 
-    fun setText(text: String): NInput {
+    fun setText(text: String?): NInput {
         manager!!.setText(text)
         updateView()
         return this

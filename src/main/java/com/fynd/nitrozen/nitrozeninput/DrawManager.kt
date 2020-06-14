@@ -41,8 +41,8 @@ class DrawManager constructor(view: NInput, attrs: AttributeSet?) {
         return editTextDrawer.getEditText()
     }
 
-    fun setText(text: String) {
-        return editTextDrawer.setText(text)
+    fun setText(text: String?) {
+        return editTextDrawer.setText(text?:"")
     }
 
     private fun defineDrawingOrder() {
