@@ -26,6 +26,13 @@ class NCheckBox : LinearLayout {
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
+
+        val params =
+            LayoutParams(
+                manager!!.getCheckBox().layoutWidth,
+                manager!!.getCheckBox().layoutHeight
+            )
+        layoutParams = params
     }
 
     fun getCheckBox(): AppCompatCheckBox {

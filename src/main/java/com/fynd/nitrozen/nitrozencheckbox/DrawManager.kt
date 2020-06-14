@@ -34,5 +34,6 @@ class DrawManager constructor(view: NCheckBox, attrs: AttributeSet?) {
     }
 
     fun updateViews() {
+        checkBoxDrawer.updateLayout()
     }
 }

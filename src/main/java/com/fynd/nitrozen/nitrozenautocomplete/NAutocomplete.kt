@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.util.AttributeSet
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.core.content.ContextCompat
@@ -29,6 +30,13 @@ class NAutocomplete : AppCompatAutoCompleteTextView {
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
+
+        val params =
+            LinearLayout.LayoutParams(
+                manager!!.getAutoComplete().layoutWidth,
+                manager!!.getAutoComplete().layoutHeight
+            )
+        layoutParams = params
         hint = manager!!.getAutoComplete().hintText
 
         setPadding(pxToDp(30f).toInt(), pxToDp(30f).toInt(),pxToDp(30f).toInt(), pxToDp(30f).toInt())

@@ -35,5 +35,6 @@ class DrawManager constructor(view: NAutocomplete, attrs: AttributeSet?) {
     }
 
     fun updateViews() {
+
     }
 }

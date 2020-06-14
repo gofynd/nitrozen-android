@@ -20,7 +20,7 @@ class CheckBoxDrawer(val view: NCheckBox, val nCheckBox: NitrozenCheckBox) :
     override fun draw() {
         init()
         val params: LinearLayout.LayoutParams =
-            LinearLayout.LayoutParams(nCheckBox.layoutWidth, nCheckBox.layoutHeight)
+            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
         checkBox.layoutParams = params
         view.addView(checkBox, params)
     }
