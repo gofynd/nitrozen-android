@@ -116,7 +116,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
     }
 
 
-    fun setText(text: String) {
+    fun setText(text: String?) {
         et.setText(text)
     }
 
