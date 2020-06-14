@@ -2,6 +2,7 @@ package com.fynd.nitrozen.nitrozeninput.model
 
 import android.graphics.drawable.Drawable
 import android.text.InputFilter
+import android.view.Gravity
 import android.view.ViewGroup
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 
@@ -31,7 +32,7 @@ data class NitrozenInput(
     var singeLine: Boolean = true,
     var ellipSize: Int? = null,
     var layoutGravity: Int? = null,
-    var gravity: Int? = null,
+    var gravity: Int? = Gravity.CENTER_VERTICAL,
     var inputType: Int? = null,
     var imeOptions: Int? = null,
     var filters: Array<InputFilter> = arrayOf<InputFilter>()

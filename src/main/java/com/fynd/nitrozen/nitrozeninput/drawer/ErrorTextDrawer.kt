@@ -8,11 +8,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
+import com.fynd.nitrozen.utils.Drawer
 
 
 class ErrorTextDrawer(val view: NInput, val input: NitrozenInput) :
@@ -21,7 +21,7 @@ class ErrorTextDrawer(val view: NInput, val input: NitrozenInput) :
     private var textView: TextView = TextView(view.context)
 
     override fun draw() {
-        if(isReady()){
+        if (isReady()) {
             init()
             isViewAdded = true
             view.addView(textView)
@@ -29,11 +29,11 @@ class ErrorTextDrawer(val view: NInput, val input: NitrozenInput) :
     }
 
     override fun isReady(): Boolean {
-        return !input.errorText.isNullOrEmpty() && input.hintText.isNullOrEmpty()
+        return !input.errorText.isNullOrEmpty() && input.hintText.isNullOrEmpty() && view.getText().isEmpty()
     }
 
     private fun init() {
-        if(isReady()){
+        if (isReady()) {
             val params =
                 LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -41,7 +41,7 @@ class ErrorTextDrawer(val view: NInput, val input: NitrozenInput) :
                 )
 
             textView.includeFontPadding = false
-            textView.setPadding(0, pxToDp(10f).toInt(),0,0)
+            textView.setPadding(0, pxToDp(10f).toInt(), 0, 0)
             textView.gravity = Gravity.CENTER_VERTICAL
             params.setMargins(
                 pxToDp(5f).toInt(),
@@ -60,15 +60,15 @@ class ErrorTextDrawer(val view: NInput, val input: NitrozenInput) :
             } catch (e: Exception) {
             }
             textView.visibility = View.VISIBLE
-        }else{
+        } else {
             textView.visibility = View.GONE
         }
     }
 
     override fun updateLayout() {
-        if(isViewAdded){
+        if (isViewAdded) {
             init()
-        }else{
+        } else {
             draw()
         }
     }
