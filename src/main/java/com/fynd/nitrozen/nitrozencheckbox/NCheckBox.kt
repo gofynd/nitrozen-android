@@ -51,8 +51,10 @@ class NCheckBox : LinearLayout {
         return manager?.checkBoxDrawer?.getCheckBox()!!.isChecked
     }
 
-    fun setChecked(isChecked: Boolean) {
-        manager?.checkBoxDrawer?.getCheckBox()!!.isChecked = isChecked
+    fun setChecked(isChecked: Boolean): NCheckBox {
+        manager?.checkBoxDrawer?.nCheckBox?.isChecked = isChecked
+        updateView()
+        return this
     }
 
     fun setOnCheckedChangeListener(@Nullable listener: CompoundButton.OnCheckedChangeListener?) {
