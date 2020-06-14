@@ -2,7 +2,9 @@ package com.fynd.nitrozen.nitrozencheckbox
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.CompoundButton
 import android.widget.LinearLayout
+import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatCheckBox
 
 class NCheckBox : LinearLayout {
@@ -51,6 +53,10 @@ class NCheckBox : LinearLayout {
 
     fun setChecked(isChecked: Boolean) {
         manager?.checkBoxDrawer?.getCheckBox()!!.isChecked = isChecked
+    }
+
+    fun setOnCheckedChangeListener(@Nullable listener: CompoundButton.OnCheckedChangeListener?) {
+        manager?.checkBoxDrawer?.getCheckBox()!!.setOnCheckedChangeListener(listener)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
