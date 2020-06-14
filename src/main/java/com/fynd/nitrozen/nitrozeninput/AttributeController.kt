@@ -3,6 +3,7 @@ package com.fynd.nitrozen.nitrozeninput
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import com.fynd.nitrozen.R
@@ -55,7 +56,7 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
 
         val ellipSize = typedArray.getInt(R.styleable.NInput_ni_ellipsize, -1)
         val layoutGravity = typedArray.getInt(R.styleable.NInput_ni_layout_gravity, -1)
-        val gravity = typedArray.getInt(R.styleable.NInput_ni_gravity, -1)
+        val gravity = typedArray.getInt(R.styleable.NInput_ni_gravity, Gravity.CENTER_VERTICAL)
         val inputType = typedArray.getInt(R.styleable.NInput_ni_inputType, -1)
         val imeOptions = typedArray.getInt(R.styleable.NInput_ni_imeOptions, -1)
         val singleLine = typedArray.getBoolean(R.styleable.NInput_ni_singleLine, false)
