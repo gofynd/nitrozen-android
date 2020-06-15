@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatEditText
 import com.fynd.nitrozen.nitrozeninput.view.NitrozenEditText
@@ -220,9 +221,30 @@ class NInput : LinearLayout {
         return this
     }
 
+    fun isNullOrEmpty(message: String, requestFocus: Boolean = true): Boolean {
+        return if (manager!!.getEditText().text.isNullOrEmpty()) {
+            setErrorText(message)
+            if (requestFocus) {
+                manager!!.getEditText().showKeyboard()
+            }
+            true
+        } else {
+            setErrorText("")
+            manager!!.getEditText().clearFocus()
+            false
+        }
+    }
+
+    fun AppCompatEditText.showKeyboard() {
+        post {
+            requestFocus()
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
+
     fun setErrorText(errorText: String?): NInput {
         manager!!.getInput().errorText = errorText
-        //manager!!.getEditText().requestFocus()
         updateView()
         return this
     }
