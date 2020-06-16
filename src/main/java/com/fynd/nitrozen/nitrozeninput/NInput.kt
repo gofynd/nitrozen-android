@@ -253,6 +253,10 @@ class NInput : LinearLayout {
         return this
     }
 
+    fun getErrorText(): Boolean {
+        return manager!!.getInput().errorText.isNullOrEmpty()
+    }
+
     private fun updateView() {
         requestLayout()
     }
