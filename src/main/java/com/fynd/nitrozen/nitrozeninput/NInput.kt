@@ -91,6 +91,10 @@ class NInput : LinearLayout {
         return manager!!.editTextDrawer.getEditText().addTextChangedListener(watcher)
     }
 
+    fun removeTextChangedListener(watcher: TextWatcher) {
+        return manager!!.editTextDrawer.getEditText().removeTextChangedListener(watcher)
+    }
+
     fun getText(): String {
         return manager!!.getEditText().text.toString()
     }
