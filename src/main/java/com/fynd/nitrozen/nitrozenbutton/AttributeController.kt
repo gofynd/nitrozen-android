@@ -4,15 +4,14 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.model.Shape
 import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
-import com.fynd.nitrozen.R
 
 class AttributeController(private val view: View, private val attrs: AttributeSet?) {
 
@@ -39,10 +38,10 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         )
         val iconMarginStart = typedArray.getDimension(R.styleable.NBtn_nb_iconMarginStart, 0f)
         val iconMarginTop = typedArray.getDimension(R.styleable.NBtn_nb_iconMarginTop, 0f)
-        val iconMarginEnd = typedArray.getDimension(R.styleable.NBtn_nb_iconMarginEnd, 0f)
+        val iconMarginEnd = typedArray.getDimension(R.styleable.NBtn_nb_iconMarginEnd, dpToPx(5f))
         val iconMarginBottom = typedArray.getDimension(R.styleable.NBtn_nb_iconMarginBottom, 0f)
         val iconPosition =
-            typedArray.getInt(R.styleable.NBtn_nb_iconPosition, IconPosition.CENTER.position)
+            typedArray.getInt(R.styleable.NBtn_nb_iconPosition, IconPosition.LEFT.position)
         val iconVisibility = typedArray.getInt(R.styleable.NBtn_nb_iconVisibility, View.VISIBLE)
 
         // Init divider
@@ -61,8 +60,8 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val textPaddingTop = typedArray.getDimension(R.styleable.NBtn_nb_textPaddingTop, 0f)
         val textPaddingEnd = typedArray.getDimension(R.styleable.NBtn_nb_textPaddingEnd, 0f)
         val textPaddingBottom = typedArray.getDimension(R.styleable.NBtn_nb_textPaddingBottom, 0f)
-        val fontRes = typedArray.getResourceId(R.styleable.NBtn_nb_fontFamilyRes, 0)
-        val textStyle = typedArray.getInt(R.styleable.NBtn_nb_textStyle, Typeface.NORMAL)
+        val fontRes = typedArray.getResourceId(R.styleable.NBtn_nb_fontFamilyRes, R.font.poppins)
+        val textStyle = typedArray.getInt(R.styleable.NBtn_nb_textStyle, Typeface.BOLD)
         val textSize = typedArray.getDimension(R.styleable.NBtn_nb_textSize, txtPxToSp(16f))
         val textColor = typedArray.getColor(R.styleable.NBtn_nb_textColor, Color.WHITE)
         val textAllCaps = typedArray.getBoolean(R.styleable.NBtn_nb_textAllCaps, false)
@@ -75,17 +74,56 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         )
         val disableColor = typedArray.getColor(R.styleable.NBtn_nb_disableColor, 0)
         val elDisableColor = typedArray.getColor(R.styleable.NBtn_nb_disableElementsColor, 0)
-        val cornerRadius = typedArray.getDimension(R.styleable.NBtn_nb_cornerRadius, 0f)
         val enableRipple = typedArray.getBoolean(R.styleable.NBtn_nb_enableRipple, true)
         val rippleColor =
             typedArray.getColor(R.styleable.NBtn_nb_rippleColor, Color.parseColor("#42FFFFFF"))
         val shape = typedArray.getInt(R.styleable.NBtn_nb_shape, Shape.RECTANGLE.shape)
+        val cornerRadius = typedArray.getDimension(
+            R.styleable.NBtn_nb_cornerRadius, if (shape == Shape.ROUNDED.shape) {
+                dpToPx(30f)
+            } else {
+                dpToPx(6f)
+            }
+        )
         val enable = typedArray.getBoolean(R.styleable.NBtn_android_enabled, true)
         val borderColor = typedArray.getColor(R.styleable.NBtn_nb_borderColor, Color.TRANSPARENT)
         val borderWidth = typedArray.getDimension(R.styleable.NBtn_nb_borderWidth, 0f)
         val elevation = typedArray.getDimension(R.styleable.NBtn_nb_shadow, dpToPx(2f))
         val isLoader = typedArray.getBoolean(R.styleable.NBtn_nb_isLoader, false)
         val isStroke = typedArray.getBoolean(R.styleable.NBtn_nb_isStorke, false)
+        var height = 0
+        var width = 0
+        val layoutHeight =
+            attrs?.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")
+        val layoutWidth =
+            attrs?.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_width")
+
+        when {
+            layoutHeight.equals(ViewGroup.LayoutParams.MATCH_PARENT.toString()) ->
+                height = ViewGroup.LayoutParams.MATCH_PARENT
+            layoutHeight.equals(ViewGroup.LayoutParams.WRAP_CONTENT.toString()) ->
+                height = ViewGroup.LayoutParams.WRAP_CONTENT
+            else -> view.context.obtainStyledAttributes(
+                attrs,
+                intArrayOf(android.R.attr.layout_height)
+            ).apply {
+                height = getDimensionPixelSize(0, ViewGroup.LayoutParams.WRAP_CONTENT)
+                recycle()
+            }
+        }
+        when {
+            layoutWidth.equals(ViewGroup.LayoutParams.MATCH_PARENT.toString()) ->
+                width = ViewGroup.LayoutParams.MATCH_PARENT
+            layoutWidth.equals(ViewGroup.LayoutParams.WRAP_CONTENT.toString()) ->
+                width = ViewGroup.LayoutParams.WRAP_CONTENT
+            else -> view.context.obtainStyledAttributes(
+                attrs,
+                intArrayOf(android.R.attr.layout_width)
+            ).apply {
+                width = getDimensionPixelSize(0, ViewGroup.LayoutParams.WRAP_CONTENT)
+                recycle()
+            }
+        }
         button = NitrozenButton(
             icon,
             iconColor,
@@ -117,8 +155,8 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             textColor,
             textAllCaps,
             textVisibility,
-            MATCH_PARENT,
-            WRAP_CONTENT,
+            width,
+            height,
             btnColor,
             disableColor,
             elDisableColor,

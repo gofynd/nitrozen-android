@@ -25,9 +25,13 @@ class LoaderDrawer(val view: NBtn, val button: NitrozenButton) :
     }
 
     private fun initView() {
-        view.setVerticalGravity(Gravity.BOTTOM)
-        view.addView(
-            NLoader(view.context)
-        )
+        if(!isViewAdded){
+            button.enableRipple = false
+            view.setVerticalGravity(Gravity.BOTTOM)
+            isViewAdded = true
+            view.addView(
+                NLoader(view.context)
+            )
+        }
     }
 }

@@ -31,6 +31,13 @@ class NBtn : LinearLayout {
 
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
+        val params =
+            LayoutParams(
+                manager!!.getButton().width,
+                manager!!.getButton().height
+            )
+        layoutParams = params
+        minimumHeight = dpToPx(55f).toInt()
         manager?.drawButton()
     }
 

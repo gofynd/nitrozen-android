@@ -1,5 +1,6 @@
 package com.fynd.nitrozen.nitrozenbutton.drawer
 
+import android.graphics.Color
 import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.Log
@@ -8,10 +9,10 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
-import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.utils.getDensity
+import com.fynd.nitrozen.utils.Drawer
 
 class TextDrawer(val view: NBtn, val button: NitrozenButton) :
     Drawer<NBtn, NitrozenButton>(view, button) {
@@ -41,6 +42,11 @@ class TextDrawer(val view: NBtn, val button: NitrozenButton) :
 
         setColor()
         setTypeface()
+        if (button.isLoader) {
+            tv.visibility = View.GONE
+        } else {
+            tv.visibility = View.VISIBLE
+        }
     }
 
     private fun setColor() {
@@ -48,9 +54,23 @@ class TextDrawer(val view: NBtn, val button: NitrozenButton) :
             if (button.elementsDisableColor != 0) {
                 tv.setTextColor(button.elementsDisableColor)
             } else {
-                tv.setTextColor(button.textColor)
+                handleTextColorWhenStroke()
                 tv.alpha = getAlpha()
             }
+        } else {
+            handleTextColorWhenStroke()
+        }
+    }
+
+    private fun handleTextColorWhenStroke() {
+        if (button.isStroke) {
+            tv.setTextColor(
+                if (button.borderColor == Color.TRANSPARENT) {
+                    Color.parseColor("#5c6bdd")
+                } else {
+                    button.borderColor
+                }
+            )
         } else {
             tv.setTextColor(button.textColor)
         }

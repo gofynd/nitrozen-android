@@ -4,9 +4,10 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
+import com.fynd.nitrozen.utils.Drawer
 
 
 class IconDrawer(val view: NBtn, val button: NitrozenButton) :
@@ -28,7 +29,6 @@ class IconDrawer(val view: NBtn, val button: NitrozenButton) :
         iv.setImageDrawable(button.icon)
         iv.visibility = button.iconVisibility
         setColor()
-
         val iconParams = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
         iconParams.width = button.iconWidth.toInt()
         iconParams.height = button.iconHeight.toInt()

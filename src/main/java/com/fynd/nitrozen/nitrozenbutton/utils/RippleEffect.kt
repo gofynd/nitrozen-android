@@ -24,10 +24,7 @@ class RippleEffect {
                     val mask = GradientDrawable()
                     mask.cornerRadius = pxToDp(corner)
                     mask.setColor(Color.GRAY)
-                    mask.shape = when(shape) {
-                        Shape.RECTANGLE, Shape.SQUARE -> GradientDrawable.RECTANGLE
-                        else -> GradientDrawable.OVAL
-                    }
+                    mask.shape = GradientDrawable.RECTANGLE
 
                     val colors = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled)),
                             intArrayOf(rippleColor))
@@ -41,10 +38,7 @@ class RippleEffect {
                     val pressed = GradientDrawable()
                     pressed.setColor(rippleColor)
                     pressed.cornerRadius = corner
-                    pressed.shape = when(shape) {
-                        Shape.RECTANGLE, Shape.SQUARE -> GradientDrawable.RECTANGLE
-                        else -> GradientDrawable.OVAL
-                    }
+                    pressed.shape = GradientDrawable.RECTANGLE
 
                     container.setColor(normalColor)
                     container.cornerRadius = corner

@@ -52,20 +52,12 @@ class DividerDrawer(val view: NBtn, val button: NitrozenButton)
         val minMeasure = Math.min(view.measuredWidthAndState, view.measuredHeightAndState)
         val borderMeasure = (button.borderWidth * 2f).toInt()
         if (button.divHeight == 0f && view.orientation == LinearLayout.HORIZONTAL) {
-            val wMeas = when(button.btnShape) {
-                Shape.SQUARE, Shape.CIRCLE -> minMeasure
-                else -> view.measuredHeightAndState
-            }
-            divParams.height = wMeas - borderMeasure
+            divParams.height =   view.measuredHeightAndState - borderMeasure
         } else {
             divParams.height = button.divHeight.toInt()
         }
         if (button.divWidth == 0f && view.orientation == LinearLayout.VERTICAL) {
-            val hMeas = when(button.btnShape) {
-                Shape.SQUARE, Shape.CIRCLE -> minMeasure
-                else -> view.measuredWidthAndState
-            }
-            divParams.width = hMeas - borderMeasure
+            divParams.width = view.measuredWidthAndState - borderMeasure
         } else {
             divParams.width = button.divWidth.toInt()
         }

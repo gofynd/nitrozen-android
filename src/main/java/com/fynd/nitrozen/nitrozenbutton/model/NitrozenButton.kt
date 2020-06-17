@@ -32,7 +32,7 @@ data class NitrozenButton(
     var textPaddingBottom: Float = 0f,
     var fontRes: Int = 0,
     var textFont: Typeface? = Typeface.DEFAULT,
-    var textStyle: Int = Typeface.NORMAL,
+    var textStyle: Int = Typeface.BOLD,
     var textSize: Float = 16f,
     var textColor: Int = 0,
     var textAllCaps: Boolean = false,
@@ -52,5 +52,5 @@ data class NitrozenButton(
     var borderWidth: Float = 0f,
     var elevation: Float = 0f,
     var isLoader: Boolean = false,
-    var isStorke: Boolean = false
+    var isStroke: Boolean = false
 )

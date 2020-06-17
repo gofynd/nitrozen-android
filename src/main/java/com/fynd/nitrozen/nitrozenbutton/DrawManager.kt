@@ -86,7 +86,7 @@ class DrawManager constructor(view: NBtn, attrs: AttributeSet?) {
         if (getButton().isLoader) {
             loaderDrawer.updateLayout()
         }
-        if(getButton().isStorke){
+        if (getButton().isStroke) {
             strokeDrawer.updateLayout()
         }
     }

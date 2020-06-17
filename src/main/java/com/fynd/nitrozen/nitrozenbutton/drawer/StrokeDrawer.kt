@@ -5,13 +5,13 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.View
 import android.widget.LinearLayout
-import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.model.Shape
 import com.fynd.nitrozen.nitrozenbutton.utils.RippleEffect
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
+import com.fynd.nitrozen.utils.Drawer
 
 class StrokeDrawer(val view: NBtn, val button: NitrozenButton) :
     Drawer<NBtn, NitrozenButton>(view, button) {
@@ -32,12 +32,19 @@ class StrokeDrawer(val view: NBtn, val button: NitrozenButton) :
         container = GradientDrawable()
         container.cornerRadius = pxToDp(button.cornerRadius)
         container.setColor(Color.WHITE)
-        container.setStroke(1, Color.parseColor("#5c6bdd"))
+        container.setStroke(
+            1, if (button.borderColor == Color.TRANSPARENT) {
+                Color.parseColor("#5c6bdd")
+            } else {
+                button.borderColor
+            }
+        )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             view.elevation = button.elevation
         }
         addRipple()
     }
+
     // GradientDrawable get the alpha value range 0 - 255, so the method should be override
     override fun getAlpha(): Float = MAX_ALPHA * (1 - (ALPHA_PERCENTS.toFloat() / 100))
 
@@ -69,9 +76,7 @@ class StrokeDrawer(val view: NBtn, val button: NitrozenButton) :
     private fun drawShape() {
         container.shape = when (button.btnShape) {
             Shape.RECTANGLE -> GradientDrawable.RECTANGLE
-            Shape.OVAL -> GradientDrawable.OVAL
-            Shape.SQUARE -> alignSides(GradientDrawable.RECTANGLE)
-            Shape.CIRCLE -> alignSides(GradientDrawable.OVAL)
+            Shape.ROUNDED -> alignSides(GradientDrawable.RECTANGLE)
         }
     }
 

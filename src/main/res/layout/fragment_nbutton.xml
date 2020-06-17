@@ -9,108 +9,57 @@
     tools:context=".ui.MainActivity">
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="true"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_rippleColor="#ccc"
-        app:nb_shape="rectangle"
-        app:nb_text="Primary"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:nb_text="Primary" />
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="true"
-        app:nb_fontFamilyRes="@font/poppins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:nb_icon="@drawable/ic_android_black_24dp"
         app:nb_iconColor="#fff"
         app:nb_iconPosition="left"
-        app:nb_rippleColor="#ccc"
-        app:nb_text="Primary"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
+        app:nb_text="Primary" />
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="false"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_iconColor="#fff"
         app:nb_isLoader="true"
-        app:nb_rippleColor="#ccc"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
+        app:nb_rippleColor="#ccc" />
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:enabled="false"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="false"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_iconColor="#fff"
-        app:nb_rippleColor="#ccc"
-        app:nb_text="Disabled"
-        app:nb_textColor="#fff"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp" />
+        app:nb_text="Disabled" />
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="6dp"
-        app:nb_enableRipple="true"
-        app:nb_fontFamilyRes="@font/poppins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:nb_isStorke="true"
-        app:nb_rippleColor="#ccc"
-        app:nb_shape="rectangle"
-        app:nb_text="Primary"
-        app:nb_textColor="#5c6bdd"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp"
-        app:nb_textStyle="bold" />
-
+        app:nb_text="Primary" />
 
     <com.fynd.nitrozen.nitrozenbutton.NBtn
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        app:nb_backgroundColor="@color/btn_primary_color"
-        app:nb_cornerRadius="30dp"
-        app:nb_enableRipple="true"
-        app:nb_fontFamilyRes="@font/poppins"
-        app:nb_isStorke="false"
-        app:nb_rippleColor="#ccc"
-        app:nb_shape="rectangle"
-        app:nb_text="Primary"
-        app:nb_textColor="@color/white"
-        app:nb_textPaddingStart="4dp"
-        app:nb_textSize="16sp"
-        app:nb_textStyle="bold" />
+        app:nb_shape="rounded"
+        app:nb_text="Primary" />
+
+    <com.fynd.nitrozen.nitrozenbutton.NBtn
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:nb_isStorke="true"
+        app:nb_shape="rounded"
+        app:nb_text="Primary" />
 
 
 </LinearLayout>

@@ -4,17 +4,19 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.nitrozenbutton.NBtn
 import com.fynd.nitrozen.nitrozenbutton.model.IconPosition
 import com.fynd.nitrozen.nitrozenbutton.model.NitrozenButton
 import com.fynd.nitrozen.nitrozenbutton.model.Shape
 import com.fynd.nitrozen.nitrozenbutton.utils.RippleEffect
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
+import com.fynd.nitrozen.utils.Drawer
 
-class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
-    : Drawer<NBtn, NitrozenButton>(view, button) {
+class ContainerDrawer(val view: NBtn, val button: NitrozenButton) :
+    Drawer<NBtn, NitrozenButton>(view, button) {
 
     private lateinit var container: GradientDrawable
 
@@ -29,6 +31,30 @@ class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
     }
 
     private fun initContainer() {
+        if (button.width == ViewGroup.LayoutParams.WRAP_CONTENT) {
+            if (button.icon != null) {
+                view.setPadding(
+                    dpToPx(35f).toInt(),
+                    dpToPx(0f).toInt(),
+                    dpToPx(35f).toInt(),
+                    dpToPx(0f).toInt()
+                )
+            } else if(button.isLoader){
+                view.setPadding(
+                    dpToPx(55f).toInt(),
+                    dpToPx(0f).toInt(),
+                    dpToPx(55f).toInt(),
+                    dpToPx(0f).toInt()
+                )
+            }else{
+                view.setPadding(
+                    dpToPx(48f).toInt(),
+                    dpToPx(15f).toInt(),
+                    dpToPx(48f).toInt(),
+                    dpToPx(15f).toInt()
+                )
+            }
+        }
         view.gravity = Gravity.CENTER
         container = GradientDrawable()
         container.cornerRadius = pxToDp(button.cornerRadius)
@@ -63,13 +89,15 @@ class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
         view.isEnabled = button.enable
         view.isClickable = button.enable
         view.isFocusable = button.enable
-        RippleEffect.createRipple(view,
-                button.enableRipple && button.enable,
-                button.btnColor,
-                button.rippleColor,
-                button.cornerRadius,
-                button.btnShape,
-                container)
+        RippleEffect.createRipple(
+            view,
+            button.enableRipple && button.enable,
+            button.btnColor,
+            button.rippleColor,
+            button.cornerRadius,
+            button.btnShape,
+            container
+        )
     }
 
     // Set the layout orientation dependent on icon position
@@ -84,14 +112,12 @@ class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
     private fun drawShape() {
         container.shape = when (button.btnShape) {
             Shape.RECTANGLE -> GradientDrawable.RECTANGLE
-            Shape.OVAL -> GradientDrawable.OVAL
-            Shape.SQUARE -> alignSides(GradientDrawable.RECTANGLE)
-            Shape.CIRCLE -> alignSides(GradientDrawable.OVAL)
+            Shape.ROUNDED -> alignSides(GradientDrawable.RECTANGLE)
         }
     }
 
     // Align shape sides
-    private fun alignSides(shape: Int) : Int {
+    private fun alignSides(shape: Int): Int {
         val dimension = if (view.layoutParams != null) {
             defineFitSide(view.layoutParams.width, view.layoutParams.height)
         } else {
@@ -105,7 +131,7 @@ class ContainerDrawer(val view: NBtn, val button: NitrozenButton)
     }
 
     // Get a min side or a max side if anyone side equal zero or less
-    private fun defineFitSide(w: Int, h: Int) : Int {
+    private fun defineFitSide(w: Int, h: Int): Int {
         return if (w <= 0 || h <= 0) {
             Math.max(w, h)
         } else {
