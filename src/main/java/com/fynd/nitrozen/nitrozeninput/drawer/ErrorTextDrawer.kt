@@ -29,7 +29,7 @@ class ErrorTextDrawer(val view: NInput, val input: NitrozenInput) :
     }
 
     override fun isReady(): Boolean {
-        return !input.errorText.isNullOrEmpty() && input.hintText.isNullOrEmpty() && view.getText().isEmpty()
+        return !input.errorText.isNullOrEmpty() && input.hintText.isNullOrEmpty()
     }
 
     private fun init() {

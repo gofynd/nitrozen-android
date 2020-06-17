@@ -52,6 +52,11 @@ class NDropdown : LinearLayout {
         manager?.getDropdown()?.spinner?.onItemSelectedListener = listener
     }
 
+    override fun setOnTouchListener(l: OnTouchListener?) {
+        super.setOnTouchListener(l)
+        manager?.getDropdown()?.spinner?.setOnTouchListener(l)
+    }
+
     fun setTitle(text: String?): NDropdown {
         manager?.getDropdown()?.titleText = text
         updateView()

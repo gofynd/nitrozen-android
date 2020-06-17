@@ -121,18 +121,20 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
     }
 
     fun setDrawableClickListener(listener: NitrozenEditText.DrawableClickListener) {
-        et.setDrawableClickListener {
-            when (it) {
-                NitrozenEditText.DrawableClickListener.DrawablePosition.LEADING -> {
-                    listener.onClick(NitrozenEditText.DrawableClickListener.DrawablePosition.LEADING)
-                }
-                NitrozenEditText.DrawableClickListener.DrawablePosition.TRAILING -> {
-                    listener.onClick(NitrozenEditText.DrawableClickListener.DrawablePosition.TRAILING)
-                }
-                else -> {
+        et.setDrawableClickListener(object : NitrozenEditText.DrawableClickListener {
+            override fun onClick(target: NitrozenEditText.DrawableClickListener.DrawablePosition?) {
+                when (target) {
+                    NitrozenEditText.DrawableClickListener.DrawablePosition.LEADING -> {
+                        listener.onClick(NitrozenEditText.DrawableClickListener.DrawablePosition.LEADING)
+                    }
+                    NitrozenEditText.DrawableClickListener.DrawablePosition.TRAILING -> {
+                        listener.onClick(NitrozenEditText.DrawableClickListener.DrawablePosition.TRAILING)
+                    }
+                    else -> {
+                    }
                 }
             }
-        }
+        })
     }
 
     override fun isReady(): Boolean {
