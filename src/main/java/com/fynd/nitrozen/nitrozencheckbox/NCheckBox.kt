@@ -2,27 +2,24 @@ package com.fynd.nitrozen.nitrozencheckbox
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.CompoundButton
-import android.widget.LinearLayout
-import androidx.annotation.Nullable
+import android.view.Gravity
+import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import com.fynd.nitrozen.R
+import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 
-class NCheckBox : LinearLayout {
+class NCheckBox : AppCompatCheckBox {
 
     private var manager: DrawManager? = null
 
     constructor(context: Context) : super(context) {
         bind(null)
-        orientation = VERTICAL
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         bind(attrs)
-        orientation = VERTICAL
-    }
-
-    override fun getOrientation(): Int {
-        return VERTICAL
     }
 
     private fun bind(attrs: AttributeSet?) {
@@ -30,43 +27,62 @@ class NCheckBox : LinearLayout {
         manager?.draw()
 
         val params =
-            LayoutParams(
+            ViewGroup.LayoutParams(
                 manager!!.getCheckBox().layoutWidth,
                 manager!!.getCheckBox().layoutHeight
             )
         layoutParams = params
-    }
-
-    fun getCheckBox(): AppCompatCheckBox {
-        return manager?.checkBoxDrawer?.getCheckBox()!!
-    }
-
-    fun setText(text: String?): NCheckBox {
-        manager?.checkBoxDrawer?.getCheckBox()!!.text = text
-        updateView()
-        return this
-    }
-
-    fun isChecked(): Boolean {
-        return manager?.checkBoxDrawer?.getCheckBox()!!.isChecked
-    }
-
-    fun setChecked(isChecked: Boolean): NCheckBox {
-        manager?.checkBoxDrawer?.nCheckBox?.isChecked = isChecked
-        updateView()
-        return this
-    }
-
-    fun setOnCheckedChangeListener(@Nullable listener: CompoundButton.OnCheckedChangeListener?) {
-        manager?.checkBoxDrawer?.getCheckBox()!!.setOnCheckedChangeListener(listener)
+        includeFontPadding = false
+        text = manager!!.getCheckBox().text
+        try {
+            typeface = ResourcesCompat.getFont(context, R.font.poppins)
+        } catch (e: Exception) {
+        }
+        setPadding(pxToDp(10f).toInt(), 0, 0, 0)
+        isEnabled = manager!!.getCheckBox().isEnabled
+        textSize = manager!!.getCheckBox().textSize
+        gravity = Gravity.CENTER_VERTICAL
+        if (manager!!.getCheckBox().isIndeterminate) {
+            if (isEnabled) {
+                setButtonDrawable(R.drawable.ncheckbox_indeterminate_background)
+                setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorCheckBoxText
+                    )
+                )
+            } else {
+                setButtonDrawable(R.drawable.ncheckbox_disabled_checked_indeterminate_drawable)
+                setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorCheckBoxEdge
+                    )
+                )
+            }
+        } else {
+            if (manager!!.getCheckBox().isEnabled) {
+                setButtonDrawable(R.drawable.ncheckbox_background)
+                setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorCheckBoxText
+                    )
+                )
+            } else {
+                setButtonDrawable(R.drawable.ncheckbox_disabled_background)
+                setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorCheckBoxEdge
+                    )
+                )
+            }
+        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         manager?.changeMeasure(widthMeasureSpec, heightMeasureSpec)
-    }
-
-    private fun updateView() {
-        requestLayout()
     }
 }

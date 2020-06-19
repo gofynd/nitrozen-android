@@ -10,5 +10,4 @@ class NitrozenCheckBox {
     var layoutWidth: Int = ViewGroup.LayoutParams.MATCH_PARENT
     var isIndeterminate : Boolean = false
     var isEnabled : Boolean = false
-    var isChecked : Boolean = false
 }

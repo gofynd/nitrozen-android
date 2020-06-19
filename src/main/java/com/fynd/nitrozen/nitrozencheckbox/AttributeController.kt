@@ -35,10 +35,6 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             R.styleable.NCheckBox_ncb_textSize,13f
         )
 
-        val ncb_isChecked = typedArray.getBoolean(
-            R.styleable.NCheckBox_ncb_checked,
-            false
-        )
         val ncb_isEnabled = typedArray.getBoolean(
             R.styleable.NCheckBox_ncb_enabled,
             true
@@ -82,7 +78,6 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             layoutWidth = width
             isIndeterminate = ncb_isIndeterminate
             isEnabled = ncb_isEnabled
-            isChecked = ncb_isChecked
         }
         typedArray.recycle()
     }

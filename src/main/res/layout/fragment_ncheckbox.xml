@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        app:ncb_checked="true"
+        android:checked="true"
         app:ncb_text="Checked" />
 
 
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        app:ncb_checked="true"
+        android:checked="true"
         app:ncb_isIndeterminate="true"
         app:ncb_text="Indeterminate Checked" />
 
@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        app:ncb_checked="true"
+        android:checked="true"
         app:ncb_enabled="false"
         app:ncb_text="Disabled Checked" />
 
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        app:ncb_checked="false"
+        android:checked="false"
         app:ncb_enabled="false"
         app:ncb_text="Disabled Not Checked" />
 

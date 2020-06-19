@@ -127,7 +127,6 @@
         <attr name="ncb_text" format="string|reference" />
         <attr name="ncb_textSize" format="dimension" />
         <attr name="ncb_enabled" format="boolean" />
-        <attr name="ncb_checked" format="boolean" />
         <attr name="ncb_isIndeterminate" format="boolean" />
         <attr name="ncb_textColor" format="color" />
     </declare-styleable>
