@@ -38,7 +38,16 @@ class NCheckBox : AppCompatCheckBox {
             typeface = ResourcesCompat.getFont(context, R.font.poppins)
         } catch (e: Exception) {
         }
-        setPadding(pxToDp(10f).toInt(), 0, 0, 0)
+        setPadding(
+            if (paddingLeft == 0) {
+                pxToDp(10f).toInt()
+            } else {
+                paddingLeft
+            },
+            paddingTop,
+            paddingRight,
+            paddingBottom
+        )
         isEnabled = manager!!.getCheckBox().isEnabled
         textSize = manager!!.getCheckBox().textSize
         gravity = Gravity.CENTER_VERTICAL
