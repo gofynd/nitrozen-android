@@ -29,6 +29,7 @@ data class NitrozenInput(
     var errorText: String? = null,
     var showLoader: Boolean = false,
     var maxLines: Int = 1,
+    var maxLength: Int = -1,
     var singeLine: Boolean = true,
     var ellipSize: Int? = null,
     var layoutGravity: Int? = null,

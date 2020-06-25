@@ -3,6 +3,7 @@ package com.fynd.nitrozen.nitrozeninput.drawer
 import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.os.Build
+import android.text.InputFilter
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
@@ -147,6 +148,9 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
             f.isAccessible = true
             f.set(et, R.drawable.ninput_cursor)
         } catch (ignored: Exception) {
+        }
+        if(input.maxLength>0){
+            et.filters += InputFilter.LengthFilter(input.maxLength)
         }
         et.hint = input.placeHolderText
         et.minimumHeight = dpToPx(40f).toInt()

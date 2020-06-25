@@ -123,6 +123,12 @@ class NInput : LinearLayout {
         return this
     }
 
+    fun setMaxLength(maxLength: Int): NInput {
+        manager!!.getInput().maxLength = maxLength
+        updateView()
+        return this
+    }
+
     fun setInputType(inputType: Int): NInput {
         manager!!.getInput().inputType = inputType
         updateView()

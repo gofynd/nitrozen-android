@@ -61,6 +61,7 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val imeOptions = typedArray.getInt(R.styleable.NInput_ni_imeOptions, -1)
         val singleLine = typedArray.getBoolean(R.styleable.NInput_ni_singleLine, false)
         val maxLines = typedArray.getInt(R.styleable.NInput_ni_maxLines, 1)
+        val maxLength = typedArray.getInt(R.styleable.NInput_ni_maxLength, -1)
 
         val layoutHeight =
             attrs?.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")
@@ -121,6 +122,7 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             imeOptions = imeOptions,
             singeLine = singleLine,
             maxLines = maxLines,
+            maxLength =  maxLength,
             leadingIconVisibility = View.VISIBLE,
             trailingIconVisibility = View.VISIBLE
         )

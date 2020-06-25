@@ -20,6 +20,7 @@
         <attr name="ni_showLoader" format="boolean" />
         <attr name="ni_singleLine" format="boolean" />
         <attr name="ni_maxLines" format="integer" min="0" />
+        <attr name="ni_maxLength" format="integer" />
         <attr name="ni_ellipsize">
             <enum name="none" value="0" />
             <enum name="start" value="1" />
