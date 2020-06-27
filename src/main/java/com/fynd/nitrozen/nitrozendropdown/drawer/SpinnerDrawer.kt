@@ -15,6 +15,7 @@ import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 import com.fynd.nitrozen.nitrozendropdown.views.CustomSpinner
+import com.fynd.nitrozen.nitrozenloader.NLoader
 import com.fynd.nitrozen.utils.Drawer
 
 
@@ -168,6 +169,11 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     private fun getDropdownListView(): View? {
         for (i in 0 until view.childCount) {
             if (view.getChildAt(i).tag == DROPDOWN_LIST_TAG) {
+                if(i==1){
+                    return (view.getChildAt(1) as NLoader).apply {
+                        setColor(R.color.nitrozen_seconday_color)
+                    }
+                }
                 return view.getChildAt(i)
             }
         }
