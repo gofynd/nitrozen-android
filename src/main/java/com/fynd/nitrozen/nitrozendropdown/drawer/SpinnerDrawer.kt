@@ -56,10 +56,10 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                 )
             val imageParams: RelativeLayout.LayoutParams =
                 RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                    dpToPx(16f).toInt(),
+                    dpToPx(24f).toInt()
                 )
-            imageParams.setMargins(0, 0, dpToPx(5f).toInt(), 0)
+            imageParams.setMargins(0, 0, dpToPx(10f).toInt(), 0)
             imageParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
             imageParams.addRule(RelativeLayout.CENTER_VERTICAL)
             appCompatSpinner.layoutParams = spinnerParams
@@ -73,7 +73,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             appCompatSpinner.minimumHeight = dpToPx(40f).toInt()
             appCompatSpinner.setPopupBackgroundResource(R.drawable.ndropdown_list_background)
             imgDropDown.layoutParams = imageParams
-            imgDropDown.setBackgroundResource(R.drawable.ic_dropdown)
+            imgDropDown.setImageResource(R.drawable.ic_ndropdown)
             rootLayout.layoutParams = rootParams
 
             val params: RelativeLayout.LayoutParams =

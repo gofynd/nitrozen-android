@@ -1,18 +1,22 @@
 package com.fynd.nitrozen.nitrozeninput.drawer
 
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.fynd.nitrozen.utils.Drawer
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
+import com.fynd.nitrozen.setDrawableColor
 
 
 class SuccessTextDrawer(val view: NInput, val input: NitrozenInput) :
@@ -50,7 +54,17 @@ class SuccessTextDrawer(val view: NInput, val input: NitrozenInput) :
             textView.text = input.successText
             textView.setTextColor(ContextCompat.getColor(view.context, R.color.btn_primary_color))
             textView.compoundDrawablePadding =  pxToDp(10f).toInt()
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_success, 0, 0, 0)
+            val wrappedDrawable: Drawable = DrawableCompat.wrap(
+                AppCompatResources.getDrawable(
+                    view.context,
+                    R.drawable.ic_success
+                )!!
+            )
+            DrawableCompat.setTint(
+                wrappedDrawable,
+                ContextCompat.getColor(view.context, R.color.btn_primary_color)
+            )
+            textView.setCompoundDrawablesWithIntrinsicBounds(wrappedDrawable, null, null, null)
             textView.setSingleLine()
             textView.ellipsize = TextUtils.TruncateAt.END
             textView.setLines(1)
