@@ -2,7 +2,7 @@ apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
 
 def isReleaseBuild() {
-    def buildType = System.getenv("BUILD_TYPE") as String ?: 'debug'
+    def buildType = 'release'//System.getenv("BUILD_TYPE") as String ?: 'debug'
     return buildType.toLowerCase().contains('release')
 }
 
