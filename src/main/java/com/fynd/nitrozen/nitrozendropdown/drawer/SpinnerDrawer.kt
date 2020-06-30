@@ -56,7 +56,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                 )
             val imageParams: RelativeLayout.LayoutParams =
                 RelativeLayout.LayoutParams(
-                    dpToPx(16f).toInt(),
+                    dpToPx(13f).toInt(),
                     dpToPx(24f).toInt()
                 )
             imageParams.setMargins(0, 0, dpToPx(10f).toInt(), 0)
