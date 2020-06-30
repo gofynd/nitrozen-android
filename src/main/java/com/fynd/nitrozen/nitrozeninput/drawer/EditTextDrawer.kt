@@ -215,6 +215,8 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         }
         if (isValueProvided(input.gravity)) {
             et.gravity = input.gravity!!
+        }else{
+            et.gravity = Gravity.CENTER_VERTICAL
         }
         if (isValueProvided(input.inputType)) {
             et.inputType = input.inputType!!

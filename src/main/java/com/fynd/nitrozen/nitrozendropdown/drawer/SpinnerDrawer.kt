@@ -35,7 +35,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
         if (isReady()) {
             isViewAdded = true
             nDropdown.spinner = appCompatSpinner
-
+            tvPlaceHolder.includeFontPadding = false
             try {
                 val tf = ResourcesCompat.getFont(view.context, R.font.poppins)
                 tvPlaceHolder.setTypeface(tf, Typeface.NORMAL)
@@ -59,7 +59,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                     dpToPx(13f).toInt(),
                     dpToPx(24f).toInt()
                 )
-            imageParams.setMargins(0, 0, dpToPx(10f).toInt(), 0)
+            imageParams.setMargins(dpToPx(5f).toInt(), 0, dpToPx(5f).toInt(), 0)
             imageParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
             imageParams.addRule(RelativeLayout.CENTER_VERTICAL)
             appCompatSpinner.layoutParams = spinnerParams
@@ -169,7 +169,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     private fun getDropdownListView(): View? {
         for (i in 0 until view.childCount) {
             if (view.getChildAt(i).tag == DROPDOWN_LIST_TAG) {
-                if(i==1){
+                if (i == 1) {
                     return (view.getChildAt(1) as NLoader).apply {
                         setColor(R.color.nitrozen_seconday_color)
                     }

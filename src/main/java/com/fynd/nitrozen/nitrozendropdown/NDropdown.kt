@@ -38,7 +38,7 @@ class NDropdown : LinearLayout {
         layoutParams = params
     }
 
-    fun setAdapter(adapter: SpinnerAdapter?): NDropdown {
+    fun setAdapter(adapter: NitrozenAdapter<out Any>?): NDropdown {
         manager?.getDropdown()?.spinner?.adapter = adapter
         updateView()
         return this
