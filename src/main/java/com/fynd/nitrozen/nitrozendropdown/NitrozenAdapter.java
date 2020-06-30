@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ArrayRes;
@@ -31,6 +32,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import static com.fynd.nitrozen.nitrozenbutton.utils.DpToPxKt.dpToPx;
 
 public class NitrozenAdapter<T> extends BaseAdapter implements Filterable, ThemedSpinnerAdapter {
     /**
@@ -422,12 +425,14 @@ public class NitrozenAdapter<T> extends BaseAdapter implements Filterable, Theme
         } else {
             text.setText(item.toString());
         }
+        text.setPaddingRelative(text.getPaddingStart(),text.getPaddingTop(), (int) dpToPx(22f),text.getPaddingBottom());
         try {
             Typeface tf = ResourcesCompat.getFont(getContext(), R.font.poppins);
             text.setTypeface(tf, Typeface.NORMAL);
             text.setIncludeFontPadding(false);
         } catch (Exception e) {
         }
+        text.setWidth((int) dpToPx(0));
         return view;
     }
 

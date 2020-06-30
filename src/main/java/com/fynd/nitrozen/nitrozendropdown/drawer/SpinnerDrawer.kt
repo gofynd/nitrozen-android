@@ -34,7 +34,7 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
     override fun draw() {
         if (isReady()) {
             isViewAdded = true
-            nDropdown.spinner = appCompatSpinner
+            appCompatSpinner.background = null
             tvPlaceHolder.includeFontPadding = false
             try {
                 val tf = ResourcesCompat.getFont(view.context, R.font.poppins)
@@ -56,10 +56,10 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                 )
             val imageParams: RelativeLayout.LayoutParams =
                 RelativeLayout.LayoutParams(
-                    dpToPx(13f).toInt(),
+                    dpToPx(14f).toInt(),
                     dpToPx(24f).toInt()
                 )
-            imageParams.setMargins(dpToPx(5f).toInt(), 0, dpToPx(5f).toInt(), 0)
+            imageParams.setMargins(0, 0, dpToPx(8f).toInt(), 0)
             imageParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
             imageParams.addRule(RelativeLayout.CENTER_VERTICAL)
             appCompatSpinner.layoutParams = spinnerParams
@@ -85,6 +85,8 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
             params.addRule(RelativeLayout.CENTER_VERTICAL)
             tvPlaceHolder.layoutParams = params
 
+
+            nDropdown.spinner = appCompatSpinner
             rootLayout.addView(tvPlaceHolder)
             rootLayout.addView(appCompatSpinner)
             rootLayout.addView(imgDropDown)
