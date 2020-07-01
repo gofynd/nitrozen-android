@@ -18,5 +18,5 @@
         android:left="4dp"
         android:right="4dp"
         android:top="4dp"
-        android:drawable="@drawable/ic_uncheck" />
+        android:drawable="@drawable/ic_check" />
 </layer-list>
