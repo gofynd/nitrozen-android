@@ -30,18 +30,18 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val text = typedArray.getString(R.styleable.NInput_ni_text)
         val textSize = typedArray.getDimension(
             R.styleable.NInput_ni_textSize,
-            txtPxToSp(7f)
+            pxToDp(12f)
         )
         val titleText = typedArray.getString(R.styleable.NInput_ni_title)
         val titleTextSize = typedArray.getDimension(
             R.styleable.NInput_ni_titleTextSize,
-            txtPxToSp(7f)
+            pxToDp(12f)
         )
         val placeHolderText = typedArray.getString(R.styleable.NInput_ni_placeHolder)
         val hintText = typedArray.getString(R.styleable.NInput_ni_hint)
         val hintTextSize = typedArray.getDimension(
             R.styleable.NInput_ni_hintTextSize,
-            txtPxToSp(7f)
+            pxToDp(12f)
         )
         val successText = typedArray.getString(R.styleable.NInput_ni_showSuccessText)
         val errorText = typedArray.getString(R.styleable.NInput_ni_errorText)

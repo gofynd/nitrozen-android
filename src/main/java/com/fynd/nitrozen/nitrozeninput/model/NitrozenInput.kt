@@ -12,7 +12,7 @@ data class NitrozenInput(
     var layoutHeight: Int = ViewGroup.LayoutParams.WRAP_CONTENT,
     var layoutWidth: Int = ViewGroup.LayoutParams.MATCH_PARENT,
     var text: String? = null,
-    var textSize: Float = txtPxToSp(7f),
+    var textSize: Float = pxToDp(12f),
     var titleText: String? = null,
     var titleTextSize: Float,
     var placeHolderText: String? = null,

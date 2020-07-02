@@ -28,12 +28,12 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val nd_titleText = typedArray.getString(R.styleable.NDropdown_nd_title)
         val nd_titleTextSize = typedArray.getDimension(
             R.styleable.NDropdown_nd_titleTextSize,
-            txtPxToSp(7f)
+            pxToDp(12f)
         )
         val nd_placeHolder = typedArray.getString(R.styleable.NDropdown_nd_placeHolder)
         val nd_placeHolderTextSize = typedArray.getDimension(
             R.styleable.NDropdown_nd_placeHolderTextSize,
-            txtPxToSp(7f)
+            pxToDp(12f)
         )
         val nd_showLoader = typedArray.getBoolean(
             R.styleable.NDropdown_nd_showLoader,
