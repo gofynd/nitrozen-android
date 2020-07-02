@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
+import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
 
 class AttributeController(private val view: View, private val attrs: AttributeSet?) {
@@ -29,18 +30,18 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val text = typedArray.getString(R.styleable.NInput_ni_text)
         val textSize = typedArray.getDimension(
             R.styleable.NInput_ni_textSize,
-            pxToDp(12f)
+            txtPxToSp(7f)
         )
         val titleText = typedArray.getString(R.styleable.NInput_ni_title)
         val titleTextSize = typedArray.getDimension(
             R.styleable.NInput_ni_titleTextSize,
-            pxToDp(12f)
+            txtPxToSp(7f)
         )
         val placeHolderText = typedArray.getString(R.styleable.NInput_ni_placeHolder)
         val hintText = typedArray.getString(R.styleable.NInput_ni_hint)
         val hintTextSize = typedArray.getDimension(
             R.styleable.NInput_ni_hintTextSize,
-            pxToDp(12f)
+            txtPxToSp(7f)
         )
         val successText = typedArray.getString(R.styleable.NInput_ni_showSuccessText)
         val errorText = typedArray.getString(R.styleable.NInput_ni_errorText)

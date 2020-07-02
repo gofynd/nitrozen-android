@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
+import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 
 class AttributeController(private val view: View, private val attrs: AttributeSet?) {
@@ -27,12 +28,12 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val nd_titleText = typedArray.getString(R.styleable.NDropdown_nd_title)
         val nd_titleTextSize = typedArray.getDimension(
             R.styleable.NDropdown_nd_titleTextSize,
-            pxToDp(12f)
+            txtPxToSp(7f)
         )
         val nd_placeHolder = typedArray.getString(R.styleable.NDropdown_nd_placeHolder)
         val nd_placeHolderTextSize = typedArray.getDimension(
             R.styleable.NDropdown_nd_placeHolderTextSize,
-            pxToDp(12f)
+            txtPxToSp(7f)
         )
         val nd_showLoader = typedArray.getBoolean(
             R.styleable.NDropdown_nd_showLoader,

@@ -4,13 +4,15 @@ import android.graphics.drawable.Drawable
 import android.text.InputFilter
 import android.view.Gravity
 import android.view.ViewGroup
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
+import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
 
 data class NitrozenInput(
     var layoutHeight: Int = ViewGroup.LayoutParams.WRAP_CONTENT,
     var layoutWidth: Int = ViewGroup.LayoutParams.MATCH_PARENT,
     var text: String? = null,
-    var textSize: Float = pxToDp(12f),
+    var textSize: Float = txtPxToSp(7f),
     var titleText: String? = null,
     var titleTextSize: Float,
     var placeHolderText: String? = null,

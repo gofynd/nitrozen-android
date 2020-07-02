@@ -34,6 +34,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static com.fynd.nitrozen.nitrozenbutton.utils.DpToPxKt.dpToPx;
+import static com.fynd.nitrozen.nitrozenbutton.utils.DpToPxKt.txtPxToSp;
 
 public class NitrozenAdapter<T> extends BaseAdapter implements Filterable, ThemedSpinnerAdapter {
     /**
@@ -432,6 +433,7 @@ public class NitrozenAdapter<T> extends BaseAdapter implements Filterable, Theme
             text.setIncludeFontPadding(false);
         } catch (Exception e) {
         }
+        text.setTextSize(txtPxToSp(7f));
         text.setWidth((int) dpToPx(0));
         return view;
     }
