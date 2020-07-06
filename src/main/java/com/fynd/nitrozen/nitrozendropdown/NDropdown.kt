@@ -97,6 +97,14 @@ class NDropdown : LinearLayout {
         return manager?.getDropdown()?.spinner?.getItemAtPosition(position)
     }
 
+    fun getCount(): Int? {
+        return manager?.getDropdown()?.spinner?.count
+    }
+
+    fun getAdapter(): SpinnerAdapter? {
+        return manager?.getDropdown()?.spinner?.adapter
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         manager?.changeMeasure(widthMeasureSpec, heightMeasureSpec)
