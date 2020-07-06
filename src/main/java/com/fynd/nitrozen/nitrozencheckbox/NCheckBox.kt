@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
+import com.fynd.nitrozen.nitrozendropdown.NDropdown
 
 class NCheckBox : AppCompatCheckBox {
 
@@ -48,10 +49,11 @@ class NCheckBox : AppCompatCheckBox {
             paddingRight,
             paddingBottom
         )
+        isEnabled = manager!!.getCheckBox().isEnabled
         textSize = manager!!.getCheckBox().textSize
         gravity = Gravity.CENTER_VERTICAL
         if (manager!!.getCheckBox().isIndeterminate) {
-            if (isEnabled) {
+            if (manager!!.getCheckBox().isEnabled) {
                 setButtonDrawable(R.drawable.ncheckbox_indeterminate_background)
                 setTextColor(
                     ContextCompat.getColor(
@@ -69,7 +71,7 @@ class NCheckBox : AppCompatCheckBox {
                 )
             }
         } else {
-            if (isEnabled) {
+            if (manager!!.getCheckBox().isEnabled) {
                 setButtonDrawable(R.drawable.ncheckbox_background)
                 setTextColor(
                     ContextCompat.getColor(
@@ -89,8 +91,17 @@ class NCheckBox : AppCompatCheckBox {
         }
     }
 
+    fun setNcbEnabled(isEnabled: Boolean): NCheckBox {
+        manager!!.getCheckBox().isEnabled = isEnabled
+        updateView()
+        return this
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         manager?.changeMeasure(widthMeasureSpec, heightMeasureSpec)
+    }
+    private fun updateView() {
+        requestLayout()
     }
 }

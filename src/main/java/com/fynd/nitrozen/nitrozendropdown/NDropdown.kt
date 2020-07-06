@@ -27,7 +27,7 @@ class NDropdown : LinearLayout {
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
-        if (manager?.getDropdown()?.editable == true || manager?.getDropdown()?.enabled == true) {
+        if (manager?.getDropdown()?.editable == false || manager?.getDropdown()?.enabled == false) {
             isEnabled = false
         }
         val params =
@@ -36,6 +36,18 @@ class NDropdown : LinearLayout {
                 manager!!.getDropdown().layoutHeight
             )
         layoutParams = params
+    }
+
+    fun setEditable(isEditable: Boolean): NDropdown {
+        manager?.getDropdown()?.editable = isEditable
+        updateView()
+        return this
+    }
+
+    fun setNdpEnabled(isEnabled: Boolean): NDropdown {
+        manager?.getDropdown()?.enabled = isEnabled
+        updateView()
+        return this
     }
 
     fun setAdapter(adapter: NitrozenAdapter<out Any>?): NDropdown {
