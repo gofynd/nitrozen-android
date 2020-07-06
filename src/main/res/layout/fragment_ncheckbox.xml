@@ -44,7 +44,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:checked="true"
         app:ncb_text="Checked" />
 
 
@@ -68,7 +67,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
         android:checked="true"
-        app:ncb_enabled="false"
         app:ncb_text="Disabled Checked" />
 
     <com.fynd.nitrozen.nitrozencheckbox.NCheckBox
@@ -76,7 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
         android:checked="false"
-        app:ncb_enabled="false"
         app:ncb_text="Disabled Not Checked" />
 
 </LinearLayout>
