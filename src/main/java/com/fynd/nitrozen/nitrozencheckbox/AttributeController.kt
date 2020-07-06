@@ -35,10 +35,6 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             R.styleable.NCheckBox_ncb_textSize,13f
         )
 
-        val ncb_isEnabled = typedArray.getBoolean(
-            R.styleable.NCheckBox_ncb_enabled,
-            true
-        )
         val lHeight =
             attrs?.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")
         val lWidth =
@@ -77,7 +73,6 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             layoutHeight = height
             layoutWidth = width
             isIndeterminate = ncb_isIndeterminate
-            isEnabled = ncb_isEnabled
         }
         typedArray.recycle()
     }

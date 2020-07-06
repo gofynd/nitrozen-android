@@ -48,7 +48,6 @@ class NCheckBox : AppCompatCheckBox {
             paddingRight,
             paddingBottom
         )
-        isEnabled = manager!!.getCheckBox().isEnabled
         textSize = manager!!.getCheckBox().textSize
         gravity = Gravity.CENTER_VERTICAL
         if (manager!!.getCheckBox().isIndeterminate) {
@@ -70,7 +69,7 @@ class NCheckBox : AppCompatCheckBox {
                 )
             }
         } else {
-            if (manager!!.getCheckBox().isEnabled) {
+            if (isEnabled) {
                 setButtonDrawable(R.drawable.ncheckbox_background)
                 setTextColor(
                     ContextCompat.getColor(
