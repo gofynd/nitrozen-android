@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_button"
+            android:title="@string/menu_nbtn" />
+        <item
+            android:id="@+id/nav_input"
+            android:title="@string/menu_ninput" />
+        <item
+            android:id="@+id/nav_dropdown"
+            android:title="@string/menu_ndropdown" />
+
+        <item
+            android:id="@+id/nav_check"
+            android:title="@string/menu_ncheckbox" />
+
+        <item
+            android:id="@+id/nav_radio"
+            android:title="@string/menu_nradio" />
+
+        <item
+            android:id="@+id/nav_auto"
+            android:title="@string/menu_nautocomplete" />
+    </group>
+</menu>

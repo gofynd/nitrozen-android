@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NInput">
+        <attr name="ni_text" format="string|reference" />
+        <attr name="ni_textSize" format="dimension" />
+        <attr name="ni_title" format="string|reference" />
+        <attr name="ni_titleTextSize" format="dimension" />
+        <attr name="ni_placeHolder" format="string|reference" />
+        <attr name="ni_placeHolderTextSize" format="dimension" />
+        <attr name="ni_hint" format="string|reference" />
+        <attr name="ni_hintTextSize" format="dimension" />
+        <attr name="ni_leadingIcon" format="reference" />
+        <attr name="ni_leadingIconTint" format="color" />
+        <attr name="ni_trailingIcon" format="reference" />
+        <attr name="ni_trailingIconTint" format="color" />
+        <attr name="ni_enabled" format="boolean" />
+        <attr name="ni_editable" format="boolean" />
+        <attr name="ni_errorText" format="string|reference" />
+        <attr name="ni_showSuccessText" format="string|reference" />
+        <attr name="ni_showLoader" format="boolean" />
+        <attr name="ni_singleLine" format="boolean" />
+        <attr name="ni_maxLines" format="integer" min="0" />
+        <attr name="ni_maxLength" format="integer" />
+        <attr name="ni_ellipsize">
+            <enum name="none" value="0" />
+            <enum name="start" value="1" />
+            <enum name="middle" value="2" />
+            <enum name="end" value="3" />
+            <enum name="marquee" value="4" />
+        </attr>
+        <attr name="ni_layout_gravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="fill_vertical" value="0x70" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="fill_horizontal" value="0x07" />
+            <flag name="center" value="0x11" />
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
+        <attr name="ni_gravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="fill_vertical" value="0x70" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="fill_horizontal" value="0x07" />
+            <flag name="center" value="0x11" />
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
+        <attr name="ni_inputType">
+            <flag name="none" value="0x00000000" />
+            <flag name="text" value="0x00000001" />
+            <flag name="textCapCharacters" value="0x00001001" />
+            <flag name="textCapWords" value="0x00002001" />
+            <flag name="textCapSentences" value="0x00004001" />
+            <flag name="textAutoCorrect" value="0x00008001" />
+            <flag name="textAutoComplete" value="0x00010001" />
+            <flag name="textMultiLine" value="0x00020001" />
+            <flag name="textImeMultiLine" value="0x00040001" />
+            <flag name="textNoSuggestions" value="0x00080001" />
+            <flag name="textUri" value="0x00000011" />
+            <flag name="textEmailAddress" value="0x00000021" />
+            <flag name="textEmailSubject" value="0x00000031" />
+            <flag name="textShortMessage" value="0x00000041" />
+            <flag name="textLongMessage" value="0x00000051" />
+            <flag name="textPersonName" value="0x00000061" />
+            <flag name="textPostalAddress" value="0x00000071" />
+            <flag name="textPassword" value="0x00000081" />
+            <flag name="textVisiblePassword" value="0x00000091" />
+            <flag name="textWebEditText" value="0x000000a1" />
+            <flag name="textFilter" value="0x000000b1" />
+            <flag name="textPhonetic" value="0x000000c1" />
+            <flag name="textWebEmailAddress" value="0x000000d1" />
+            <flag name="textWebPassword" value="0x000000e1" />
+            <flag name="number" value="0x00000002" />
+            <flag name="numberSigned" value="0x00001002" />
+            <flag name="numberDecimal" value="0x00002002" />
+            <flag name="numberPassword" value="0x00000012" />
+            <flag name="phone" value="0x00000003" />
+            <flag name="datetime" value="0x00000004" />
+            <flag name="date" value="0x00000014" />
+            <flag name="time" value="0x00000024" />
+        </attr>
+        <attr name="ni_imeOptions">
+            <flag name="normal" value="0x00000000" />
+            <flag name="actionUnspecified" value="0x00000000" />
+            <flag name="actionNone" value="0x00000001" />
+            <flag name="actionGo" value="0x00000002" />
+            <flag name="actionSearch" value="0x00000003" />
+            <flag name="actionSend" value="0x00000004" />
+            <flag name="actionNext" value="0x00000005" />
+            <flag name="actionDone" value="0x00000006" />
+            <flag name="actionPrevious" value="0x00000007" />
+            <flag name="flagNoPersonalizedLearning" value="0x1000000" />
+            <flag name="flagNoFullscreen" value="0x2000000" />
+            <flag name="flagNavigatePrevious" value="0x4000000" />
+            <flag name="flagNavigateNext" value="0x8000000" />
+            <flag name="flagNoExtractUi" value="0x10000000" />
+            <flag name="flagNoAccessoryAction" value="0x20000000" />
+            <flag name="flagNoEnterAction" value="0x40000000" />
+            <flag name="flagForceAscii" value="0x80000000" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="NDropdown">
+        <attr name="nd_title" format="string|reference" />
+        <attr name="nd_titleTextSize" format="dimension" />
+        <attr name="nd_placeHolder" format="string|reference" />
+        <attr name="nd_placeHolderTextSize" format="dimension" />
+        <attr name="nd_showLoader" format="boolean" />
+        <attr name="nd_errorText" format="string|reference" />
+        <attr name="nd_enabled" format="boolean" />
+        <attr name="nd_editable" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="NCheckBox">
+        <attr name="ncb_text" format="string|reference" />
+        <attr name="ncb_textSize" format="dimension" />
+        <attr name="ncb_isIndeterminate" format="boolean" />
+        <attr name="ncb_textColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="NRadio">
+        <attr name="nrb_text" format="string|reference" />
+        <attr name="nrb_textSize" format="dimension" />
+        <attr name="nrb_enabled" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="NAutocomplete">
+        <attr name="na_hint" format="string|reference" />
+    </declare-styleable>
+    <declare-styleable name="NBtn">
+        <attr name="nb_icon" format="color|reference" />
+        <attr name="nb_iconColor" format="color" />
+        <attr name="nb_iconWidth" format="dimension" />
+        <attr name="nb_iconHeight" format="dimension" />
+        <attr name="nb_iconMarginStart" format="dimension" />
+        <attr name="nb_iconMarginTop" format="dimension" />
+        <attr name="nb_iconMarginEnd" format="dimension" />
+        <attr name="nb_iconMarginBottom" format="dimension" />
+        <attr name="nb_iconPosition">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="left" value="2" />
+            <enum name="right" value="3" />
+            <enum name="center" value="4" />
+        </attr>
+        <attr name="nb_iconVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
+
+        <attr name="nb_divColor" format="color" />
+        <attr name="nb_divWidth" format="dimension" />
+        <attr name="nb_divHeight" format="dimension" />
+        <attr name="nb_divMarginTop" format="dimension" />
+        <attr name="nb_divMarginBottom" format="dimension" />
+        <attr name="nb_divMarginStart" format="dimension" />
+        <attr name="nb_divMarginEnd" format="dimension" />
+        <attr name="nb_divVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
+
+        <attr name="nb_text" format="string|reference" />
+        <attr name="nb_textPaddingStart" format="dimension" />
+        <attr name="nb_textPaddingTop" format="dimension" />
+        <attr name="nb_textPaddingEnd" format="dimension" />
+        <attr name="nb_textPaddingBottom" format="dimension" />
+        <attr name="nb_fontFamilyRes" format="reference" />
+        <attr name="nb_isStorke" format="boolean" />
+        <attr name="nb_textStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <attr name="nb_textSize" format="dimension" />
+        <attr name="nb_textColor" format="color" />
+        <attr name="nb_textAllCaps" format="boolean" />
+        <attr name="nb_textVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
+
+        <attr name="nb_backgroundColor" format="color|reference" />
+        <attr name="nb_disableColor" format="color|reference" />
+        <attr name="nb_disableElementsColor" format="color|reference" />
+        <attr name="nb_cornerRadius" format="dimension" />
+        <attr name="nb_enableRipple" format="boolean" />
+        <attr name="nb_rippleColor" format="color|reference" />
+        <attr name="nb_shape">
+            <enum name="rectangle" value="0" />
+            <enum name="rounded" value="1" />
+        </attr>
+        <attr name="android:enabled" format="boolean" />
+        <attr name="nb_isLoader" format="boolean" />
+        <attr name="nb_shadow" format="dimension" />
+        <attr name="nb_borderColor" format="color" />
+        <attr name="nb_borderWidth" format="dimension" />
+    </declare-styleable>
+
+    <attr name="NLoaderViewStyle" format="reference" />
+
+    <declare-styleable name="NLoader">
+        <attr name="NLoader_Style">
+            <enum name="RotatingPlane" value="0" />
+            <enum name="DoubleBounce" value="1" />
+            <enum name="Wave" value="2" />
+            <enum name="WanderingCubes" value="3" />
+            <enum name="Pulse" value="4" />
+            <enum name="ChasingDots" value="5" />
+            <enum name="ThreeBounce" value="6" />
+            <enum name="Circle" value="7" />
+            <enum name="CubeGrid" value="8" />
+            <enum name="FadingCircle" value="9" />
+            <enum name="FoldingCube" value="10" />
+            <enum name="RotatingCircle" value="11" />
+            <enum name="MultiplePulse" value="12" />
+            <enum name="PulseRing" value="13" />
+            <enum name="MultiplePulseRing" value="14" />
+        </attr>
+        <attr name="nl_color" format="color|reference" />
+    </declare-styleable>
+</resources>
