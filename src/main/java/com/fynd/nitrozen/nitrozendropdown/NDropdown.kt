@@ -27,9 +27,7 @@ class NDropdown : LinearLayout {
     private fun bind(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
-        if (manager?.getDropdown()?.editable == false || manager?.getDropdown()?.enabled == false) {
-            isEnabled = false
-        }
+        setEnableStatus()
         val params =
             LayoutParams(
                 manager!!.getDropdown().layoutWidth,
@@ -38,14 +36,21 @@ class NDropdown : LinearLayout {
         layoutParams = params
     }
 
+    private fun setEnableStatus() {
+        isEnabled = !(manager?.getDropdown()?.editable == false || manager?.getDropdown()?.enabled == false)
+        manager?.spinner?.setEnabled(isEnabled)
+    }
+
     fun setEditable(isEditable: Boolean): NDropdown {
         manager?.getDropdown()?.editable = isEditable
+        setEnableStatus()
         updateView()
         return this
     }
 
     fun setNdpEnabled(isEnabled: Boolean): NDropdown {
         manager?.getDropdown()?.enabled = isEnabled
+        setEnableStatus()
         updateView()
         return this
     }
