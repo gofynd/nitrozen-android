@@ -3,6 +3,7 @@ package com.fynd.nitrozen.nitrozendropdown
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.AdapterView
+import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.SpinnerAdapter
 
@@ -55,7 +56,7 @@ class NDropdown : LinearLayout {
         return this
     }
 
-    fun setAdapter(adapter: NitrozenAdapter<out Any>?): NDropdown {
+    fun setAdapter(adapter: BaseAdapter?): NDropdown {
         manager?.getDropdown()?.spinner?.adapter = adapter
         updateView()
         return this

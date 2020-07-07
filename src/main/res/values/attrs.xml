@@ -10,8 +10,18 @@
         <attr name="ni_hint" format="string|reference" />
         <attr name="ni_hintTextSize" format="dimension" />
         <attr name="ni_leadingIcon" format="reference" />
+        <attr name="ni_leadingIconVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
         <attr name="ni_leadingIconTint" format="color" />
         <attr name="ni_trailingIcon" format="reference" />
+        <attr name="ni_trailingIconVisibility">
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
+        </attr>
         <attr name="ni_trailingIconTint" format="color" />
         <attr name="ni_enabled" format="boolean" />
         <attr name="ni_editable" format="boolean" />
