@@ -16,23 +16,27 @@ class NCheckBox : AppCompatCheckBox {
     private var manager: DrawManager? = null
 
     constructor(context: Context) : super(context) {
-        bind(null)
+        buildDrawManager(null)
+        bind()
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        bind(attrs)
+        buildDrawManager(attrs)
+        bind()
     }
 
-    private fun bind(attrs: AttributeSet?) {
+    private fun buildDrawManager(attrs: AttributeSet?) {
         manager = DrawManager(this, attrs)
         manager?.draw()
-
         val params =
             ViewGroup.LayoutParams(
                 manager!!.getCheckBox().layoutWidth,
                 manager!!.getCheckBox().layoutHeight
             )
         layoutParams = params
+    }
+
+    private fun bind() {
         includeFontPadding = false
         text = manager!!.getCheckBox().text
         try {
@@ -97,10 +101,18 @@ class NCheckBox : AppCompatCheckBox {
         return this
     }
 
+    fun setNcbText(text: String): NCheckBox {
+        manager!!.getCheckBox().text = text
+        updateView()
+        return this
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         manager?.changeMeasure(widthMeasureSpec, heightMeasureSpec)
+        bind()
     }
+
     private fun updateView() {
         requestLayout()
     }

@@ -215,6 +215,11 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
         }
     }
 
+    fun setEnabled(isEnabled :Boolean){
+        appCompatSpinner.isEnabled = isEnabled
+        appCompatSpinner.isClickable = isEnabled
+    }
+
     override fun onSpinnerOpened() {
         nDropdown.isFocused = true
         init()
