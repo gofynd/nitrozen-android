@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozenbutton.utils.txtPxToSp
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
@@ -43,6 +44,10 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             R.styleable.NInput_ni_hintTextSize,
             pxToDp(12f)
         )
+        val placeHolderTextSize = typedArray.getDimension(
+            R.styleable.NInput_ni_placeHolderTextSize,
+            pxToDp(13f)
+        )
         val successText = typedArray.getString(R.styleable.NInput_ni_showSuccessText)
         val errorText = typedArray.getString(R.styleable.NInput_ni_errorText)
         val showLoader = typedArray.getBoolean(R.styleable.NInput_ni_showLoader, false)
@@ -67,6 +72,7 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
         val trailingIconVisibility = typedArray.getInt(R.styleable.NInput_ni_trailingIconVisibility, View.VISIBLE)
         val leadingIconVisibility = typedArray.getInt(R.styleable.NInput_ni_leadingIconVisibility, View.VISIBLE)
 
+        val minimumHeight = typedArray.getDimension(R.styleable.NInput_ni_minimumHeight, dpToPx(40f))
         val layoutHeight =
             attrs?.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")
         val layoutWidth =
@@ -128,7 +134,9 @@ class AttributeController(private val view: View, private val attrs: AttributeSe
             maxLines = maxLines,
             maxLength =  maxLength,
             leadingIconVisibility = leadingIconVisibility,
-            trailingIconVisibility = trailingIconVisibility
+            trailingIconVisibility = trailingIconVisibility,
+            miniumHeight = minimumHeight,
+            placeHolderTextSize = placeHolderTextSize
         )
         typedArray.recycle()
     }

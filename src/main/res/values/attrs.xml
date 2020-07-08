@@ -10,6 +10,7 @@
         <attr name="ni_hint" format="string|reference" />
         <attr name="ni_hintTextSize" format="dimension" />
         <attr name="ni_leadingIcon" format="reference" />
+        <attr name="ni_minimumHeight" format="dimension" />
         <attr name="ni_leadingIconVisibility">
             <enum name="visible" value="0x00000000" />
             <enum name="invisible" value="0x00000004" />

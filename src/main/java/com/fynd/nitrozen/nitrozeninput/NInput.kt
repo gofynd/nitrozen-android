@@ -70,15 +70,20 @@ class NInput : LinearLayout {
         return manager!!.getEditText()
     }
 
-
     fun setLeadingIconVisibility(visibility: Int): NInput {
-        manager!!.editTextDrawer.setLeadingIconVisibility(visibility)
+        manager!!.getInput().leadingIconVisibility = visibility
+        updateView()
+        return this
+    }
+
+    fun setNiMinimumHeight(minimumHeight: Float): NInput {
+        manager!!.getInput().miniumHeight = minimumHeight
         updateView()
         return this
     }
 
     fun setTrailingIconVisibility(visibility: Int): NInput {
-        manager!!.editTextDrawer.setTrailingIconVisibility(visibility)
+        manager!!.getInput().trailingIconVisibility = visibility
         updateView()
         return this
     }

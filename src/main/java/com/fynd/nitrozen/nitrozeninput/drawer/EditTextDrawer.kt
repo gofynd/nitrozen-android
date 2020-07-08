@@ -3,8 +3,7 @@ package com.fynd.nitrozen.nitrozeninput.drawer
 import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.os.Build
-import android.text.InputFilter
-import android.text.TextUtils
+import android.text.*
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
@@ -13,8 +12,8 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.text.HtmlCompat
 import com.fynd.nitrozen.R
-import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
 import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozeninput.NInput
 import com.fynd.nitrozen.nitrozeninput.model.NitrozenInput
@@ -22,6 +21,7 @@ import com.fynd.nitrozen.nitrozeninput.view.NitrozenEditText
 import com.fynd.nitrozen.nitrozenloader.NLoader
 import com.fynd.nitrozen.utils.Drawer
 import java.lang.reflect.Field
+
 
 class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
     Drawer<NInput, NitrozenInput>(view, input) {
@@ -149,11 +149,13 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
             f.set(et, R.drawable.ninput_cursor)
         } catch (ignored: Exception) {
         }
-        if(input.maxLength>0){
+        if (input.maxLength > 0) {
             et.filters += InputFilter.LengthFilter(input.maxLength)
         }
-        et.hint = input.placeHolderText
-        et.minimumHeight = dpToPx(40f).toInt()
+        et.hint =
+            fromHtml(
+                "<string name=\"hint\"><font size=\"${input.placeHolderTextSize}\">" + "${input.placeHolderText}" + "</font></string>")
+        et.minimumHeight = input.miniumHeight.toInt()
         if (!input.isEnabled) {
             et.isEnabled = false
             et.setBackgroundResource(R.drawable.ninput_background)
@@ -208,14 +210,13 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         } catch (e: Exception) {
         }
 
-        //et.setText(input.text)
         et.textSize = input.textSize
         if (isValueProvided(input.ellipSize)) {
             et.ellipsize = TextUtils.TruncateAt.values()[input.ellipSize!!]
         }
         if (isValueProvided(input.gravity)) {
             et.gravity = input.gravity!!
-        }else{
+        } else {
             et.gravity = Gravity.CENTER_VERTICAL
         }
         if (isValueProvided(input.inputType)) {
@@ -243,8 +244,24 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
                 drawable.mutate().setColorFilter(input.trailingIconTint, PorterDuff.Mode.SRC_IN)
             }
         }
+        setLeadingIconVisibility(input.leadingIconVisibility)
+        setTrailingIconVisibility(input.trailingIconVisibility)
     }
 
+    fun fromHtml(html: String?): Spanned? {
+        return when {
+            html == null -> { // return an empty spannable if the html is null
+                SpannableString("")
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> { // FROM_HTML_MODE_LEGACY is the behaviour that was used for versions below android N
+                // we are using this flag to give a consistent behaviour
+                Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+            }
+            else -> {
+                Html.fromHtml(html)
+            }
+        }
+    }
 
     fun isValueProvided(value: Int?): Boolean {
         return value != null && value != -1

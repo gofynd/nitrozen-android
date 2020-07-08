@@ -2,6 +2,7 @@ package com.fynd.nitrozen.nitrozeninput.model
 
 import android.graphics.drawable.Drawable
 import android.text.InputFilter
+import android.text.style.LineHeightSpan
 import android.view.Gravity
 import android.view.ViewGroup
 import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
@@ -16,6 +17,7 @@ data class NitrozenInput(
     var titleText: String? = null,
     var titleTextSize: Float,
     var placeHolderText: String? = null,
+    var placeHolderTextSize: Float = pxToDp(12f),
     var hintText: String? = null,
     var hintTextSize: Float,
     var leadingIcon: Drawable? = null,
@@ -38,5 +40,6 @@ data class NitrozenInput(
     var gravity: Int? = Gravity.CENTER_VERTICAL,
     var inputType: Int? = null,
     var imeOptions: Int? = null,
+    var miniumHeight: Float = dpToPx(40f),
     var filters: Array<InputFilter> = arrayOf<InputFilter>()
 )
