@@ -47,16 +47,8 @@ class TitleTextDrawer(val view: NInput, val input: NitrozenInput) :
         if (!input.errorText.isNullOrEmpty()) {
             tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorError))
         } else {
-            if (input.isFocused) {
-                tv.setTextColor(
-                    ContextCompat.getColor(
-                        view.context,
-                        R.color.nitrozen_seconday_color
-                    )
-                )
-            } else {
-                tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorTitle))
-            }
+
+            tv.setTextColor(ContextCompat.getColor(view.context, R.color.colorTitle))
         }
         try {
             val tf = ResourcesCompat.getFont(view.context, R.font.poppins)

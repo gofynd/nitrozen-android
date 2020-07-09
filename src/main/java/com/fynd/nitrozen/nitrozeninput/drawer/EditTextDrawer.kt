@@ -152,9 +152,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         if (input.maxLength > 0) {
             et.filters += InputFilter.LengthFilter(input.maxLength)
         }
-        et.hint =
-            fromHtml(
-                "<string name=\"hint\"><font size=\"${input.placeHolderTextSize}\">" + "${input.placeHolderText}" + "</font></string>")
+        et.hint =input.placeHolderText
         et.minimumHeight = input.miniumHeight.toInt()
         if (!input.isEnabled) {
             et.isEnabled = false
@@ -199,11 +197,6 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
                 null
             )
         }
-        et.setOnFocusChangeListener { v, hasFocus ->
-            input.isFocused = v.isFocused
-            view.invalidate()
-        }
-
         try {
             val tf = ResourcesCompat.getFont(view.context, R.font.poppins)
             et.setTypeface(tf, Typeface.NORMAL)
@@ -246,21 +239,6 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
         }
         setLeadingIconVisibility(input.leadingIconVisibility)
         setTrailingIconVisibility(input.trailingIconVisibility)
-    }
-
-    fun fromHtml(html: String?): Spanned? {
-        return when {
-            html == null -> { // return an empty spannable if the html is null
-                SpannableString("")
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> { // FROM_HTML_MODE_LEGACY is the behaviour that was used for versions below android N
-                // we are using this flag to give a consistent behaviour
-                Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
-            }
-            else -> {
-                Html.fromHtml(html)
-            }
-        }
     }
 
     fun isValueProvided(value: Int?): Boolean {
