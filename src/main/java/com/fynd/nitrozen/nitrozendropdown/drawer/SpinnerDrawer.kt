@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozenbutton.utils.dpToPx
+import com.fynd.nitrozen.nitrozenbutton.utils.pxToDp
 import com.fynd.nitrozen.nitrozendropdown.NDropdown
 import com.fynd.nitrozen.nitrozendropdown.model.NitrozenDropdown
 import com.fynd.nitrozen.nitrozendropdown.views.CustomSpinner
@@ -146,6 +147,12 @@ class SpinnerDrawer(val view: NDropdown, val nDropdown: NitrozenDropdown) :
                 rootLayout.setBackgroundResource(R.drawable.ndropdown_background)
             }
         } else {
+            appCompatSpinner.setPadding(
+                appCompatSpinner.paddingStart,
+                pxToDp(25f).toInt(),
+                appCompatSpinner.paddingEnd,
+                pxToDp(24f).toInt()
+            )
             if (appCompatSpinner.adapter == null || appCompatSpinner.adapter.count == 0) {
                 imgDropDown.rotation = 0f
                 rootLayout.setBackgroundResource(R.drawable.ndropdown_background)
