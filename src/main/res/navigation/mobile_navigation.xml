@@ -37,4 +37,9 @@
         android:name="com.fynd.nitrozen.ui.fragments.NAutocompleteFragment"
         android:label="@string/menu_nautocomplete"
         tools:layout="@layout/fragment_nautocomplete" />
+    <fragment
+        android:id="@+id/nav_switch"
+        android:name="com.fynd.nitrozen.ui.fragments.NSwitchFragment"
+        android:label="@string/menu_naswitch"
+        tools:layout="@layout/fragment_nswitch" />
 </navigation>
