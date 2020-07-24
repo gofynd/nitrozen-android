@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="btn_primary_color">#36cc9b</color>
-    <color name="nitrozen_seconday_color">#3f51b5</color>
+    <color name="nitrozen_seconday_color">#5C6BDD</color>
 
     <color name="nitrozen_seconday_color_light">#8b96d2</color>
     <color name="white">#fff</color>
