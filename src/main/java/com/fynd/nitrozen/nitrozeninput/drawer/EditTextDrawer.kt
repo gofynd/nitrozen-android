@@ -153,6 +153,7 @@ class EditTextDrawer(val view: NInput, val input: NitrozenInput) :
             et.filters += InputFilter.LengthFilter(input.maxLength)
         }
         et.hint =input.placeHolderText
+        et.includeFontPadding = false
         et.minimumHeight = input.miniumHeight.toInt()
         if (!input.isEnabled) {
             et.isEnabled = false

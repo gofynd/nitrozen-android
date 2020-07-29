@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatEditText
+import com.fynd.nitrozen.R
 import com.fynd.nitrozen.nitrozeninput.view.NitrozenEditText.DrawableClickListener.DrawablePosition
 
 class NitrozenEditText : AppCompatEditText {
