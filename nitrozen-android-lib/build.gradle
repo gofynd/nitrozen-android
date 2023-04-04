@@ -2,6 +2,10 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 apply plugin: "kotlin-parcelize"
+apply plugin: "maven-publish"
+
+group = 'com.fynd.nitrozen'
+version = '0.1'
 
 android {
     compileSdk 32
@@ -44,4 +48,18 @@ dependencies {
     implementation 'androidx.compose.material:material:1.2.0'
     debugImplementation 'androidx.compose.ui:ui-tooling:1.2.0'
     implementation 'androidx.compose.ui:ui-tooling-preview:1.2.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.fynd.nitrozen'
+                artifactId = 'nitrozen-android-lib'
+                version = '0.1'
+            }
+        }
+    }
 }
