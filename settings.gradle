@@ -1,0 +1,3 @@
+rootProject.name = "NitrozenAndroid"
+include ':app'
+include ':nitrozen_android_lib'
