@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.nitrozen.android.ui.home.HomeFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentButtons"
+        android:name="com.nitrozen.android.ui.buttons.ButtonsFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentTypography"
+        android:name="com.nitrozen.android.ui.typography.TypographyFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentTextFields"
+        android:name="com.nitrozen.android.ui.textfield.TextFieldsFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentCheckBox"
+        android:name="com.nitrozen.android.ui.checkbox.CheckBoxFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentRadioButton"
+        android:name="com.nitrozen.android.ui.radiobutton.RadioButtonFragment"
+        />
+
+</navigation>

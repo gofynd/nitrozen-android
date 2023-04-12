@@ -1,18 +1,22 @@
 package com.fynd.nitrozen.components.textfield
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -22,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.theme.typography.fontsNitrozen
-import com.fynd.nitrozen.R
+import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
 @Composable
@@ -63,6 +67,7 @@ private fun NitrozenOutlinedTextField_Error() {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NitrozenOutlinedTextField(
     modifier: Modifier = Modifier,
@@ -79,23 +84,13 @@ fun NitrozenOutlinedTextField(
     backgroundColor: Color = Color.Transparent,
     visualTransformation: VisualTransformation = VisualTransformation.None,
 ) {
-    val borderColor = when (textFieldState) {
-        is TextFieldState.Idle -> NitrozenTheme.colors.grey60
-        is TextFieldState.Success -> NitrozenTheme.colors.success50
-        is TextFieldState.Error -> NitrozenTheme.colors.error50
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
+
+    val textChangeBringIntoViewRequester = remember {
+        BringIntoViewRequester()
     }
 
-    val infoTextColor = when (textFieldState) {
-        is TextFieldState.Idle -> NitrozenTheme.colors.grey80
-        is TextFieldState.Success -> NitrozenTheme.colors.success80
-        is TextFieldState.Error -> NitrozenTheme.colors.error80
-    }
-
-    val icon: Painter? = when (textFieldState) {
-        is TextFieldState.Error -> painterResource(id = R.drawable.ic_error_text_field)
-        is TextFieldState.Success -> painterResource(id = R.drawable.ic_success_text_field)
-        is TextFieldState.Idle -> null
-    }
+    val scope = rememberCoroutineScope()
 
     Column(
         modifier = modifier.fillMaxWidth(),
@@ -115,13 +110,19 @@ fun NitrozenOutlinedTextField(
 
         OutlinedTextField(
             value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier.fillMaxWidth(),
+            onValueChange = {
+                onValueChange.invoke(it)
+                scope.launch {
+                    textChangeBringIntoViewRequester.bringIntoView()
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+                .bringIntoViewRequester(textChangeBringIntoViewRequester),
             textStyle = NitrozenTheme.typography.bodySmall,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = NitrozenTheme.colors.grey100,
-                unfocusedBorderColor = borderColor,
-                focusedBorderColor = borderColor,
+                unfocusedBorderColor = textFieldState.borderColor,
+                focusedBorderColor = textFieldState.borderColor,
                 cursorColor = NitrozenTheme.colors.grey60,
                 backgroundColor = backgroundColor,
             ),
@@ -145,11 +146,17 @@ fun NitrozenOutlinedTextField(
             visualTransformation = visualTransformation,
         )
         if (textFieldState.message != null) {
+            if (textFieldState is TextFieldState.Error) {
+                LaunchedEffect(key1 = value) {
+                    bringIntoViewRequester.bringIntoView()
+                }
+            }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .padding(top = 8.dp, start = 8.dp, end = 8.dp)
             ) {
+                val icon = textFieldState.icon
                 if (icon != null) {
                     Image(
                         painter = icon,
@@ -161,11 +168,12 @@ fun NitrozenOutlinedTextField(
                 Text(
                     text = textFieldState.message!!,
                     fontFamily = fontsNitrozen,
-                    fontWeight = FontWeight.Light,
+                    fontWeight = FontWeight.Normal,
                     lineHeight = 20.sp,
                     fontSize = 14.sp,
-                    color = infoTextColor,
+                    color = textFieldState.infoTextColor,
                     modifier = Modifier.alignByBaseline()
+                        .bringIntoViewRequester(bringIntoViewRequester)
                 )
             }
         }

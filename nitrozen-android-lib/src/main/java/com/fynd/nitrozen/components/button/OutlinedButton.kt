@@ -41,6 +41,11 @@ fun NitrozenOutlinedButton(
     enabled: Boolean = true,
     onClick: () -> Unit,
 ) {
+    val color = if (enabled)
+        NitrozenTheme.colors.primary60
+    else
+        NitrozenTheme.colors.primary60.copy(alpha = 0.3F)
+
     OutlinedButton(
         onClick = onClick,
         modifier = modifier
@@ -52,7 +57,7 @@ fun NitrozenOutlinedButton(
         Text(
             text = text,
             style = NitrozenTheme.typography.bodyMediumBold,
-            color = NitrozenTheme.colors.primary60,
+            color = color,
         )
     }
 }

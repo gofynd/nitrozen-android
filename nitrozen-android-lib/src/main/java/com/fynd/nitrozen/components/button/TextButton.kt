@@ -74,7 +74,7 @@ fun NitrozenTextButton(
         colors = ButtonDefaults.textButtonColors(),
         modifier = modifier
             .heightIn(min = 54.dp),
-        shape = NitrozenTheme.shapes.rounded16,
+        shape = NitrozenTheme.shapes.pill,
         enabled = enabled,
     ) {
         Text(
