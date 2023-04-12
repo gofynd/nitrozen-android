@@ -16,7 +16,7 @@ import com.fynd.nitrozen.theme.NitrozenTheme
 
 @Preview(showBackground = true)
 @Composable
-fun NitrozenOutlinedTextFieldReadOnly() {
+private fun NitrozenOutlinedTextFieldReadOnly() {
     NitrozenTheme {
         NitrozenOutlinedTextFieldReadOnly(
             value = "",

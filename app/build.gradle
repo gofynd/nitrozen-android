@@ -34,6 +34,11 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0'
     }
 }
 
@@ -42,4 +47,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Compose
+    implementation 'androidx.compose.material:material:1.2.0'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.2.0'
+    implementation 'androidx.compose.ui:ui-tooling-preview:1.2.0'
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+
+    implementation project(":nitrozen-android-lib")
 }
