@@ -39,6 +39,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
     visualTransformation: VisualTransformation = VisualTransformation.None,
 ) {
     val focusManager = LocalFocusManager.current
+    val textFieldState = TextFieldState.Idle()
 
     Column(
         modifier = modifier
@@ -70,8 +71,8 @@ fun NitrozenOutlinedTextFieldReadOnly(
             textStyle = NitrozenTheme.typography.bodySmall,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = NitrozenTheme.colors.grey100,
-                unfocusedBorderColor = NitrozenTheme.colors.grey60,
-                focusedBorderColor = NitrozenTheme.colors.grey60,
+                unfocusedBorderColor = textFieldState.borderColor,
+                focusedBorderColor = textFieldState.borderColor,
                 cursorColor = NitrozenTheme.colors.grey60,
                 backgroundColor = backgroundColor,
             ),

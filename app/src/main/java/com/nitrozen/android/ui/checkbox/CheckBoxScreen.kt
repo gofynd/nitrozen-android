@@ -53,7 +53,8 @@ fun CheckBoxScreen(
                 checked = false,
                 onCheckedChange = {
 
-                }
+                },
+                modifier = Modifier.padding(top = 16.dp)
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -69,6 +70,7 @@ fun CheckBoxScreen(
                 onCheckedChange = {
 
                 },
+                modifier = Modifier.padding(top = 16.dp)
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -84,7 +86,8 @@ fun CheckBoxScreen(
                 onCheckedChange = {
 
                 },
-                enabled = false
+                enabled = false,
+                modifier = Modifier.padding(top = 16.dp)
             )
         }
 

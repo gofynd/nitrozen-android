@@ -184,7 +184,7 @@ fun NitrozenOtpTextField(
                 Text(
                     text = state.message!!,
                     fontFamily = fontsNitrozen,
-                    fontWeight = FontWeight.Light,
+                    fontWeight = FontWeight.Normal,
                     lineHeight = 20.sp,
                     fontSize = 14.sp,
                     color = infoTextColor,

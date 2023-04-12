@@ -53,7 +53,8 @@ fun RadioButtonScreen(
                 selected = false,
                 onClick = {
 
-                }
+                },
+                modifier = Modifier.padding(top = 16.dp)
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -68,7 +69,8 @@ fun RadioButtonScreen(
                 selected = true,
                 onClick = {
 
-                }
+                },
+                modifier = Modifier.padding(top = 16.dp)
             )
         }
 

@@ -2,14 +2,15 @@ package com.fynd.nitrozen.components.checkbox
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material.Checkbox
-import androidx.compose.material.CheckboxDefaults
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 
@@ -53,10 +54,11 @@ private fun NitrozenCheckBox_Disabled() {
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun NitrozenCheckBox(
     modifier: Modifier = Modifier,
-    text: String,
+    text: String? = null,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     onTextClick: () -> Unit = {},
@@ -70,22 +72,28 @@ fun NitrozenCheckBox(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Checkbox(
-            modifier = Modifier,
-            checked = checked,
-            enabled = enabled,
-            onCheckedChange = onCheckedChange,
-            colors = CheckboxDefaults.colors(
-                checkedColor = NitrozenTheme.colors.primary50,
-                checkmarkColor = NitrozenTheme.colors.background,
-                disabledColor = NitrozenTheme.colors.primary50,
-            ),
-        )
-        Text(
-            text = text,
-            style = NitrozenTheme.typography.bodySmall,
-            color = NitrozenTheme.colors.grey100,
-            modifier = Modifier.clickableWithoutRipple(onTextClick)
-        )
+        CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
+            Checkbox(
+                modifier = Modifier,
+                checked = checked,
+                enabled = enabled,
+                onCheckedChange = onCheckedChange,
+                colors = CheckboxDefaults.colors(
+                    checkedColor = NitrozenTheme.colors.primary50,
+                    checkmarkColor = NitrozenTheme.colors.background,
+                    disabledColor = NitrozenTheme.colors.primary50,
+                ),
+            )
+        }
+
+        if (text != null) {
+            Text(
+                text = text,
+                style = NitrozenTheme.typography.bodySmall,
+                color = NitrozenTheme.colors.grey100,
+                modifier = Modifier.clickableWithoutRipple(onTextClick)
+                    .padding(start = 8.dp)
+            )
+        }
     }
 }
