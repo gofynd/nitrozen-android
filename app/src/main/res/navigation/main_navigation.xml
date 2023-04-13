@@ -44,4 +44,9 @@
         android:name="com.nitrozen.android.ui.toggle.SwitchFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentBadge"
+        android:name="com.nitrozen.android.ui.badge.BadgeFragment"
+        />
+
 </navigation>
