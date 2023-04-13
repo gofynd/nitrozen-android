@@ -9,4 +9,5 @@ sealed class HomeScreenActions {
     object OpenChip : HomeScreenActions()
     object OpenSwitch : HomeScreenActions()
     object OpenBadge : HomeScreenActions()
+    object OpenStepper : HomeScreenActions()
 }
