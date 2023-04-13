@@ -14,4 +14,5 @@ interface Navigator {
     fun openRadioButtonScreen()
     fun openChipScreen()
     fun openSwitchScreen()
+    fun openBadgeScreen()
 }

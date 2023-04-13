@@ -20,3 +20,6 @@
 
 ## Preview Switch
 ![](./assets/screenshots/switch.png)
+
+## Preview Badge
+![](./assets/screenshots/badge.png)

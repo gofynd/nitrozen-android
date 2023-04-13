@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.dp
 
 @Immutable
 data class NitrozenShapes(
+    val small: Shape,
     val pill: Shape,
     val topRoundedXl: Shape,
     val rounded16: Shape,
@@ -18,6 +19,7 @@ data class NitrozenShapes(
 
 val LocalNitrozenShapes = staticCompositionLocalOf {
     NitrozenShapes(
+        small = RoundedCornerShape(0.dp),
         pill = RoundedCornerShape(0.dp),
         topRoundedXl = RoundedCornerShape(0.dp),
         rounded16 = RoundedCornerShape(0.dp),

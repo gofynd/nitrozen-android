@@ -10,8 +10,10 @@
     <color name="grey80">#A6000000</color>
     <color name="grey100">#141414</color>
     <color name="inverse">#FFFFFF</color>
+    <color name="error20">#FEE6EA</color>
     <color name="error50">#F50031</color>
     <color name="error80">#660014</color>
+    <color name="success20">#E9F7E9</color>
     <color name="success50">#25AB21</color>
     <color name="success80">#135610</color>
     <color name="background">#FFFFFF</color>

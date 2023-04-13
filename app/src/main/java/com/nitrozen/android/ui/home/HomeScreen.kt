@@ -103,5 +103,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Badge",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenBadge)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

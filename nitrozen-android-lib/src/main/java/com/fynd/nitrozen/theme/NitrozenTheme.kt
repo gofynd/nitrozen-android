@@ -33,8 +33,10 @@ fun NitrozenTheme(
         grey80 = colorResource(id = R.color.grey80),
         grey100 = colorResource(id = R.color.grey100),
         inverse = colorResource(id = R.color.inverse),
+        error20 = colorResource(id = R.color.error20),
         error50 = colorResource(id = R.color.error50),
         error80 = colorResource(id = R.color.error80),
+        success20 = colorResource(id = R.color.success20),
         success50 = colorResource(id = R.color.success50),
         success80 = colorResource(id = R.color.success80),
         background = colorResource(id = R.color.background),
@@ -113,6 +115,7 @@ fun NitrozenTheme(
     )
 
     val nitrozenShapes = NitrozenShapes(
+        small = RoundedCornerShape(nitrozenRadius.small),
         pill = RoundedCornerShape(nitrozenRadius.pill),
         topRoundedXl = RoundedCornerShape(
             topStart = nitrozenRadius.xl,
