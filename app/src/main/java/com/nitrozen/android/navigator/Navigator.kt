@@ -15,4 +15,5 @@ interface Navigator {
     fun openChipScreen()
     fun openSwitchScreen()
     fun openBadgeScreen()
+    fun openStepperScreen()
 }

@@ -112,5 +112,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Stepper",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenStepper)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

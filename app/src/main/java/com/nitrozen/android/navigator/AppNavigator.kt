@@ -80,4 +80,8 @@ class AppNavigator constructor(
     override fun openBadgeScreen() {
         navController.navigate(R.id.fragmentBadge)
     }
+
+    override fun openStepperScreen() {
+        navController.navigate(R.id.fragmentStepper)
+    }
 }

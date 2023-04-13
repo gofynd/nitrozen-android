@@ -49,4 +49,9 @@
         android:name="com.nitrozen.android.ui.badge.BadgeFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentStepper"
+        android:name="com.nitrozen.android.ui.stepper.StepperFragment"
+        />
+
 </navigation>
