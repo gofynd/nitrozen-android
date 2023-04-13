@@ -1,4 +1,4 @@
-package com.nitrozen.android.ui.home
+package com.nitrozen.android.ui.toggle
 
 import android.content.Context
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.fynd.nitrozen.theme.NitrozenTheme
 import com.nitrozen.android.MainActivity
 import com.nitrozen.android.navigator.Navigator
 
-class HomeFragment : Fragment() {
+class SwitchFragment : Fragment() {
 
     private lateinit var navigator: Navigator
 
@@ -26,23 +26,11 @@ class HomeFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 NitrozenTheme {
-                    HomeScreen(
-                        onAction = onAction
+                    SwitchScreen(
+                        onBackClick = { navigator.goBack() }
                     )
                 }
             }
-        }
-    }
-
-    private val onAction: (HomeScreenActions) -> Unit = {
-        when (it) {
-            HomeScreenActions.OpenButtons -> navigator.openButtonsScreen()
-            HomeScreenActions.OpenCheckBox -> navigator.openCheckBoxScreen()
-            HomeScreenActions.OpenRadioButton -> navigator.openRadioButtonScreen()
-            HomeScreenActions.OpenTextFields -> navigator.openTextFieldsScreen()
-            HomeScreenActions.OpenTypography -> navigator.openTypographyScreen()
-            HomeScreenActions.OpenChip -> navigator.openChipScreen()
-            HomeScreenActions.OpenSwitch -> navigator.openSwitchScreen()
         }
     }
 }

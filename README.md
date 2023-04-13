@@ -17,3 +17,6 @@
 
 ## Preview Chip
 ![](./assets/screenshots/chip.png)
+
+## Preview Switch
+![](./assets/screenshots/switch.png)

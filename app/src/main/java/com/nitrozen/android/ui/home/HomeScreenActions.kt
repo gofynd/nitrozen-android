@@ -7,4 +7,5 @@ sealed class HomeScreenActions {
     object OpenCheckBox : HomeScreenActions()
     object OpenRadioButton : HomeScreenActions()
     object OpenChip : HomeScreenActions()
+    object OpenSwitch : HomeScreenActions()
 }
