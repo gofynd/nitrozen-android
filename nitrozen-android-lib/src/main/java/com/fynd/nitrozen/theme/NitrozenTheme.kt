@@ -108,7 +108,8 @@ fun NitrozenTheme(
         large = 16.dp,
         xl = 24.dp,
         xxl = 32.dp,
-        pill = 250.dp
+        pill = 250.dp,
+        action = 80.dp
     )
 
     val nitrozenShapes = NitrozenShapes(
@@ -117,9 +118,10 @@ fun NitrozenTheme(
             topStart = nitrozenRadius.xl,
             topEnd = nitrozenRadius.xl
         ),
-        roundedXl = RoundedCornerShape(nitrozenRadius.xl),
         rounded16 = RoundedCornerShape(nitrozenRadius.large),
-        round = RoundedCornerShape(100)
+        roundedXl = RoundedCornerShape(nitrozenRadius.xl),
+        round = RoundedCornerShape(100),
+        rounded80 = RoundedCornerShape(nitrozenRadius.action)
     )
 
     CompositionLocalProvider(

@@ -85,5 +85,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Chip",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenChip)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

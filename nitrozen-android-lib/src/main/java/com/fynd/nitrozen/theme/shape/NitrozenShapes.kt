@@ -13,6 +13,7 @@ data class NitrozenShapes(
     val rounded16: Shape,
     val roundedXl: RoundedCornerShape,
     val round: RoundedCornerShape,
+    val rounded80: Shape,
 )
 
 val LocalNitrozenShapes = staticCompositionLocalOf {
@@ -22,5 +23,6 @@ val LocalNitrozenShapes = staticCompositionLocalOf {
         rounded16 = RoundedCornerShape(0.dp),
         roundedXl = RoundedCornerShape(0.dp),
         round = RoundedCornerShape(100),
+        rounded80 = RoundedCornerShape(0.dp)
     )
 }

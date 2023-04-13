@@ -68,4 +68,8 @@ class AppNavigator constructor(
     override fun openRadioButtonScreen() {
         navController.navigate(R.id.fragmentRadioButton)
     }
+
+    override fun openChipScreen() {
+        navController.navigate(R.id.fragmentChip)
+    }
 }
