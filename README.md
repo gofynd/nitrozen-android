@@ -14,3 +14,6 @@
 
 ## Preview RadioButton
 ![](./assets/screenshots/radiobutton.png)
+
+## Preview Chip
+![](./assets/screenshots/chip.png)

@@ -34,4 +34,9 @@
         android:name="com.nitrozen.android.ui.radiobutton.RadioButtonFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentChip"
+        android:name="com.nitrozen.android.ui.chip.ChipFragment"
+        />
+
 </navigation>

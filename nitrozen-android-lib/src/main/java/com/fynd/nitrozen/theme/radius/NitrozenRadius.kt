@@ -13,6 +13,7 @@ data class NitrozenRadius(
     val xl: Dp,
     val xxl: Dp,
     val pill: Dp,
+    val action: Dp,
 )
 
 val LocalNitrozenRadius = staticCompositionLocalOf {
@@ -23,5 +24,6 @@ val LocalNitrozenRadius = staticCompositionLocalOf {
         xl = 0.dp,
         xxl = 0.dp,
         pill = 0.dp,
+        action = 0.dp
     )
 }

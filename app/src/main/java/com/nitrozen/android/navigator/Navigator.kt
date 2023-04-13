@@ -12,4 +12,5 @@ interface Navigator {
     fun openTextFieldsScreen()
     fun openCheckBoxScreen()
     fun openRadioButtonScreen()
+    fun openChipScreen()
 }

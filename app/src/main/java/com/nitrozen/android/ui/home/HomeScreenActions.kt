@@ -6,4 +6,5 @@ sealed class HomeScreenActions {
     object OpenTextFields : HomeScreenActions()
     object OpenCheckBox : HomeScreenActions()
     object OpenRadioButton : HomeScreenActions()
+    object OpenChip : HomeScreenActions()
 }
