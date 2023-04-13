@@ -94,5 +94,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Switch",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenSwitch)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

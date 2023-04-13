@@ -39,4 +39,9 @@
         android:name="com.nitrozen.android.ui.chip.ChipFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentSwitch"
+        android:name="com.nitrozen.android.ui.toggle.SwitchFragment"
+        />
+
 </navigation>
