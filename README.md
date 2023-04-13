@@ -1,7 +1,7 @@
 # Nitrozen Android
 
-## Preview Buttons
-![](./assets/screenshots/buttons.png)
+## Components
+- [Buttons](./assets/documents/buttons.md)
 
 ## Preview Typography
 ![](./assets/screenshots/typography.png)
