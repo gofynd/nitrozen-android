@@ -13,7 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.chip.Default
 import com.fynd.nitrozen.components.chip.NitrozenChip
+import com.fynd.nitrozen.components.chip.NitrozenChipStyle
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.nitrozen.android.ui.components.ComponentAppBar
 
@@ -132,7 +134,7 @@ fun ChipScreen(
                 modifier = Modifier
                     .padding(top = 16.dp),
                 text = "Tap Here",
-                onTap = {}
+                onClick = {}
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -146,9 +148,11 @@ fun ChipScreen(
                 modifier = Modifier
                     .padding(top = 16.dp),
                 text = "Custom",
-                backgroundColor = NitrozenTheme.colors.warning20,
-                borderColor = NitrozenTheme.colors.warning80,
-                textColor = NitrozenTheme.colors.warning80
+                style = NitrozenChipStyle.Default.copy(
+                    backgroundColor = NitrozenTheme.colors.warning20,
+                    borderColor = NitrozenTheme.colors.warning80,
+                    textColor = NitrozenTheme.colors.warning80,
+                )
             )
 
         }
