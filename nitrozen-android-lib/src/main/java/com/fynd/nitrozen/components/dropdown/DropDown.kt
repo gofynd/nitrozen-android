@@ -5,12 +5,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextFieldReadOnly
 import com.fynd.nitrozen.components.textfield.TextFieldState
 import com.fynd.nitrozen.theme.NitrozenTheme
@@ -64,8 +64,7 @@ fun NitrozenDropDownTextField(
     value: String? = null,
     label: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
-    backgroundColor: Color = Color.Transparent,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
+    style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
     textFieldState: TextFieldState = TextFieldState.Idle()
 ){
     NitrozenOutlinedTextFieldReadOnly(
@@ -75,8 +74,7 @@ fun NitrozenDropDownTextField(
         onClicked = onClicked,
         label = label,
         leadingIcon = leadingIcon,
-        /*backgroundColor = backgroundColor,
-        visualTransformation = visualTransformation,*/
+        style = style,
         textFieldState = textFieldState,
         trailingIcon = {
             Icon(
