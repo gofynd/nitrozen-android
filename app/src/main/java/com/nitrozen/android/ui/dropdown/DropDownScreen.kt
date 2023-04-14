@@ -1,4 +1,4 @@
-package com.nitrozen.android.ui.stepper
+package com.nitrozen.android.ui.dropdown
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -9,22 +9,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.fynd.nitrozen.components.stepper.NitrozenStepper
+import com.fynd.nitrozen.components.dropdown.NitrozenDropDownTextField
+import com.fynd.nitrozen.components.textfield.TextFieldState
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.nitrozen.android.ui.components.ComponentAppBar
 
 @Preview
 @Composable
-private fun PreviewSwitchScreen() {
+private fun PreviewDropDown() {
     NitrozenTheme {
-        StepperScreen(
+        DropDownScreen(
             onBackClick = {}
         )
     }
 }
 
 @Composable
-fun StepperScreen(
+fun DropDownScreen(
     onBackClick: () -> Unit
 ) {
     Column(
@@ -33,7 +34,7 @@ fun StepperScreen(
             .background(NitrozenTheme.colors.background)
     ) {
         ComponentAppBar(
-            title = "Stepper",
+            title = "DropDownTextField",
             onBackClick = onBackClick
         )
 
@@ -44,75 +45,87 @@ fun StepperScreen(
                 .padding(16.dp)
         ) {
             Text(
-                text = "No Progress",
+                text = "Dropdown Selected",
                 style = NitrozenTheme.typography.headingXs
             )
 
-            NitrozenStepper(
+            NitrozenDropDownTextField(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                completedStep = 0,
-                totalSteps = 3
+                label = "Label",
+                hint = "Hint",
+                onClicked = {}
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+
+            Text(
+                text = "Dropdown Selected",
+                style = NitrozenTheme.typography.headingXs
+            )
+
+            NitrozenDropDownTextField(
+                modifier = Modifier
+                    .padding(top = 16.dp),
+                label = "Label",
+                value = "Selected Item",
+                hint = "Hint",
+                onClicked = {}
             )
 
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "First Step Complete",
+                text = "Dropdown With Subtitle",
                 style = NitrozenTheme.typography.headingXs
             )
 
-            NitrozenStepper(
+            NitrozenDropDownTextField(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                completedStep = 1,
-                totalSteps = 3
+                label = "Label",
+                value = "Selected Item",
+                hint = "Hint",
+                onClicked = {},
+                textFieldState = TextFieldState.Idle("Subtitle")
             )
 
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Second Step Complete",
+                text = "Dropdown With Error",
                 style = NitrozenTheme.typography.headingXs
             )
 
-            NitrozenStepper(
+            NitrozenDropDownTextField(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                completedStep = 2,
-                totalSteps = 3
+                value = "Selected Item",
+                label = "Label",
+                hint = "Hint",
+                onClicked = {},
+                textFieldState = TextFieldState.Error("Error State")
             )
 
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "All Step Complete",
+                text = "Dropdown With Success",
                 style = NitrozenTheme.typography.headingXs
             )
 
-            NitrozenStepper(
+            NitrozenDropDownTextField(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                completedStep = 3,
-                totalSteps = 3
+                value = "Selected Item",
+                label = "Label",
+                hint = "Hint",
+                onClicked = {},
+                textFieldState = TextFieldState.Success("Success State")
             )
 
             Spacer(modifier = Modifier.height(32.dp))
-
-            Text(
-                text = "More Steps",
-                style = NitrozenTheme.typography.headingXs
-            )
-
-            NitrozenStepper(
-                modifier = Modifier
-                    .padding(top = 16.dp),
-                completedStep = 3,
-                totalSteps = 5
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
         }
     }
 }

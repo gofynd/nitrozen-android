@@ -54,4 +54,9 @@
         android:name="com.nitrozen.android.ui.stepper.StepperFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentDropDown"
+        android:name="com.nitrozen.android.ui.dropdown.DropDownFragment"
+        />
+
 </navigation>

@@ -84,4 +84,8 @@ class AppNavigator constructor(
     override fun openStepperScreen() {
         navController.navigate(R.id.fragmentStepper)
     }
+
+    override fun openDropDownScreen() {
+        navController.navigate(R.id.fragmentDropDown)
+    }
 }

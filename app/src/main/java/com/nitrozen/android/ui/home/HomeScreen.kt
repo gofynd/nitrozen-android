@@ -121,5 +121,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "DropDownTextField",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenDropDown)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
