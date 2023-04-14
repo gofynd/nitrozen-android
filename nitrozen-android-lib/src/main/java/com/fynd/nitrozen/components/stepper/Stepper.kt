@@ -29,7 +29,8 @@ private fun StepperPreview() {
 fun NitrozenStepper(
     modifier: Modifier = Modifier,
     completedStep: Int = 0,
-    totalSteps: Int
+    totalSteps: Int,
+    style : NitrozenStepperStyle = NitrozenStepperStyle.Default
 ) {
     Row(
         modifier = modifier,
@@ -41,9 +42,9 @@ fun NitrozenStepper(
     ) {
         for (i in 1..totalSteps) {
             val backgroundColor = if (i <= completedStep)
-                NitrozenTheme.colors.primary50
+                style.completeStepColor
             else
-                NitrozenTheme.colors.grey40
+                style.defaultStepColor
 
             Box(
                 modifier = modifier
