@@ -1,7 +1,7 @@
 # Nitrozen Android
 
 ## How to use?
-- *Step 1:* Add following in your root build.gradle at the end of repositories:
+- **Step 1:** Add following in your root build.gradle at the end of repositories:
 ```groovy
 allprojects {
     repositories {
@@ -10,7 +10,7 @@ allprojects {
     }
 }
 ```
-- *Step 2:* Add the dependency
+- **Step 2:** Add the dependency
 ```groovy
 dependencies {
     implementation 'com.github.gofynd:nitrozen-android:0.1.0'

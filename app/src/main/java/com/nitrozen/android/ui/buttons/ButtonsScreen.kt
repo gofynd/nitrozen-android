@@ -11,8 +11,11 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.button.NitrozenButtonStyle
+import com.fynd.nitrozen.components.button.NitrozenButtonStyle.Default
 import com.fynd.nitrozen.components.button.NitrozenFilledButton
 import com.fynd.nitrozen.components.button.NitrozenOutlinedButton
 import com.fynd.nitrozen.components.button.NitrozenTextButton
@@ -145,7 +148,9 @@ fun ButtonsScreen(
                 enabled = true,
                 onClick = {},
                 modifier = Modifier.fillMaxWidth(),
-                underline = true,
+                style = NitrozenButtonStyle.Text.Default.copy(
+                    textDecoration = TextDecoration.Underline
+                ),
             )
         }
 
