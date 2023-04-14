@@ -5,7 +5,7 @@
 ```groovy
 allprojects {
     repositories {
-        ...
+        //...
         maven { url 'https://www.jitpack.io' }
     }
 }
@@ -24,3 +24,7 @@ dependencies {
 - [CheckBox](./assets/documents/checkbox.md)
 - [RadioButton](./assets/documents/radiobutton.md)
 - [Chip](./assets/documents/chip.md)
+- [Switch](./assets/documents/switch.md)
+- [Badge](./assets/documents/badge.md)
+- [Stepper](./assets/documents/stepper.md)
+- [DropDownTextField](./assets/documents/dropdowntextfield.md)
