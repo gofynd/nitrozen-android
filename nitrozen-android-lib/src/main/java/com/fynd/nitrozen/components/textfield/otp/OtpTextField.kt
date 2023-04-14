@@ -1,6 +1,5 @@
-package com.fynd.nitrozen.components.textfield
+package com.fynd.nitrozen.components.textfield.otp
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -15,18 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.fynd.nitrozen.R
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
+import com.fynd.nitrozen.components.textfield.TextFieldMessage
+import com.fynd.nitrozen.components.textfield.TextFieldState
 import com.fynd.nitrozen.theme.NitrozenTheme
-import com.fynd.nitrozen.theme.typography.fontsNitrozen
 
 
 @Preview
@@ -34,7 +32,7 @@ import com.fynd.nitrozen.theme.typography.fontsNitrozen
 private fun NitrozenOtpTextField_Idle() {
     NitrozenTheme {
         NitrozenOtpTextField(
-            state = OtpTextFieldState.Idle,
+            state = TextFieldState.Idle(),
             otp = "",
             onOtpChange = {},
             onKeyboardDone = {}
@@ -47,7 +45,7 @@ private fun NitrozenOtpTextField_Idle() {
 private fun NitrozenOtpTextField_Error() {
     NitrozenTheme {
         NitrozenOtpTextField(
-            state = OtpTextFieldState.Error("Invalid OTP"),
+            state = TextFieldState.Error("Invalid OTP"),
             otp = "123456",
             onOtpChange = {},
             onKeyboardDone = {}
@@ -60,7 +58,7 @@ private fun NitrozenOtpTextField_Error() {
 private fun NitrozenOtpTextField_Success() {
     NitrozenTheme {
         NitrozenOtpTextField(
-            state = OtpTextFieldState.Success("OTP verified"),
+            state = TextFieldState.Success("OTP verified"),
             otp = "123456",
             onOtpChange = {},
             onKeyboardDone = {}
@@ -71,27 +69,16 @@ private fun NitrozenOtpTextField_Success() {
 @Composable
 fun NitrozenOtpTextField(
     modifier: Modifier = Modifier,
-    backgroundColor: Color = NitrozenTheme.colors.background,
-    state: OtpTextFieldState = OtpTextFieldState.Idle,
-    otpSize: Int = 6,
     otp: String,
     onOtpChange: (String) -> Unit,
     onKeyboardDone: () -> Unit,
+    otpSize: Int = 6,
     focus: Boolean = false,
+    state: TextFieldState = TextFieldState.Idle(),
+    style: NitrozenTextFieldStyle.Otp = NitrozenTextFieldStyle.Otp.Default,
+    configuration: NitrozenTextFieldConfiguration.Otp = NitrozenTextFieldConfiguration.Otp.Default,
 ) {
     val focusRequester = FocusRequester.Default
-
-    val infoTextColor = when (state) {
-        is OtpTextFieldState.Idle -> NitrozenTheme.colors.grey80
-        is OtpTextFieldState.Success -> NitrozenTheme.colors.success80
-        is OtpTextFieldState.Error -> NitrozenTheme.colors.error80
-    }
-
-    val icon: Painter? = when (state) {
-        is OtpTextFieldState.Error -> painterResource(id = R.drawable.ic_error_text_field)
-        is OtpTextFieldState.Success -> painterResource(id = R.drawable.ic_success_text_field)
-        is OtpTextFieldState.Idle -> null
-    }
 
     LaunchedEffect(key1 = Unit, block = {
         if (focus) {
@@ -101,7 +88,7 @@ fun NitrozenOtpTextField(
 
     Column(
         modifier = modifier
-            .background(backgroundColor),
+            .background(style.backgroundColor),
     ) {
         BasicTextField(
             value = otp,
@@ -127,33 +114,33 @@ fun NitrozenOtpTextField(
                         }
 
                         val textColor = if (char == "0" && index >= otp.length) {
-                            NitrozenTheme.colors.grey60
-                        } else if (state is OtpTextFieldState.Error) {
-                            NitrozenTheme.colors.error50
+                            style.placeholderTextColor
+                        } else if (state is TextFieldState.Error) {
+                            style.textColorError
                         } else {
-                            NitrozenTheme.colors.grey100
+                            style.textColor
                         }
 
                         val borderColor = when {
-                            state is OtpTextFieldState.Error -> NitrozenTheme.colors.error50
-                            index == otp.length -> NitrozenTheme.colors.primary60
-                            else -> NitrozenTheme.colors.grey60
+                            state is TextFieldState.Error -> style.borderColorError
+                            index == otp.length -> style.borderColorFocused
+                            else -> style.borderColor
                         }
 
                         Box(
                             contentAlignment = Alignment.Center,
                             modifier = Modifier
-                                .size(48.dp)
-                                .clip(NitrozenTheme.shapes.rounded16)
+                                .size(configuration.size)
+                                .clip(configuration.shape)
                                 .border(
                                     width = 1.dp,
                                     color = borderColor,
-                                    shape = NitrozenTheme.shapes.rounded16
+                                    shape = configuration.shape
                                 ),
                         ) {
                             Text(
                                 text = char,
-                                style = NitrozenTheme.typography.bodySmall,
+                                style = style.textStyle,
                                 color = textColor,
                             )
                         }
@@ -167,30 +154,10 @@ fun NitrozenOtpTextField(
             ),
             modifier = Modifier.focusRequester(focusRequester)
         )
-        if (state.message != null && state.message!!.isNotBlank()) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(top = 8.dp, start = 8.dp, end = 8.dp)
-            ) {
-                if (icon != null) {
-                    Image(
-                        painter = icon,
-                        contentDescription = null,
-                        modifier = Modifier.alignByBaseline()
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-                Text(
-                    text = state.message!!,
-                    fontFamily = fontsNitrozen,
-                    fontWeight = FontWeight.Normal,
-                    lineHeight = 20.sp,
-                    fontSize = 14.sp,
-                    color = infoTextColor,
-                    modifier = Modifier.alignByBaseline()
-                )
-            }
-        }
+
+        TextFieldMessage(
+            textFieldState = state,
+            textStyle = style.infoTextStyle
+        )
     }
 }

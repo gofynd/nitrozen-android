@@ -45,22 +45,24 @@ fun NitrozenRadioButton(
     text: String? = null,
     selected: Boolean,
     onClick: () -> Unit,
+    style: NitrozenRadioButtonStyle = NitrozenRadioButtonStyle.Default,
+    configuration: NitrozenRadioButtonConfiguration = NitrozenRadioButtonConfiguration.Default,
 ) {
     val textColor = if (selected)
-        NitrozenTheme.colors.grey100
+        style.textColorSelected
     else
-        NitrozenTheme.colors.grey80
+        style.textColorUnselected
 
     val strokeWidth = animateDpAsState(
-        targetValue = if (selected) 6.dp else 1.dp,
+        targetValue = if (selected) configuration.strokeWidth else 1.dp,
         animationSpec = tween()
     )
 
     val color = animateColorAsState(
         targetValue = if (selected)
-            NitrozenTheme.colors.primary50
+            style.colorSelected
         else
-            NitrozenTheme.colors.grey80,
+            style.colorUnselected,
         animationSpec = tween()
     )
 
@@ -79,21 +81,19 @@ fun NitrozenRadioButton(
                     width = strokeWidth.value,
                     color = color.value
                 )
-                .size(
-                    24.dp
-                )
+                .size(configuration.size)
                 .background(
                     shape = NitrozenTheme.shapes.round,
-                    color = NitrozenTheme.colors.background
+                    color = style.backgroundColor
                 )
         )
 
         if (text != null) {
             Text(
                 modifier = Modifier
-                    .padding(start = 8.dp),
+                    .padding(configuration.textPadding),
                 text = text,
-                style = NitrozenTheme.typography.bodySmall,
+                style = style.textStyle,
                 color = textColor
             )
         }

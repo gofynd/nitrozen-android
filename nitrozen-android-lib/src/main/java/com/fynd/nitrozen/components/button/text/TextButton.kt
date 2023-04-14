@@ -1,4 +1,4 @@
-package com.fynd.nitrozen.components.button
+package com.fynd.nitrozen.components.button.text
 
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material.ButtonDefaults
@@ -6,10 +6,12 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration
+import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration.Default
+import com.fynd.nitrozen.components.button.NitrozenButtonStyle
+import com.fynd.nitrozen.components.button.NitrozenButtonStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
 
 @Preview(showBackground = true)
@@ -44,7 +46,9 @@ private fun NitrozenTextButton_Underlined() {
             text = "Text Button Underlined",
             onClick = {},
             enabled = true,
-            underline = true,
+            style = NitrozenButtonStyle.Text.Default.copy(
+                textDecoration = TextDecoration.Underline,
+            ),
         )
     }
 }
@@ -54,34 +58,30 @@ fun NitrozenTextButton(
     modifier: Modifier = Modifier,
     text: String,
     onClick: () -> Unit,
-    underline: Boolean = false,
-    color: Color = NitrozenTheme.colors.primary60,
     enabled: Boolean = true,
+    style: NitrozenButtonStyle.Text = NitrozenButtonStyle.Text.Default,
+    configuration: NitrozenButtonConfiguration.Text = NitrozenButtonConfiguration.Text.Default,
 ) {
-    val textDecoration = if (underline)
-        TextDecoration.Underline
-    else
-        TextDecoration.None
-
     val textColor =
         if (enabled)
-            color
+            style.textColorEnabled
         else
-            color.copy(alpha = 0.3F)
+            style.textColorDisabled
 
     TextButton(
         onClick = onClick,
         colors = ButtonDefaults.textButtonColors(),
         modifier = modifier
-            .heightIn(min = 54.dp),
-        shape = NitrozenTheme.shapes.pill,
+            .heightIn(min = configuration.minHeight),
+        shape = configuration.shape,
         enabled = enabled,
+        contentPadding = configuration.contentPadding,
     ) {
         Text(
             text = text,
-            style = NitrozenTheme.typography.bodyXsLink,
+            style = style.textStyle,
             color = textColor,
-            textDecoration = textDecoration,
+            textDecoration = style.textDecoration,
         )
     }
 }

@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.fynd.nitrozen.components.button.NitrozenOutlinedButton
+import com.fynd.nitrozen.components.button.outlined.NitrozenOutlinedButton
 import com.fynd.nitrozen.theme.NitrozenTheme
 
 @Preview

@@ -1,31 +1,30 @@
 # Nitrozen Android
 
-## Preview Buttons
-![](./assets/screenshots/buttons.png)
+## How to use?
+- **Step 1:** Add following in your root build.gradle at the end of repositories:
+```groovy
+allprojects {
+    repositories {
+        //...
+        maven { url 'https://www.jitpack.io' }
+    }
+}
+```
+- **Step 2:** Add the dependency
+```groovy
+dependencies {
+    implementation 'com.github.gofynd:nitrozen-android:0.1.0'
+}
+```
 
-## Preview Typography
-![](./assets/screenshots/typography.png)
-
-## Preview TextFields
-![](./assets/screenshots/textfields.png)
-
-## Preview CheckBox
-![](./assets/screenshots/checkbox.png)
-
-## Preview RadioButton
-![](./assets/screenshots/radiobutton.png)
-
-## Preview Chip
-![](./assets/screenshots/chip.png)
-
-## Preview Switch
-![](./assets/screenshots/switch.png)
-
-## Preview Badge
-![](./assets/screenshots/badge.png)
-
-## Preview Stepper
-![](./assets/screenshots/stepper.png)
-
-## Preview DropDownTextField
-![](./assets/screenshots/dropdown.png)
+## Components
+- [Buttons](./assets/documents/buttons.md)
+- [Typography](./assets/documents/typography.md)
+- [TextFields](./assets/documents/textfields.md)
+- [CheckBox](./assets/documents/checkbox.md)
+- [RadioButton](./assets/documents/radiobutton.md)
+- [Chip](./assets/documents/chip.md)
+- [Switch](./assets/documents/switch.md)
+- [Badge](./assets/documents/badge.md)
+- [Stepper](./assets/documents/stepper.md)
+- [DropDownTextField](./assets/documents/dropdowntextfield.md)

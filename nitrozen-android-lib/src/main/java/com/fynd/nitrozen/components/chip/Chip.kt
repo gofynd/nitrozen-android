@@ -16,10 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithRipple
@@ -47,7 +44,7 @@ private fun ChipPreview() {
                     imageVector = Icons.Default.Person,
                     contentDescription = null,
                 )
-            }
+            },
         )
     }
 }
@@ -59,56 +56,41 @@ private fun ChipPreview() {
  * A NitrozenChip is a small, interactive element that displays some text and an optional leading or trailing icon.
  * It can be customized with modifier, background color, border color, text and text style.
  *
- * @param backgroundColor [Color] to be used as background
- * @param borderColor [Color] to be used as border color
- * @param borderWidth Width of the chip in [Dp]
- * @param textStyle [TextStyle] to be applied on the [text], [textColor] will take priority to be applied as text color
- * @param textColor [Color] to be used as text color for [text]
  * @param leading Leading content slot
  * @param trailing Trailing content slot
- * @param onTap Will be called when the user clicks the chip
+ * @param onClick Will be called when the user clicks the chip
  * */
 @Composable
 fun NitrozenChip(
     modifier: Modifier = Modifier,
     text: String,
-    backgroundColor: Color = NitrozenTheme.colors.primary20,
-    borderColor: Color = NitrozenTheme.colors.primary40,
-    borderWidth: Dp = 1.dp,
-    textStyle: TextStyle = NitrozenTheme.typography.bodySmallRegular,
-    textColor: Color = NitrozenTheme.colors.grey100,
+    onClick: (() -> Unit)? = null,
     leading: @Composable (() -> Unit)? = null,
     trailing: @Composable (() -> Unit)? = null,
-    onTap: (() -> Unit)? = null
+    style: NitrozenChipStyle = NitrozenChipStyle.Default,
+    configuration: NitrozenChipConfiguration = NitrozenChipConfiguration.Default,
 ) {
     Row(
         modifier = modifier
-            .widthIn(
-                min = 45.dp
+            .widthIn(min = configuration.minWidth)
+            .clip(shape = configuration.shape)
+            .then(
+                if(onClick != null)
+                    Modifier.clickableWithRipple {
+                        onClick.invoke()
+                    }
+                else Modifier
             )
             .background(
-                color = backgroundColor,
-                shape = NitrozenTheme.shapes.rounded80
+                color = style.backgroundColor,
+                shape = configuration.shape
             )
             .border(
-                width = borderWidth,
-                color = borderColor,
-                shape = NitrozenTheme.shapes.rounded80
+                width = configuration.borderWidth,
+                color = style.borderColor,
+                shape = configuration.shape
             )
-            .clip(
-                shape = NitrozenTheme.shapes.rounded80
-            )
-            .then(
-                if(onTap != null) Modifier.clickableWithRipple {
-                    onTap.invoke()
-                } else Modifier
-            )
-            .padding(
-                top = 4.dp,
-                end = 8.dp,
-                bottom = 4.dp,
-                start = 8.dp
-            ),
+            .padding(configuration.contentPadding),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
@@ -118,9 +100,8 @@ fun NitrozenChip(
             modifier = Modifier
                 .padding(4.dp),
             text = text,
-            style = textStyle.copy(
-                color = textColor
-            ),
+            style = style.textStyle,
+            color = style.textColor,
         )
 
         trailing?.invoke()
