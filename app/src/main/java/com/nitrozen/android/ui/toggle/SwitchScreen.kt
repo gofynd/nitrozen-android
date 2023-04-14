@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.toggle.NitrozenSwitch
+import com.fynd.nitrozen.components.toggle.NitrozenSwitchConfiguration
+import com.fynd.nitrozen.components.toggle.Small
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.nitrozen.android.ui.components.ComponentAppBar
 
@@ -93,8 +95,22 @@ fun SwitchScreen(
                 }
             )
 
+            Spacer(modifier = Modifier.height(32.dp))
 
+            Text(
+                text = "Small",
+                style = NitrozenTheme.typography.headingXs,
+            )
+
+            NitrozenSwitch(
+                modifier = Modifier
+                    .padding(top = 16.dp),
+                checked = true,
+                onCheckedChange = {
+
+                },
+                configuration = NitrozenSwitchConfiguration.Small
+            )
         }
-
     }
 }
