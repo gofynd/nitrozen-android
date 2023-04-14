@@ -72,4 +72,20 @@ class AppNavigator constructor(
     override fun openChipScreen() {
         navController.navigate(R.id.fragmentChip)
     }
+
+    override fun openSwitchScreen() {
+        navController.navigate(R.id.fragmentSwitch)
+    }
+
+    override fun openBadgeScreen() {
+        navController.navigate(R.id.fragmentBadge)
+    }
+
+    override fun openStepperScreen() {
+        navController.navigate(R.id.fragmentStepper)
+    }
+
+    override fun openDropDownScreen() {
+        navController.navigate(R.id.fragmentDropDown)
+    }
 }

@@ -39,4 +39,24 @@
         android:name="com.nitrozen.android.ui.chip.ChipFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentSwitch"
+        android:name="com.nitrozen.android.ui.toggle.SwitchFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentBadge"
+        android:name="com.nitrozen.android.ui.badge.BadgeFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentStepper"
+        android:name="com.nitrozen.android.ui.stepper.StepperFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentDropDown"
+        android:name="com.nitrozen.android.ui.dropdown.DropDownFragment"
+        />
+
 </navigation>

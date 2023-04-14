@@ -94,5 +94,41 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Switch",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenSwitch)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "Badge",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenBadge)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "Stepper",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenStepper)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "DropDownTextField",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenDropDown)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
