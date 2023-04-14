@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 
@@ -63,12 +62,12 @@ fun NitrozenCheckBox(
     onCheckedChange: (Boolean) -> Unit,
     onTextClick: () -> Unit = {},
     enabled: Boolean = true,
+    style: NitrozenCheckBoxStyle = NitrozenCheckBoxStyle.Default,
+    configuration: NitrozenCheckBoxConfiguration = NitrozenCheckBoxConfiguration.Default,
 ) {
     Row(
         modifier = modifier
-            .alpha(
-                if (enabled) 1f else 0.3f
-            ),
+            .alpha(if (enabled) 1f else 0.3f),
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -79,9 +78,10 @@ fun NitrozenCheckBox(
                 enabled = enabled,
                 onCheckedChange = onCheckedChange,
                 colors = CheckboxDefaults.colors(
-                    checkedColor = NitrozenTheme.colors.primary50,
-                    checkmarkColor = NitrozenTheme.colors.background,
-                    disabledColor = NitrozenTheme.colors.primary50,
+                    checkedColor = style.checkedColor,
+                    checkmarkColor = style.checkmarkColor,
+                    disabledColor = style.checkedColor,
+                    uncheckedColor = style.uncheckedColor,
                 ),
             )
         }
@@ -89,10 +89,10 @@ fun NitrozenCheckBox(
         if (text != null) {
             Text(
                 text = text,
-                style = NitrozenTheme.typography.bodySmall,
-                color = NitrozenTheme.colors.grey100,
+                style = style.textStyle,
+                color = style.textColor,
                 modifier = Modifier.clickableWithoutRipple(onTextClick)
-                    .padding(start = 8.dp)
+                    .padding(configuration.textPadding)
             )
         }
     }
