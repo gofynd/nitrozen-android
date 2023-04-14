@@ -11,7 +11,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.R
-import com.fynd.nitrozen.components.textfield.NitrozenOutlinedTextFieldReadOnly
+import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextFieldReadOnly
 import com.fynd.nitrozen.components.textfield.TextFieldState
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithUnBoundedRipple
@@ -75,8 +75,8 @@ fun NitrozenDropDownTextField(
         onClicked = onClicked,
         label = label,
         leadingIcon = leadingIcon,
-        backgroundColor = backgroundColor,
-        visualTransformation = visualTransformation,
+        /*backgroundColor = backgroundColor,
+        visualTransformation = visualTransformation,*/
         textFieldState = textFieldState,
         trailingIcon = {
             Icon(

@@ -1,4 +1,4 @@
-package com.fynd.nitrozen.components.textfield
+package com.fynd.nitrozen.components.textfield.outlined
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -21,6 +21,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.fynd.nitrozen.components.textfield.*
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.theme.typography.fontsNitrozen
 
@@ -42,17 +45,15 @@ fun NitrozenOutlinedTextFieldReadOnly(
     modifier: Modifier = Modifier,
     value: String,
     hint: String,
-    onClicked: () -> Unit,
     label: String? = null,
+    onClicked: () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
-    backgroundColor: Color = Color.Transparent,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
     textFieldState: TextFieldState = TextFieldState.Idle(),
+    style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
+    configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
 ) {
     val focusManager = LocalFocusManager.current
-
-    val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
     Column(
         modifier = modifier
@@ -67,11 +68,11 @@ fun NitrozenOutlinedTextFieldReadOnly(
         if (label != null) {
             Text(
                 text = label,
-                style = NitrozenTheme.typography.bodyXsReg,
+                style = style.labelTextStyle,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp),
-                color = NitrozenTheme.colors.grey80
+                color = style.labelTextColor
             )
 
             Spacer(modifier = Modifier.height(4.dp))
@@ -81,60 +82,32 @@ fun NitrozenOutlinedTextFieldReadOnly(
             value = value,
             onValueChange = { },
             modifier = Modifier.fillMaxWidth(),
-            textStyle = NitrozenTheme.typography.bodySmall,
+            textStyle = style.textStyle,
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                textColor = NitrozenTheme.colors.grey100,
+                textColor = style.textColor,
                 unfocusedBorderColor = textFieldState.borderColor,
                 focusedBorderColor = textFieldState.borderColor,
-                cursorColor = NitrozenTheme.colors.grey60,
-                backgroundColor = backgroundColor,
+                cursorColor = style.cursorColor,
+                backgroundColor = style.backgroundColor,
             ),
             placeholder = {
                 Text(
                     text = hint,
-                    style = NitrozenTheme.typography.bodySmall,
-                    color = NitrozenTheme.colors.grey60
+                    style = style.placeholderTextStyle,
+                    color = style.placeholderTextColor
                 )
             },
             singleLine = true,
             maxLines = 1,
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon,
-            shape = NitrozenTheme.shapes.rounded16,
-            visualTransformation = visualTransformation,
+            shape = configuration.shape,
+            visualTransformation = configuration.visualTransformation,
         )
 
-        if (textFieldState.message != null) {
-            if (textFieldState is TextFieldState.Error) {
-                LaunchedEffect(key1 = value) {
-                    bringIntoViewRequester.bringIntoView()
-                }
-            }
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .padding(top = 8.dp, start = 8.dp, end = 8.dp)
-            ) {
-                val icon = textFieldState.icon
-                if (icon != null) {
-                    Image(
-                        painter = icon,
-                        contentDescription = null,
-                        modifier = Modifier.alignByBaseline()
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                }
-                Text(
-                    text = textFieldState.message!!,
-                    fontFamily = fontsNitrozen,
-                    fontWeight = FontWeight.Normal,
-                    lineHeight = 20.sp,
-                    fontSize = 14.sp,
-                    color = textFieldState.infoTextColor,
-                    modifier = Modifier.alignByBaseline()
-                        .bringIntoViewRequester(bringIntoViewRequester)
-                )
-            }
-        }
+        TextFieldMessage(
+            textFieldState = textFieldState,
+            textStyle = style.infoTextStyle
+        )
     }
 }
