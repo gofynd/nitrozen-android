@@ -69,6 +69,8 @@ private fun NitrozenOtpTextField_Success() {
 @Composable
 fun NitrozenOtpTextField(
     modifier: Modifier = Modifier,
+    label : String? = null,
+    hintChar : Char = '0',
     otp: String,
     onOtpChange: (String) -> Unit,
     onKeyboardDone: () -> Unit,
@@ -90,6 +92,19 @@ fun NitrozenOtpTextField(
         modifier = modifier
             .background(style.backgroundColor),
     ) {
+        if (label != null) {
+            Text(
+                text = label,
+                style = style.labelTextStyle,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp),
+                color = style.labelTextColor
+            )
+
+            Spacer(modifier = Modifier.height(4.dp))
+        }
+
         BasicTextField(
             value = otp,
             onValueChange = {
@@ -108,7 +123,7 @@ fun NitrozenOtpTextField(
                 ) {
                     repeat(otpSize) { index ->
                         val char = when {
-                            index > otp.length -> "0"
+                            index > otp.length -> hintChar.toString()
                             index == otp.length -> "|"
                             else -> otp[index].toString()
                         }

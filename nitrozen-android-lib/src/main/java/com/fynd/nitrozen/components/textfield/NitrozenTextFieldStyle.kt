@@ -5,7 +5,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.theme.typography.fontsNitrozen
 
@@ -45,6 +44,8 @@ object NitrozenTextFieldStyle {
         )
 
     data class Otp(
+        val labelTextStyle: TextStyle,
+        val labelTextColor: Color,
         val backgroundColor: Color,
         val placeholderTextColor: Color,
         val textColor: Color,
@@ -61,6 +62,8 @@ object NitrozenTextFieldStyle {
     val Otp.Companion.Default: Otp
         @Composable
         get() = Otp(
+            labelTextStyle = NitrozenTheme.typography.bodyXsReg,
+            labelTextColor = NitrozenTheme.colors.grey80,
             backgroundColor = NitrozenTheme.colors.background,
             placeholderTextColor = NitrozenTheme.colors.grey60,
             textColor = NitrozenTheme.colors.grey100,

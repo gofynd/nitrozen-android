@@ -130,5 +130,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "OtpField",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenOtpField)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
