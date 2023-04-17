@@ -31,7 +31,7 @@ import com.fynd.nitrozen.theme.NitrozenTheme
 @Composable
 private fun NitrozenOtpTextField_Idle() {
     NitrozenTheme {
-        NitrozenOtpTextField(
+        NitrozenOTPField(
             state = TextFieldState.Idle(),
             otp = "",
             onOtpChange = {},
@@ -44,7 +44,7 @@ private fun NitrozenOtpTextField_Idle() {
 @Composable
 private fun NitrozenOtpTextField_Error() {
     NitrozenTheme {
-        NitrozenOtpTextField(
+        NitrozenOTPField(
             state = TextFieldState.Error("Invalid OTP"),
             otp = "123456",
             onOtpChange = {},
@@ -57,7 +57,7 @@ private fun NitrozenOtpTextField_Error() {
 @Composable
 private fun NitrozenOtpTextField_Success() {
     NitrozenTheme {
-        NitrozenOtpTextField(
+        NitrozenOTPField(
             state = TextFieldState.Success("OTP verified"),
             otp = "123456",
             onOtpChange = {},
@@ -67,7 +67,7 @@ private fun NitrozenOtpTextField_Success() {
 }
 
 @Composable
-fun NitrozenOtpTextField(
+fun NitrozenOTPField(
     modifier: Modifier = Modifier,
     label : String? = null,
     hintChar : Char = '0',
@@ -77,8 +77,8 @@ fun NitrozenOtpTextField(
     otpSize: Int = 6,
     focus: Boolean = false,
     state: TextFieldState = TextFieldState.Idle(),
-    style: NitrozenTextFieldStyle.Otp = NitrozenTextFieldStyle.Otp.Default,
-    configuration: NitrozenTextFieldConfiguration.Otp = NitrozenTextFieldConfiguration.Otp.Default,
+    style: NitrozenTextFieldStyle.OTP = NitrozenTextFieldStyle.OTP.Default,
+    configuration: NitrozenTextFieldConfiguration.OTP = NitrozenTextFieldConfiguration.OTP.Default,
 ) {
     val focusRequester = FocusRequester.Default
 

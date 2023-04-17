@@ -1,4 +1,4 @@
-# OtpField
+# OTPField
 
 ## Normal
 ```kotlin

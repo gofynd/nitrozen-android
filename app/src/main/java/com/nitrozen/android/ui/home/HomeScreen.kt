@@ -132,7 +132,7 @@ fun HomeScreen(
         )
 
         NitrozenOutlinedButton(
-            text = "OtpField",
+            text = "OTPField",
             enabled = true,
             onClick = {
                 onAction(HomeScreenActions.OpenOtpField)

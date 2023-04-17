@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.textfield.TextFieldState
-import com.fynd.nitrozen.components.textfield.otp.NitrozenOtpTextField
+import com.fynd.nitrozen.components.textfield.otp.NitrozenOTPField
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.nitrozen.android.ui.components.ComponentAppBar
 
@@ -34,7 +34,7 @@ fun OtpFieldScreen(
             .background(NitrozenTheme.colors.background)
     ) {
         ComponentAppBar(
-            title = "OtpField",
+            title = "OTPField",
             onBackClick = onBackClick
         )
 
@@ -51,7 +51,7 @@ fun OtpFieldScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            NitrozenOtpTextField(
+            NitrozenOTPField(
                 label = "Label",
                 otp = "",
                 onOtpChange = {},
@@ -69,7 +69,7 @@ fun OtpFieldScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            NitrozenOtpTextField(
+            NitrozenOTPField(
                 label = "Label",
                 otp = "122324",
                 onOtpChange = {},
@@ -88,7 +88,7 @@ fun OtpFieldScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            NitrozenOtpTextField(
+            NitrozenOTPField(
                 label = "Label",
                 otp = "122324",
                 onOtpChange = {},
@@ -101,13 +101,13 @@ fun OtpFieldScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Otp Size",
+                text = "OTP Size",
                 style = NitrozenTheme.typography.headingXs
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            NitrozenOtpTextField(
+            NitrozenOTPField(
                 label = "Label",
                 otp = "",
                 otpSize = 4,

@@ -28,4 +28,4 @@ dependencies {
 - [Badge](./assets/documents/badge.md)
 - [Stepper](./assets/documents/stepper.md)
 - [DropDownTextField](./assets/documents/dropdowntextfield.md)
-- [OtpField](./assets/documents/otpfield.md)
+- [OTPField](./assets/documents/otpfield.md)

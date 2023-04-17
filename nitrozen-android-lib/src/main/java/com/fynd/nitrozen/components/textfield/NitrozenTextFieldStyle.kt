@@ -43,7 +43,7 @@ object NitrozenTextFieldStyle {
             ),
         )
 
-    data class Otp(
+    data class OTP(
         val labelTextStyle: TextStyle,
         val labelTextColor: Color,
         val backgroundColor: Color,
@@ -59,9 +59,9 @@ object NitrozenTextFieldStyle {
         companion object
     }
 
-    val Otp.Companion.Default: Otp
+    val OTP.Companion.Default: OTP
         @Composable
-        get() = Otp(
+        get() = OTP(
             labelTextStyle = NitrozenTheme.typography.bodyXsReg,
             labelTextColor = NitrozenTheme.colors.grey80,
             backgroundColor = NitrozenTheme.colors.background,
