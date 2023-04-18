@@ -88,4 +88,8 @@ class AppNavigator constructor(
     override fun openDropDownScreen() {
         navController.navigate(R.id.fragmentDropDown)
     }
+
+    override fun openEmptyViewScreen() {
+        navController.navigate(R.id.fragmentEmptyView)
+    }
 }

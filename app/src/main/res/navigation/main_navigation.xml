@@ -59,4 +59,9 @@
         android:name="com.nitrozen.android.ui.dropdown.DropDownFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentEmptyView"
+        android:name="com.nitrozen.android.ui.emptyview.EmptyViewFragment"
+        />
+
 </navigation>

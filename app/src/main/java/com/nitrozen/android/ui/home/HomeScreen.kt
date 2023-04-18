@@ -130,5 +130,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "EmptyView",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenEmptyView)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
