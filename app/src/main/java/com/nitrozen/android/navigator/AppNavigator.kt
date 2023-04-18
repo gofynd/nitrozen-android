@@ -92,4 +92,8 @@ class AppNavigator constructor(
     override fun openEmptyViewScreen() {
         navController.navigate(R.id.fragmentEmptyView)
     }
+
+    override fun openErrorViewScreen() {
+        navController.navigate(R.id.fragmentErrorView)
+    }
 }

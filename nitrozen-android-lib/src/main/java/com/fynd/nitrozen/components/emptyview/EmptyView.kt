@@ -24,6 +24,15 @@ private fun EmptyViewPreview() {
     }
 }
 
+/**
+ * A composable function that displays a Nitrozen Empty View.
+ * @param modifier optional [Modifier] to apply to the composable
+ * @param topContent a lambda function which defines the composable content to be displayed at the top of the empty view, defaults to an image with id [R.drawable.empty_list]
+ * @param bottomContent a nullable lambda function which defines the composable content to be displayed at the bottom of the empty view
+ * @param title a String value indicating the title of the empty view
+ * @param subtitle a nullable String value indicating the subtitle of the empty view
+ * @param style an enum value indicating the style of the empty view, defaults to [NitrozenEmptyViewStyle.Companion.Default]
+ * */
 @Composable
 fun NitrozenEmptyView(
     modifier : Modifier = Modifier,
@@ -38,14 +47,14 @@ fun NitrozenEmptyView(
     bottomContent : @Composable ((ColumnScope)->Unit)? = null,
     title : String,
     subtitle : String? = null,
-    emptyStyle: NitrozenEmptyViewStyle = NitrozenEmptyViewStyle.Default
+    style: NitrozenEmptyViewStyle = NitrozenEmptyViewStyle.Default
 ) {
     DataStateView(
         modifier = modifier,
         title = title,
-        titleTextStyle = emptyStyle.titleTextStyle,
+        titleTextStyle = style.titleTextStyle,
         subTitle = subtitle,
-        subTitleTextStyle = emptyStyle.subTitleTextStyle,
+        subTitleTextStyle = style.subTitleTextStyle,
         bottomContent = bottomContent,
         topContent = topContent
     )

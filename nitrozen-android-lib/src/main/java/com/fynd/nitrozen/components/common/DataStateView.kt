@@ -33,7 +33,7 @@ private fun DataStatePreview() {
 @Composable
 internal fun DataStateView(
     modifier : Modifier = Modifier,
-    topContent : @Composable ((ColumnScope)->Unit),
+    topContent : @Composable ((ColumnScope)->Unit)? = null,
     bottomContent : @Composable ((ColumnScope)->Unit)? = null,
     title : String,
     titleTextStyle: TextStyle,
@@ -46,7 +46,7 @@ internal fun DataStateView(
 
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        topContent(this)
+        topContent?.invoke(this)
 
         Text(
             modifier = Modifier.fillMaxWidth(),

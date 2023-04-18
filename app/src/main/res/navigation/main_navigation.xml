@@ -64,4 +64,9 @@
         android:name="com.nitrozen.android.ui.emptyview.EmptyViewFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentErrorView"
+        android:name="com.nitrozen.android.ui.errorview.ErrorViewFragment"
+        />
+
 </navigation>

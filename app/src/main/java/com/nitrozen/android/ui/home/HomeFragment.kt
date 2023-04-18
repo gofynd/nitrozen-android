@@ -47,6 +47,7 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenStepper -> navigator.openStepperScreen()
             HomeScreenActions.OpenDropDown -> navigator.openDropDownScreen()
             HomeScreenActions.OpenEmptyView -> navigator.openEmptyViewScreen()
+            HomeScreenActions.OpenErrorView -> navigator.openErrorViewScreen()
         }
     }
 }

@@ -12,4 +12,5 @@ sealed class HomeScreenActions {
     object OpenStepper : HomeScreenActions()
     object OpenDropDown : HomeScreenActions()
     object OpenEmptyView : HomeScreenActions()
+    object OpenErrorView : HomeScreenActions()
 }

@@ -29,3 +29,4 @@ dependencies {
 - [Stepper](./assets/documents/stepper.md)
 - [DropDownTextField](./assets/documents/dropdowntextfield.md)
 - [EmptyView](./assets/documents/emptyview.md)
+- [ErrorView](./assets/documents/errorview.md)
