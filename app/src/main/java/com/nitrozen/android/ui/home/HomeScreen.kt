@@ -130,5 +130,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Divider",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenDivider)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
