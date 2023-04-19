@@ -130,5 +130,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "BottomNavigation",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenBottomNavigation)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

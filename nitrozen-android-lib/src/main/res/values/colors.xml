@@ -21,4 +21,5 @@
     <color name="warning20">#FEF0E7</color>
     <color name="warning50">#F06D0F</color>
     <color name="warning80">#7D2F08</color>
+    <color name="shadow">#E0E0E0</color>
 </resources>
