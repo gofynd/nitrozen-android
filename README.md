@@ -1,4 +1,18 @@
-# Nitrozen Android
+![Android][NITROZEN_KIT_IMAGE_URL]
+
+<h1 align="center">Nitrozen-Android</h1>
+
+<p align="center">
+    <a href="#"><img alt="" src="https://img.shields.io/badge/API-23%2B-green" /></a>
+    <a href="https://www.jitpack.io/"><img alt="" src="https://img.shields.io/badge/Build-JitPack-blue" /></a>
+    <a href="#"><img alt="" src="https://img.shields.io/badge/License-MIT-blue" /></a>
+</p>
+
+<p align="center">
+Nitrozen-Android is a library built with Jetpack Compose that provides various UI components to create stunning Android layouts.
+</p> 
+
+---
 
 ## How to use?
 - **Step 1:** Add following in your root build.gradle at the end of repositories:
@@ -18,13 +32,19 @@ dependencies {
 ```
 
 ## Components
-- [Buttons](./assets/documents/buttons.md)
-- [Typography](./assets/documents/typography.md)
-- [TextFields](./assets/documents/textfields.md)
-- [CheckBox](./assets/documents/checkbox.md)
-- [RadioButton](./assets/documents/radiobutton.md)
-- [Chip](./assets/documents/chip.md)
-- [Switch](./assets/documents/switch.md)
-- [Badge](./assets/documents/badge.md)
-- [Stepper](./assets/documents/stepper.md)
-- [DropDownTextField](./assets/documents/dropdowntextfield.md)
+* #### [Button](./assets/documents/buttons.md)
+* #### [Typography](./assets/documents/typography.md)
+* #### [TextField](./assets/documents/textfields.md)
+* #### [CheckBox](./assets/documents/checkbox.md)
+* #### [RadioButton](./assets/documents/radiobutton.md)
+* #### [DropDownTextField](./assets/documents/dropdowntextfield.md)
+* #### [Chip](./assets/documents/chip.md)
+* #### [Badge](./assets/documents/badge.md)
+* #### [Switch](./assets/documents/switch.md)
+* #### [Stepper](./assets/documents/stepper.md)
+
+
+## License
+Nitrozen-Android is released under the MIT license.
+
+[NITROZEN_KIT_IMAGE_URL]: https://raw.githubusercontent.com/hitendra-gofynd/nitrozen-ios/master/Example-Nitrozen-SwiftUI/Example-Nitrozen-SwiftUI/Preview%20Content/Nitrozen-github-white.png
