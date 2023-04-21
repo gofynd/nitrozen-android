@@ -28,7 +28,7 @@ allprojects {
 - **Step 2:** Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.gofynd:nitrozen-android:0.1.0'
+    implementation 'com.github.gofynd:nitrozen-android:1.0.0'
 }
 ```
 
