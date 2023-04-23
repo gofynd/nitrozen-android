@@ -130,5 +130,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "AppBar",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenAppBar)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
