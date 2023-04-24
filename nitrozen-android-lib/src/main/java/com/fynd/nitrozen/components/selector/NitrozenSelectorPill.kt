@@ -1,12 +1,11 @@
 package com.fynd.nitrozen.components.selector
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -78,12 +77,85 @@ private fun NitrozenSelectorPill_IconSelected() {
     }
 }
 
+@Preview
+@Composable
+private fun NitrozenSelectorPill_IconTextNormal_Horizontal() {
+    NitrozenTheme {
+        NitrozenSelectorPill(
+            item = NitrozenSelectorItem.IconText("Item 1", R.drawable.ic_chevron_down),
+            selected = false,
+            onClick = {},
+            modifier = Modifier.fillMaxWidth(),
+            style = NitrozenSelectorStyle.Default.copy(
+                backgroundColor = NitrozenTheme.colors.grey20
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun NitrozenSelectorPill_IconTextSelected_Horizontal() {
+    NitrozenTheme {
+        NitrozenSelectorPill(
+            item = NitrozenSelectorItem.IconText("Item 1", R.drawable.ic_chevron_down),
+            selected = true,
+            onClick = {},
+            modifier = Modifier.fillMaxWidth(),
+            style = NitrozenSelectorStyle.Default.copy(
+                backgroundColor = NitrozenTheme.colors.grey20
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun NitrozenSelectorPill_IconTextNormal_Vertical() {
+    NitrozenTheme {
+        NitrozenSelectorPill(
+            item = NitrozenSelectorItem.IconText(
+                "Item 1",
+                R.drawable.ic_chevron_down,
+            ),
+            selected = false,
+            isItemDirectionVertical = true,
+            onClick = {},
+            modifier = Modifier.fillMaxWidth(),
+            style = NitrozenSelectorStyle.Default.copy(
+                backgroundColor = NitrozenTheme.colors.grey20
+            )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun NitrozenSelectorPill_IconTextSelected_Vertical() {
+    NitrozenTheme {
+        NitrozenSelectorPill(
+            item = NitrozenSelectorItem.IconText(
+                "Item 1",
+                R.drawable.ic_chevron_down
+            ),
+            selected = true,
+            onClick = {},
+            isItemDirectionVertical = true,
+            modifier = Modifier.fillMaxWidth(),
+            style = NitrozenSelectorStyle.Default.copy(
+                backgroundColor = NitrozenTheme.colors.grey20
+            )
+        )
+    }
+}
+
 @Composable
 fun NitrozenSelectorPill(
     modifier: Modifier = Modifier,
     item: NitrozenSelectorItem,
     onClick: () -> Unit,
     selected: Boolean = false,
+    isItemDirectionVertical: Boolean = false,
     style: NitrozenSelectorStyle = NitrozenSelectorStyle.Default,
     configuration: NitrozenSelectorConfiguration = NitrozenSelectorConfiguration.Default,
 ) {
@@ -115,6 +187,53 @@ fun NitrozenSelectorPill(
                 modifier = itemModifier.size(24.dp),
                 tint = textColor
             )
+        }
+        is NitrozenSelectorItem.IconText -> {
+            if (isItemDirectionVertical) {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(
+                        space = 4.dp,
+                        alignment = Alignment.CenterVertically
+                    ),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = itemModifier
+                ) {
+                    Icon(
+                        painter = painterResource(id = item.icon),
+                        contentDescription = item.contentDescription,
+                        modifier = Modifier.size(24.dp),
+                        tint = textColor
+                    )
+                    Text(
+                        text = item.text,
+                        style = style.textStyle,
+                        color = textColor,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            } else {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(
+                        space = 8.dp,
+                        alignment = Alignment.CenterHorizontally
+                    ),
+                    modifier = itemModifier
+                ) {
+                    Icon(
+                        painter = painterResource(id = item.icon),
+                        contentDescription = item.contentDescription,
+                        modifier = Modifier.size(24.dp),
+                        tint = textColor
+                    )
+                    Text(
+                        text = item.text,
+                        style = style.textStyle,
+                        color = textColor,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
         }
     }
 }

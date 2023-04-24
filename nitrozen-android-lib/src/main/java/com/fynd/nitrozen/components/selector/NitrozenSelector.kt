@@ -58,12 +58,60 @@ fun NitrozenSelector_Icon() {
     }
 }
 
+@Preview
+@Composable
+fun NitrozenSelector_IconText_Horizontal() {
+    val selectedItemIndex = remember {
+        mutableStateOf(0)
+    }
+
+    NitrozenTheme {
+        NitrozenSelector(
+            items = listOf(
+                NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+                NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+                NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+            ),
+            selectedItemIndex = selectedItemIndex.value,
+            onItemClick = {
+                selectedItemIndex.value = it
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
+@Preview
+@Composable
+fun NitrozenSelector_IconText_Vertical() {
+    val selectedItemIndex = remember {
+        mutableStateOf(0)
+    }
+
+    NitrozenTheme {
+        NitrozenSelector(
+            items = listOf(
+                NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+                NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+                NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+            ),
+            selectedItemIndex = selectedItemIndex.value,
+            isItemDirectionVertical = true,
+            onItemClick = {
+                selectedItemIndex.value = it
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
 @Composable
 fun NitrozenSelector(
     modifier: Modifier = Modifier,
     items: List<NitrozenSelectorItem>,
     onItemClick: (index: Int) -> Unit,
     selectedItemIndex: Int = 0,
+    isItemDirectionVertical: Boolean = false,
     style: NitrozenSelectorStyle = NitrozenSelectorStyle.Default,
     configuration: NitrozenSelectorConfiguration = NitrozenSelectorConfiguration.Default,
 ) {
@@ -89,7 +137,8 @@ fun NitrozenSelector(
                 onClick = {
                     onItemClick(index)
                 },
-                modifier = Modifier.weight(1F)
+                modifier = Modifier.weight(1F),
+                isItemDirectionVertical = isItemDirectionVertical
             )
         }
     }

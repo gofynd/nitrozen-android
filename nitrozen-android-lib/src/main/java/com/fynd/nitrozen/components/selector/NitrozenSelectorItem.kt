@@ -9,4 +9,10 @@ sealed interface NitrozenSelectorItem {
         @DrawableRes val icon: Int,
         val contentDescription: String? = null
     ) : NitrozenSelectorItem
+
+    data class IconText(
+        val text: String,
+        @DrawableRes val icon: Int,
+        val contentDescription: String? = null
+    ) : NitrozenSelectorItem
 }
