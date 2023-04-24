@@ -130,5 +130,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Selector",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenSelector)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

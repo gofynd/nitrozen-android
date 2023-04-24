@@ -1,6 +1,6 @@
 package com.fynd.nitrozen.components.selector
 
-import androidx.compose.foundation.background
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.R
 import com.fynd.nitrozen.theme.NitrozenTheme
-import com.fynd.nitrozen.utils.extensions.clickableWithRipple
+import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 
 @Preview
 @Composable
@@ -159,12 +159,11 @@ fun NitrozenSelectorPill(
     style: NitrozenSelectorStyle = NitrozenSelectorStyle.Default,
     configuration: NitrozenSelectorConfiguration = NitrozenSelectorConfiguration.Default,
 ) {
-    val textColor = if (selected) style.selectedTextColor else style.textColor
-    val backgroundColor = if (selected) style.selectedBackgroundColor else style.backgroundColor
+    val textColor = animateColorAsState(if (selected) style.selectedTextColor else style.textColor)
+
     val itemModifier = modifier
         .clip(NitrozenTheme.shapes.pill)
-        .background(backgroundColor, shape = NitrozenTheme.shapes.pill)
-        .clickableWithRipple { onClick() }
+        .clickableWithoutRipple { onClick() }
         .padding(
             top = configuration.itemPaddingTop,
             bottom = configuration.itemPaddingBottom,
@@ -175,7 +174,7 @@ fun NitrozenSelectorPill(
             Text(
                 text = item.text,
                 style = style.textStyle,
-                color = textColor,
+                color = textColor.value,
                 textAlign = TextAlign.Center,
                 modifier = itemModifier,
             )
@@ -185,7 +184,7 @@ fun NitrozenSelectorPill(
                 painter = painterResource(id = item.icon),
                 contentDescription = item.contentDescription,
                 modifier = itemModifier.size(24.dp),
-                tint = textColor
+                tint = textColor.value
             )
         }
         is NitrozenSelectorItem.IconText -> {
@@ -202,12 +201,12 @@ fun NitrozenSelectorPill(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.contentDescription,
                         modifier = Modifier.size(24.dp),
-                        tint = textColor
+                        tint = textColor.value
                     )
                     Text(
                         text = item.text,
                         style = style.textStyle,
-                        color = textColor,
+                        color = textColor.value,
                         textAlign = TextAlign.Center,
                     )
                 }
@@ -224,12 +223,12 @@ fun NitrozenSelectorPill(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.contentDescription,
                         modifier = Modifier.size(24.dp),
-                        tint = textColor
+                        tint = textColor.value
                     )
                     Text(
                         text = item.text,
                         style = style.textStyle,
-                        color = textColor,
+                        color = textColor.value,
                         textAlign = TextAlign.Center,
                     )
                 }
