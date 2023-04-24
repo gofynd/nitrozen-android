@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.R
 
 @Preview
 @Composable
@@ -24,6 +25,29 @@ fun NitrozenSelector_Text() {
                 NitrozenSelectorItem.Text("Item 1"),
                 NitrozenSelectorItem.Text("Item 2"),
                 NitrozenSelectorItem.Text("Item 3"),
+            ),
+            selectedItemIndex = selectedItemIndex.value,
+            onItemClick = {
+                selectedItemIndex.value = it
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
+@Preview
+@Composable
+fun NitrozenSelector_Icon() {
+    val selectedItemIndex = remember {
+        mutableStateOf(0)
+    }
+
+    NitrozenTheme {
+        NitrozenSelector(
+            items = listOf(
+                NitrozenSelectorItem.Icon(R.drawable.ic_chevron_down),
+                NitrozenSelectorItem.Icon(R.drawable.ic_chevron_down),
+                NitrozenSelectorItem.Icon(R.drawable.ic_chevron_down),
             ),
             selectedItemIndex = selectedItemIndex.value,
             onItemClick = {
@@ -59,18 +83,14 @@ fun NitrozenSelector(
     ) {
         items.forEachIndexed { index, item ->
             val selected = index == selectedItemIndex
-            when (item) {
-                is NitrozenSelectorItem.Text -> {
-                    NitrozenSelectorPill(
-                        title = item.text,
-                        selected = selected,
-                        onClick = {
-                            onItemClick(index)
-                        },
-                        modifier = Modifier.weight(1F)
-                    )
-                }
-            }
+            NitrozenSelectorPill(
+                item = item,
+                selected = selected,
+                onClick = {
+                    onItemClick(index)
+                },
+                modifier = Modifier.weight(1F)
+            )
         }
     }
 }
