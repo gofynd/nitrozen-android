@@ -142,13 +142,15 @@ fun NitrozenSelector(
             mutableStateOf(0F)
         }
 
-        val enableAnimation = false
         val selectorTranslationX = animateFloatAsState(targetValue = selectorTranslationTarget.value)
 
         Box(
             modifier = Modifier
                 .graphicsLayer(
-                    translationX = if (enableAnimation) selectorTranslationX.value else selectorTranslationTarget.value
+                    translationX = if (configuration.allowAnimation)
+                        selectorTranslationX.value
+                    else
+                        selectorTranslationTarget.value
                 )
                 .size(width = selectorWidth.value, height = selectorHeight.value)
                 .background(

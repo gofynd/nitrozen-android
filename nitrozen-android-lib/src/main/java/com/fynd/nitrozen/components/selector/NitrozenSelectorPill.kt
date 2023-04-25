@@ -159,7 +159,8 @@ fun NitrozenSelectorPill(
     style: NitrozenSelectorStyle = NitrozenSelectorStyle.Default,
     configuration: NitrozenSelectorConfiguration = NitrozenSelectorConfiguration.Default,
 ) {
-    val textColor = animateColorAsState(if (selected) style.selectedTextColor else style.textColor)
+    val textColor = if (selected) style.selectedTextColor else style.textColor
+    val textColorAnimated = animateColorAsState(textColor)
 
     val itemModifier = modifier
         .clip(NitrozenTheme.shapes.pill)
@@ -174,7 +175,10 @@ fun NitrozenSelectorPill(
             Text(
                 text = item.text,
                 style = style.textStyle,
-                color = textColor.value,
+                color = if (configuration.allowAnimation)
+                    textColorAnimated.value
+                else
+                    textColor,
                 textAlign = TextAlign.Center,
                 modifier = itemModifier,
             )
@@ -184,7 +188,10 @@ fun NitrozenSelectorPill(
                 painter = painterResource(id = item.icon),
                 contentDescription = item.contentDescription,
                 modifier = itemModifier.size(24.dp),
-                tint = textColor.value
+                tint = if (configuration.allowAnimation)
+                    textColorAnimated.value
+                else
+                    textColor
             )
         }
         is NitrozenSelectorItem.IconText -> {
@@ -201,12 +208,18 @@ fun NitrozenSelectorPill(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.contentDescription,
                         modifier = Modifier.size(24.dp),
-                        tint = textColor.value
+                        tint = if (configuration.allowAnimation)
+                            textColorAnimated.value
+                        else
+                            textColor
                     )
                     Text(
                         text = item.text,
                         style = style.textStyle,
-                        color = textColor.value,
+                        color = if (configuration.allowAnimation)
+                            textColorAnimated.value
+                        else
+                            textColor,
                         textAlign = TextAlign.Center,
                     )
                 }
@@ -223,12 +236,18 @@ fun NitrozenSelectorPill(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.contentDescription,
                         modifier = Modifier.size(24.dp),
-                        tint = textColor.value
+                        tint = if (configuration.allowAnimation)
+                            textColorAnimated.value
+                        else
+                            textColor
                     )
                     Text(
                         text = item.text,
                         style = style.textStyle,
-                        color = textColor.value,
+                        color = if (configuration.allowAnimation)
+                            textColorAnimated.value
+                        else
+                            textColor,
                         textAlign = TextAlign.Center,
                     )
                 }

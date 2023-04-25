@@ -11,7 +11,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.fynd.nitrozen.R
 import com.fynd.nitrozen.components.selector.NitrozenSelector
 import com.fynd.nitrozen.components.selector.NitrozenSelectorItem
 import com.fynd.nitrozen.theme.NitrozenTheme
@@ -81,9 +80,9 @@ fun SelectorScreen(
             }
             NitrozenSelector(
                 items = listOf(
-                    NitrozenSelectorItem.Icon(R.drawable.ic_chevron_down),
-                    NitrozenSelectorItem.Icon(R.drawable.ic_chevron_down),
-                    NitrozenSelectorItem.Icon(R.drawable.ic_chevron_down),
+                    NitrozenSelectorItem.Icon(com.nitrozen.android.R.drawable.ic_heart),
+                    NitrozenSelectorItem.Icon(com.nitrozen.android.R.drawable.ic_heart),
+                    NitrozenSelectorItem.Icon(com.nitrozen.android.R.drawable.ic_heart),
                 ),
                 selectedItemIndex = indexForIcon.value,
                 onItemClick = {
@@ -105,9 +104,9 @@ fun SelectorScreen(
             }
             NitrozenSelector(
                 items = listOf(
-                    NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
-                    NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
-                    NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+                    NitrozenSelectorItem.IconText("Item", com.nitrozen.android.R.drawable.ic_heart),
+                    NitrozenSelectorItem.IconText("Item", com.nitrozen.android.R.drawable.ic_heart),
+                    NitrozenSelectorItem.IconText("Item", com.nitrozen.android.R.drawable.ic_heart),
                 ),
                 selectedItemIndex = indexForIconTextH.value,
                 onItemClick = {
@@ -129,9 +128,9 @@ fun SelectorScreen(
             }
             NitrozenSelector(
                 items = listOf(
-                    NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
-                    NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
-                    NitrozenSelectorItem.IconText("Item", R.drawable.ic_chevron_down),
+                    NitrozenSelectorItem.IconText("Item", com.nitrozen.android.R.drawable.ic_heart),
+                    NitrozenSelectorItem.IconText("Item", com.nitrozen.android.R.drawable.ic_heart),
+                    NitrozenSelectorItem.IconText("Item", com.nitrozen.android.R.drawable.ic_heart),
                 ),
                 selectedItemIndex = indexForIconTextV.value,
                 onItemClick = {

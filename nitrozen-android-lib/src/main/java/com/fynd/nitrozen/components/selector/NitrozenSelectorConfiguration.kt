@@ -10,6 +10,7 @@ data class NitrozenSelectorConfiguration(
     val itemPaddingBottom: Dp,
     val contentPadding: PaddingValues,
     val spaceBetweenItems: Dp,
+    val allowAnimation: Boolean,
 ) {
     companion object
 }
@@ -21,4 +22,5 @@ val NitrozenSelectorConfiguration.Companion.Default: NitrozenSelectorConfigurati
         itemPaddingBottom = 8.dp,
         contentPadding = PaddingValues(4.dp),
         spaceBetweenItems = 4.dp,
+        allowAnimation = true
     )
