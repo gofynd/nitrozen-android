@@ -44,6 +44,7 @@ dependencies {
 * [Badge](./assets/documents/badge.md)
 * [Switch](./assets/documents/switch.md)
 * [Stepper](./assets/documents/stepper.md)
+* [PageControl](./assets/documents/pagecontrol.md)
 
 ## Contributors
 * [Dhaval Shah][CONT_DHAVAL]
