@@ -17,5 +17,8 @@ interface Navigator {
     fun openBadgeScreen()
     fun openStepperScreen()
     fun openDropDownScreen()
+    fun openDividerScreen()
+    fun openAvatarScreen()
+    fun openOtpFieldScreen()
     fun openBottomNavigationScreen()
 }

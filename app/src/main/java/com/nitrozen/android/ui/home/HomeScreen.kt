@@ -132,6 +132,33 @@ fun HomeScreen(
         )
 
         NitrozenOutlinedButton(
+            text = "Divider",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenDivider)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "Avatar",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenAvatar)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "OTPField",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenOtpField)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
             text = "BottomNavigation",
             enabled = true,
             onClick = {

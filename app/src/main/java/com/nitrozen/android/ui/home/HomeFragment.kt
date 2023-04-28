@@ -46,6 +46,9 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenBadge -> navigator.openBadgeScreen()
             HomeScreenActions.OpenStepper -> navigator.openStepperScreen()
             HomeScreenActions.OpenDropDown -> navigator.openDropDownScreen()
+            HomeScreenActions.OpenDivider -> navigator.openDividerScreen()
+            HomeScreenActions.OpenAvatar -> navigator.openAvatarScreen()
+            HomeScreenActions.OpenOtpField -> navigator.openOtpFieldScreen()
             HomeScreenActions.OpenBottomNavigation -> navigator.openBottomNavigationScreen()
         }
     }
