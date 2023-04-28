@@ -60,6 +60,26 @@
         />
 
     <fragment
+        android:id="@+id/fragmentDivider"
+        android:name="com.nitrozen.android.ui.divider.DividerFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentAvatar"
+        android:name="com.nitrozen.android.ui.avatar.AvatarFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentOtpField"
+        android:name="com.nitrozen.android.ui.otpfield.OtpFieldFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragmentBottomNavigation"
+        android:name="com.nitrozen.android.ui.bottomnavigation.BottomNavigationFragment"
+        />
+
+    <fragment
         android:id="@+id/fragmentAppBar"
         android:name="com.nitrozen.android.ui.appbar.AppBarFragment"
         />

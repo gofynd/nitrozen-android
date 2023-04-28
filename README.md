@@ -47,6 +47,7 @@ dependencies {
 * [AppBar](./assets/documents/appbar.md)
 
 ## Contributors
+
 * [Dhaval Shah][CONT_DHAVAL]
 * [Saurabh Patel][CONT_SAURABH]
 * [Shubhendra Singh][CONT_SHUBHENDRA]
