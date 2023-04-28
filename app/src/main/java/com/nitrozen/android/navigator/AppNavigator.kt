@@ -108,4 +108,8 @@ class AppNavigator constructor(
     override fun openAppBarScreen() {
         navController.navigate(R.id.fragmentAppBar)
     }
+
+    override fun openSelectorScreen() {
+        navController.navigate(R.id.fragmentSelector)
+    }
 }

@@ -84,4 +84,9 @@
         android:name="com.nitrozen.android.ui.appbar.AppBarFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentSelector"
+        android:name="com.nitrozen.android.ui.selector.SelectorFragment"
+        />
+
 </navigation>

@@ -45,6 +45,7 @@ dependencies {
 * [Switch](./assets/documents/switch.md)
 * [Stepper](./assets/documents/stepper.md)
 * [AppBar](./assets/documents/appbar.md)
+* [Selector](./assets/documents/selector.md)
 
 ## Contributors
 

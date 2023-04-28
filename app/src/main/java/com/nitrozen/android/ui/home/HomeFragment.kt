@@ -51,6 +51,7 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenOtpField -> navigator.openOtpFieldScreen()
             HomeScreenActions.OpenBottomNavigation -> navigator.openBottomNavigationScreen()
             HomeScreenActions.OpenAppBar -> navigator.openAppBarScreen()
+            HomeScreenActions.OpenSelector -> navigator.openSelectorScreen()
         }
     }
 }

@@ -16,4 +16,5 @@ sealed class HomeScreenActions {
     object OpenOtpField : HomeScreenActions()
     object OpenBottomNavigation : HomeScreenActions()
     object OpenAppBar : HomeScreenActions()
+    object OpenSelector : HomeScreenActions()
 }
