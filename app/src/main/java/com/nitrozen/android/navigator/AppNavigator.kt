@@ -89,6 +89,38 @@ class AppNavigator constructor(
         navController.navigate(R.id.fragmentDropDown)
     }
 
+    override fun openDividerScreen() {
+        navController.navigate(R.id.fragmentDivider)
+    }
+
+    override fun openAvatarScreen() {
+        navController.navigate(R.id.fragmentAvatar)
+    }
+
+    override fun openOtpFieldScreen() {
+        navController.navigate(R.id.fragmentOtpField)
+    }
+
+    override fun openBottomNavigationScreen() {
+        navController.navigate(R.id.fragmentBottomNavigation)
+    }
+
+    override fun openAppBarScreen() {
+        navController.navigate(R.id.fragmentAppBar)
+    }
+
+    override fun openSelectorScreen() {
+        navController.navigate(R.id.fragmentSelector)
+    }
+
+    override fun openPageControlScreen() {
+        navController.navigate(R.id.fragmentPageControl)
+    }
+
+    override fun openDialogScreen() {
+        navController.navigate(R.id.fragmentDialog)
+    }
+
     override fun openEmptyViewScreen() {
         navController.navigate(R.id.fragmentEmptyView)
     }
