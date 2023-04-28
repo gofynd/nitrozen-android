@@ -48,6 +48,8 @@ dependencies {
 * [Selector](./assets/documents/selector.md)
 * [PageControl](./assets/documents/pagecontrol.md)
 * [Dialog](./assets/documents/dialog.md)
+* [EmptyView](./assets/documents/emptyview.md)
+* [ErrorView](./assets/documents/errorview.md)
 
 ## Contributors
 

@@ -25,4 +25,6 @@ interface Navigator {
     fun openSelectorScreen()
     fun openPageControlScreen()
     fun openDialogScreen()
+    fun openEmptyViewScreen()
+    fun openErrorViewScreen()
 }

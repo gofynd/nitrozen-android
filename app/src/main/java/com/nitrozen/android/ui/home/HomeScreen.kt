@@ -202,5 +202,23 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "EmptyView",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenEmptyView)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "ErrorView",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenErrorView)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
