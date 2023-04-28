@@ -193,5 +193,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Dialog",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenDialog)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

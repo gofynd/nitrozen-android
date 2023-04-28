@@ -94,4 +94,9 @@
         android:name="com.nitrozen.android.ui.pagecontrol.PageControlFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentDialog"
+        android:name="com.nitrozen.android.ui.dialog.DialogFragment"
+        />
+
 </navigation>

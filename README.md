@@ -47,6 +47,7 @@ dependencies {
 * [AppBar](./assets/documents/appbar.md)
 * [Selector](./assets/documents/selector.md)
 * [PageControl](./assets/documents/pagecontrol.md)
+* [Dialog](./assets/documents/dialog.md)
 
 ## Contributors
 

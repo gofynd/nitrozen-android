@@ -18,4 +18,5 @@ sealed class HomeScreenActions {
     object OpenAppBar : HomeScreenActions()
     object OpenSelector : HomeScreenActions()
     object OpenPageControl : HomeScreenActions()
+    object OpenDialog : HomeScreenActions()
 }
