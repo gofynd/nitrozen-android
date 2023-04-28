@@ -12,4 +12,6 @@ sealed class HomeScreenActions {
     object OpenStepper : HomeScreenActions()
     object OpenDropDown : HomeScreenActions()
     object OpenDivider : HomeScreenActions()
+    object OpenAvatar : HomeScreenActions()
+    object OpenOtpField : HomeScreenActions()
 }

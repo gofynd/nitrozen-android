@@ -18,4 +18,6 @@ interface Navigator {
     fun openStepperScreen()
     fun openDropDownScreen()
     fun openDividerScreen()
+    fun openAvatarScreen()
+    fun openOtpFieldScreen()
 }
