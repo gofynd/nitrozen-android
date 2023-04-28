@@ -60,6 +60,11 @@
         />
 
     <fragment
+        android:id="@+id/fragmentDivider"
+        android:name="com.nitrozen.android.ui.divider.DividerFragment"
+        />
+
+    <fragment
         android:id="@+id/fragmentAvatar"
         android:name="com.nitrozen.android.ui.avatar.AvatarFragment"
         />

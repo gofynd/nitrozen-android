@@ -46,6 +46,7 @@ dependencies {
 * [Stepper](./assets/documents/stepper.md)
 * [OTPField](./assets/documents/otpfield.md)
 * [Avatar](./assets/documents/avatar.md)
+* [Divider](./assets/documents/divider.md)
 
 ## Contributors
 
