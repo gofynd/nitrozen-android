@@ -11,4 +11,5 @@ sealed class HomeScreenActions {
     object OpenBadge : HomeScreenActions()
     object OpenStepper : HomeScreenActions()
     object OpenDropDown : HomeScreenActions()
+    object OpenOtpField : HomeScreenActions()
 }

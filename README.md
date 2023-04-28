@@ -44,8 +44,10 @@ dependencies {
 * [Badge](./assets/documents/badge.md)
 * [Switch](./assets/documents/switch.md)
 * [Stepper](./assets/documents/stepper.md)
+* [OTPField](./assets/documents/otpfield.md)
 
 ## Contributors
+
 * [Dhaval Shah][CONT_DHAVAL]
 * [Saurabh Patel][CONT_SAURABH]
 * [Shubhendra Singh][CONT_SHUBHENDRA]
