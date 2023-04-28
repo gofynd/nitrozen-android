@@ -28,28 +28,32 @@ allprojects {
 - **Step 2:** Add the dependency
 ```groovy
 dependencies {
-    implementation 'com.github.gofynd:nitrozen-android:1.0.0'
+    implementation 'com.github.gofynd:nitrozen-android:1.1.0'
 }
 ```
 
 ## Components
 
-* [Button](./assets/documents/buttons.md)
-* [Typography](./assets/documents/typography.md)
-* [TextField](./assets/documents/textfields.md)
-* [CheckBox](./assets/documents/checkbox.md)
-* [RadioButton](./assets/documents/radiobutton.md)
-* [DropDownTextField](./assets/documents/dropdowntextfield.md)
-* [Chip](./assets/documents/chip.md)
+* [AppBar](./assets/documents/appbar.md) 🆕
+* [Avatar](./assets/documents/avatar.md) 🆕
 * [Badge](./assets/documents/badge.md)
-* [Switch](./assets/documents/switch.md)
+* [BottomNav](./assets/documents/bottomnav.md) 🆕
+* [Button](./assets/documents/buttons.md)
+* [CheckBox](./assets/documents/checkbox.md)
+* [Chip](./assets/documents/chip.md)
+* [Dialog](./assets/documents/dialog.md) 🆕
+* [Divider](./assets/documents/divider.md) 🆕
+* [DropDownTextField](./assets/documents/dropdowntextfield.md)
+* [EmptyView](./assets/documents/emptyview.md) 🆕
+* [ErrorView](./assets/documents/errorview.md) 🆕
+* [OTP Field](./assets/documents/otpfield.md) 🆕
+* [PageControl](./assets/documents/pagecontrol.md) 🆕
+* [RadioButton](./assets/documents/radiobutton.md)
+* [Selector](./assets/documents/selector.md) 🆕
 * [Stepper](./assets/documents/stepper.md)
-* [AppBar](./assets/documents/appbar.md)
-* [Selector](./assets/documents/selector.md)
-* [PageControl](./assets/documents/pagecontrol.md)
-* [Dialog](./assets/documents/dialog.md)
-* [EmptyView](./assets/documents/emptyview.md)
-* [ErrorView](./assets/documents/errorview.md)
+* [Switch](./assets/documents/switch.md)
+* [TextField](./assets/documents/textfields.md)
+* [Typography](./assets/documents/typography.md)
 
 ## Contributors
 
