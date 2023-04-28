@@ -52,6 +52,7 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenBottomNavigation -> navigator.openBottomNavigationScreen()
             HomeScreenActions.OpenAppBar -> navigator.openAppBarScreen()
             HomeScreenActions.OpenSelector -> navigator.openSelectorScreen()
+            HomeScreenActions.OpenPageControl -> navigator.openPageControlScreen()
         }
     }
 }

@@ -23,4 +23,5 @@ interface Navigator {
     fun openBottomNavigationScreen()
     fun openAppBarScreen()
     fun openSelectorScreen()
+    fun openPageControlScreen()
 }

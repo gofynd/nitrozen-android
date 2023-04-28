@@ -46,6 +46,7 @@ dependencies {
 * [Stepper](./assets/documents/stepper.md)
 * [AppBar](./assets/documents/appbar.md)
 * [Selector](./assets/documents/selector.md)
+* [PageControl](./assets/documents/pagecontrol.md)
 
 ## Contributors
 

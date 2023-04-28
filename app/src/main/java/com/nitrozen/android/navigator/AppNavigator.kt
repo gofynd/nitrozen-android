@@ -112,4 +112,8 @@ class AppNavigator constructor(
     override fun openSelectorScreen() {
         navController.navigate(R.id.fragmentSelector)
     }
+
+    override fun openPageControlScreen() {
+        navController.navigate(R.id.fragmentPageControl)
+    }
 }

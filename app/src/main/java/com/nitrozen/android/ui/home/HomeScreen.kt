@@ -184,5 +184,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "PageControl",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenPageControl)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

@@ -89,4 +89,9 @@
         android:name="com.nitrozen.android.ui.selector.SelectorFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentPageControl"
+        android:name="com.nitrozen.android.ui.pagecontrol.PageControlFragment"
+        />
+
 </navigation>
