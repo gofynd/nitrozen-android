@@ -45,6 +45,7 @@ fun NitrozenTheme(
         warning80 = colorResource(id = R.color.warning80),
         sparkle20 = colorResource(id = R.color.sparkle20),
         sparkle60 = colorResource(id = R.color.sparkle60),
+        shadow = colorResource(id = R.color.shadow),
     )
 
     val nitrozenTypography = NitrozenTypography(

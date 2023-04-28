@@ -100,4 +100,8 @@ class AppNavigator constructor(
     override fun openOtpFieldScreen() {
         navController.navigate(R.id.fragmentOtpField)
     }
+
+    override fun openBottomNavigationScreen() {
+        navController.navigate(R.id.fragmentBottomNavigation)
+    }
 }

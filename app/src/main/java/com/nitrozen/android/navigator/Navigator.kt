@@ -20,4 +20,5 @@ interface Navigator {
     fun openDividerScreen()
     fun openAvatarScreen()
     fun openOtpFieldScreen()
+    fun openBottomNavigationScreen()
 }

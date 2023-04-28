@@ -74,4 +74,9 @@
         android:name="com.nitrozen.android.ui.otpfield.OtpFieldFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentBottomNavigation"
+        android:name="com.nitrozen.android.ui.bottomnavigation.BottomNavigationFragment"
+        />
+
 </navigation>

@@ -14,4 +14,5 @@ sealed class HomeScreenActions {
     object OpenDivider : HomeScreenActions()
     object OpenAvatar : HomeScreenActions()
     object OpenOtpField : HomeScreenActions()
+    object OpenBottomNavigation : HomeScreenActions()
 }
