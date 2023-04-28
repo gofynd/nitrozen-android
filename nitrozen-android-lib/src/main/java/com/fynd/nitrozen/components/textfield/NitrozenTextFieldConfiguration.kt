@@ -32,16 +32,16 @@ object NitrozenTextFieldConfiguration {
             shape = NitrozenTheme.shapes.rounded16
         )
 
-    data class Otp(
+    data class OTP(
         val shape: Shape,
         val size: Dp
     ) {
         companion object
     }
 
-    val Otp.Companion.Default: Otp
+    val OTP.Companion.Default: OTP
         @Composable
-        get() = Otp(
+        get() = OTP(
             shape = NitrozenTheme.shapes.rounded16,
             size = 48.dp
         )

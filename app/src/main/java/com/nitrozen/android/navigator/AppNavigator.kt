@@ -92,4 +92,8 @@ class AppNavigator constructor(
     override fun openAvatarScreen() {
         navController.navigate(R.id.fragmentAvatar)
     }
+
+    override fun openOtpFieldScreen() {
+        navController.navigate(R.id.fragmentOtpField)
+    }
 }
