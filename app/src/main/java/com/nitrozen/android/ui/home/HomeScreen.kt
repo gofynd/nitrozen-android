@@ -132,6 +132,15 @@ fun HomeScreen(
         )
 
         NitrozenOutlinedButton(
+            text = "Avatar",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenAvatar)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
             text = "OTPField",
             enabled = true,
             onClick = {

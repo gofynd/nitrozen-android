@@ -45,6 +45,7 @@ dependencies {
 * [Switch](./assets/documents/switch.md)
 * [Stepper](./assets/documents/stepper.md)
 * [OTPField](./assets/documents/otpfield.md)
+* [Avatar](./assets/documents/avatar.md)
 
 ## Contributors
 

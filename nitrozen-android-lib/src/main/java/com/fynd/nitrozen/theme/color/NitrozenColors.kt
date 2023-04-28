@@ -26,6 +26,8 @@ data class NitrozenColors(
     val warning20: Color,
     val warning50: Color,
     val warning80: Color,
+    val sparkle20: Color,
+    val sparkle60: Color,
 )
 
 val LocalNitrozenColors = staticCompositionLocalOf {
@@ -49,6 +51,8 @@ val LocalNitrozenColors = staticCompositionLocalOf {
         background = Color.Unspecified,
         warning20 = Color.Unspecified,
         warning50 = Color.Unspecified,
-        warning80 = Color.Unspecified
+        warning80 = Color.Unspecified,
+        sparkle20 = Color.Unspecified,
+        sparkle60 = Color.Unspecified,
     )
 }
