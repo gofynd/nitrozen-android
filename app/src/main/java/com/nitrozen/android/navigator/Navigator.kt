@@ -21,4 +21,5 @@ interface Navigator {
     fun openAvatarScreen()
     fun openOtpFieldScreen()
     fun openBottomNavigationScreen()
+    fun openAppBarScreen()
 }

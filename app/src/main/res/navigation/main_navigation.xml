@@ -79,4 +79,9 @@
         android:name="com.nitrozen.android.ui.bottomnavigation.BottomNavigationFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentAppBar"
+        android:name="com.nitrozen.android.ui.appbar.AppBarFragment"
+        />
+
 </navigation>

@@ -50,6 +50,7 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenAvatar -> navigator.openAvatarScreen()
             HomeScreenActions.OpenOtpField -> navigator.openOtpFieldScreen()
             HomeScreenActions.OpenBottomNavigation -> navigator.openBottomNavigationScreen()
+            HomeScreenActions.OpenAppBar -> navigator.openAppBarScreen()
         }
     }
 }

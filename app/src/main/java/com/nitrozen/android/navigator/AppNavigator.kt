@@ -104,4 +104,8 @@ class AppNavigator constructor(
     override fun openBottomNavigationScreen() {
         navController.navigate(R.id.fragmentBottomNavigation)
     }
+
+    override fun openAppBarScreen() {
+        navController.navigate(R.id.fragmentAppBar)
+    }
 }
