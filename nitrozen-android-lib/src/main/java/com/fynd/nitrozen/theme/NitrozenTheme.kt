@@ -143,10 +143,12 @@ fun NitrozenTheme(
             topStart = nitrozenRadius.xl,
             topEnd = nitrozenRadius.xl
         ),
+        rounded8 = RoundedCornerShape(nitrozenRadius.medium),
         rounded16 = RoundedCornerShape(nitrozenRadius.large),
         roundedXl = RoundedCornerShape(nitrozenRadius.xl),
         round = RoundedCornerShape(100),
-        rounded80 = RoundedCornerShape(nitrozenRadius.action)
+        rounded80 = RoundedCornerShape(nitrozenRadius.action),
+        rounded12 = RoundedCornerShape(12.dp),
     )
 
     CompositionLocalProvider(
