@@ -24,9 +24,11 @@ fun NitrozenTheme(
 ) {
     val nitrozenColors = NitrozenColors(
         primary20 = colorResource(id = R.color.primary20),
+        primary30 = colorResource(id = R.color.primary30),
         primary40 = colorResource(id = R.color.primary40),
         primary50 = colorResource(id = R.color.primary50),
         primary60 = colorResource(id = R.color.primary60),
+        primary80 = colorResource(id = R.color.primary80),
         grey20 = colorResource(id = R.color.grey20),
         grey40 = colorResource(id = R.color.grey40),
         grey60 = colorResource(id = R.color.grey60),
@@ -46,6 +48,7 @@ fun NitrozenTheme(
         sparkle20 = colorResource(id = R.color.sparkle20),
         sparkle60 = colorResource(id = R.color.sparkle60),
         shadow = colorResource(id = R.color.shadow),
+        overlay = colorResource(id = R.color.overlay),
     )
 
     val nitrozenTypography = NitrozenTypography(
@@ -61,6 +64,11 @@ fun NitrozenTheme(
             lineHeight = 20.sp,
             letterSpacing = (-0.3).sp
         ),
+        bodyXs = NitrozenTypography.getDefault().copy(
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
+        ),
         bodyXsReg = NitrozenTypography.getDefault().copy(
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
@@ -70,6 +78,11 @@ fun NitrozenTheme(
             fontWeight = FontWeight.W700,
             fontSize = 14.sp,
             lineHeight = 20.sp,
+        ),
+        bodyXxs = NitrozenTypography.getDefault().copy(
+            fontWeight = FontWeight.Medium,
+            fontSize = 12.sp,
+            lineHeight = 16.sp,
         ),
         bodyXxsReg = NitrozenTypography.getDefault().copy(
             fontWeight = FontWeight.Normal,
@@ -100,6 +113,12 @@ fun NitrozenTheme(
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp,
         ),
+        bodyMedium = NitrozenTypography.getDefault().copy(
+            fontWeight = FontWeight.Medium,
+            fontSize = 18.sp,
+            lineHeight = 24.sp,
+            letterSpacing = (-0.5).sp
+        ),
         bodyLBold = NitrozenTypography.getDefault().copy(
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
@@ -124,10 +143,12 @@ fun NitrozenTheme(
             topStart = nitrozenRadius.xl,
             topEnd = nitrozenRadius.xl
         ),
+        rounded8 = RoundedCornerShape(nitrozenRadius.medium),
         rounded16 = RoundedCornerShape(nitrozenRadius.large),
         roundedXl = RoundedCornerShape(nitrozenRadius.xl),
         round = RoundedCornerShape(100),
-        rounded80 = RoundedCornerShape(nitrozenRadius.action)
+        rounded80 = RoundedCornerShape(nitrozenRadius.action),
+        rounded12 = RoundedCornerShape(12.dp),
     )
 
     CompositionLocalProvider(

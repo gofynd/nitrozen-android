@@ -7,9 +7,11 @@ import androidx.compose.ui.graphics.Color
 @Immutable
 data class NitrozenColors(
     val primary20: Color,
+    val primary30: Color,
     val primary40: Color,
     val primary50: Color,
     val primary60: Color,
+    val primary80: Color,
     val grey20: Color,
     val grey40: Color,
     val grey60: Color,
@@ -29,14 +31,17 @@ data class NitrozenColors(
     val sparkle20: Color,
     val sparkle60: Color,
     val shadow: Color,
+    val overlay: Color,
 )
 
 val LocalNitrozenColors = staticCompositionLocalOf {
     NitrozenColors(
         primary20 = Color.Unspecified,
+        primary30 = Color.Unspecified,
         primary40 = Color.Unspecified,
         primary50 = Color.Unspecified,
         primary60 = Color.Unspecified,
+        primary80 = Color.Unspecified,
         grey20 = Color.Unspecified,
         grey40 = Color.Unspecified,
         grey60 = Color.Unspecified,
@@ -56,5 +61,6 @@ val LocalNitrozenColors = staticCompositionLocalOf {
         sparkle20 = Color.Unspecified,
         sparkle60 = Color.Unspecified,
         shadow = Color.Unspecified,
+        overlay = Color.Unspecified
     )
 }

@@ -14,8 +14,10 @@ import com.fynd.nitrozen.R
 @OptIn(ExperimentalTextApi::class)
 @Immutable
 data class NitrozenTypography(
+    val bodyXs: TextStyle,
     val bodyXsReg: TextStyle,
     val bodyXsBold: TextStyle,
+    val bodyXxs: TextStyle,
     val bodyXxsReg: TextStyle,
     val bodyXsLink: TextStyle,
     val bodySmall: TextStyle,
@@ -25,6 +27,7 @@ data class NitrozenTypography(
     val headingXs: TextStyle,
     val headingXxs: TextStyle,
     val bodyLBold: TextStyle,
+    val bodyMedium: TextStyle,
 ) {
     companion object {
         @Composable
@@ -42,8 +45,10 @@ data class NitrozenTypography(
 
 val LocalNitrozenTypography = staticCompositionLocalOf {
     NitrozenTypography(
+        bodyXs = TextStyle.Default,
         bodyXsReg = TextStyle.Default,
         bodyXsBold = TextStyle.Default,
+        bodyXxs = TextStyle.Default,
         bodyXxsReg = TextStyle.Default,
         bodyXsLink = TextStyle.Default,
         bodySmall = TextStyle.Default,
@@ -52,6 +57,7 @@ val LocalNitrozenTypography = staticCompositionLocalOf {
         bodyMediumBold = TextStyle.Default,
         headingXs = TextStyle.Default,
         headingXxs = TextStyle.Default,
-        bodyLBold = TextStyle.Default
+        bodyLBold = TextStyle.Default,
+        bodyMedium = TextStyle.Default,
     )
 }
