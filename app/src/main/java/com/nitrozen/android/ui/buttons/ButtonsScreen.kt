@@ -91,6 +91,16 @@ fun ButtonsScreen(
                 }
             )
 
+            Spacer(modifier = Modifier.height(16.dp))
+
+            NitrozenFilledButton(
+                text = "With Loading",
+                enabled = true,
+                onClick = {},
+                modifier = Modifier.fillMaxWidth(),
+                isLoading = true
+            )
+
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(

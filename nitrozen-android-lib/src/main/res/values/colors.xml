@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary20">#E8E8FC</color>
+    <color name="primary30">#9999FF</color>
     <color name="primary40">#6464FF</color>
     <color name="primary50">#3535F3</color>
     <color name="primary60">#000093</color>
+    <color name="primary80">#FAFAFF</color>
     <color name="grey20">#F5F5F5</color>
     <color name="grey40">#E0E0E0</color>
     <color name="grey60">#B5B5B5</color>
@@ -24,4 +26,5 @@
     <color name="sparkle20">#E8FAF7</color>
     <color name="sparkle60">#1E7B74</color>
     <color name="shadow">#E0E0E0</color>
+    <color name="overlay">#33000000</color>
 </resources>

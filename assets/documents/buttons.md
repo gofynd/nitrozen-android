@@ -27,6 +27,17 @@ NitrozenFilledButton(
 )
 ```
 
+## Filled Button - With Loading
+```kotlin
+NitrozenFilledButton(
+    text = "With Loading",
+    enabled = true,
+    onClick = {},
+    modifier = Modifier.fillMaxWidth(),
+    isLoading = true
+)
+```
+
 ## Outlined Button
 ```kotlin
 NitrozenOutlinedButton(
