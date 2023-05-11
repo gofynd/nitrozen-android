@@ -27,7 +27,7 @@ class SelectorFragment : Fragment() {
             setContent {
                 NitrozenTheme {
                     SelectorScreen(
-                        onBackClick = { navigator.goBack() }
+                        onBackClick = { navigator.goBack() },
                     )
                 }
             }
