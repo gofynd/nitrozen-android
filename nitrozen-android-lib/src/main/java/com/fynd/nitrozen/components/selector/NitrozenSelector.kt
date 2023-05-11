@@ -1,9 +1,10 @@
 package com.fynd.nitrozen.components.selector
 
-import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.Animatable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -21,7 +22,7 @@ import com.fynd.nitrozen.utils.DisplayMetrics
 @Composable
 fun NitrozenSelector_Text() {
     val selectedItemIndex = remember {
-        mutableStateOf(0)
+        mutableStateOf(2)
     }
 
     NitrozenTheme {
@@ -130,6 +131,9 @@ fun NitrozenSelector(
             .padding(configuration.contentPadding),
         contentAlignment = Alignment.CenterStart
     ) {
+        val doAnimate = remember {
+            mutableStateOf(false)
+        }
         val selectorWidth = remember {
             mutableStateOf(0.dp)
         }
@@ -142,7 +146,26 @@ fun NitrozenSelector(
             mutableStateOf(0F)
         }
 
-        val selectorTranslationX = animateFloatAsState(targetValue = selectorTranslationTarget.value)
+        val selectorTranslationX = remember {
+            Animatable(0f)
+        }
+
+
+        LaunchedEffect(
+            key1 = selectedItemIndex,
+            key2 = selectorWidth.value,
+            key3 = selectorHeight.value,
+        ){
+
+            selectorTranslationTarget.value = (selectedItemIndex * DisplayMetrics.convertDpToPixel(selectorWidth.value.value)) +
+                    (selectedItemIndex * DisplayMetrics.convertDpToPixel(configuration.spaceBetweenItems.value))
+
+            if(doAnimate.value) {
+                selectorTranslationX.animateTo(selectorTranslationTarget.value)
+            }else{
+                selectorTranslationX.snapTo(selectorTranslationTarget.value)
+            }
+        }
 
         Box(
             modifier = Modifier
@@ -172,18 +195,19 @@ fun NitrozenSelector(
                     selected = selected,
                     onClick = {
                         onItemClick(index)
-                        selectorTranslationTarget.value = (index * DisplayMetrics.convertDpToPixel(selectorWidth.value.value)) + (index * DisplayMetrics.convertDpToPixel(configuration.spaceBetweenItems.value))
+                        doAnimate.value = true
                     },
                     modifier = Modifier
                         .weight(1F)
                         .onSizeChanged {
-                            selectorWidth.value = DisplayMetrics.convertPixelsToDp(it.width.toFloat()).dp
-                            selectorHeight.value = DisplayMetrics.convertPixelsToDp(it.height.toFloat()).dp
+                            selectorWidth.value =
+                                DisplayMetrics.convertPixelsToDp(it.width.toFloat()).dp
+                            selectorHeight.value =
+                                DisplayMetrics.convertPixelsToDp(it.height.toFloat()).dp
                         },
                     isItemDirectionVertical = isItemDirectionVertical
                 )
             }
         }
     }
-
 }
