@@ -1,4 +1,4 @@
-package com.nitrozen.android.ui.notification.toast
+package com.nitrozen.android.ui.notification.suggestion
 
 import android.content.Context
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.fynd.nitrozen.theme.NitrozenTheme
 import com.nitrozen.android.MainActivity
 import com.nitrozen.android.navigator.Navigator
 
-class NotifiactionToastFragment : Fragment() {
+class NotificationSuggestionFragment : Fragment() {
 
     private lateinit var navigator: Navigator
 
@@ -26,7 +26,7 @@ class NotifiactionToastFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 NitrozenTheme {
-                    NotificationToastScreen(
+                    SuggestionBannerScreen(
                         onBackClick = { navigator.goBack() }
                     )
                 }

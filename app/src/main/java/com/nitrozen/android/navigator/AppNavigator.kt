@@ -132,4 +132,8 @@ class AppNavigator constructor(
     override fun openNotificationToastScreen() {
         navController.navigate(R.id.fragmentNotificationToast)
     }
+
+    override fun openNotificationSuggestionScreen() {
+        navController.navigate(R.id.fragmentNotificationSuggestion)
+    }
 }

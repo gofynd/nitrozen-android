@@ -42,4 +42,27 @@ object NitrozenNotificationStyle {
 
             )
 
+    data class SuggestionBanner(
+        val titleStyle : TextStyle,
+        val titleTextColor : Color,
+        val subTitleStyle : TextStyle,
+        val subTitleColor : Color,
+        val backgroundColor : Color,
+        val shape: Shape,
+        val primaryButtonStyle : NitrozenButtonStyle.Filled
+    ){
+        companion object
+    }
+
+    val SuggestionBanner.Companion.Default
+        @Composable
+        get() = SuggestionBanner(
+            titleStyle = NitrozenTheme.typography.bodySmallBold,
+            titleTextColor = NitrozenTheme.colors.grey100,
+            subTitleStyle = NitrozenTheme.typography.bodyXsReg,
+            subTitleColor = NitrozenTheme.colors.grey80,
+            shape = NitrozenTheme.shapes.rounded16,
+            backgroundColor = NitrozenTheme.colors.grey20,
+            primaryButtonStyle = NitrozenButtonStyle.Filled.Default
+        )
 }

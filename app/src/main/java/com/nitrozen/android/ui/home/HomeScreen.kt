@@ -229,5 +229,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "NotificationSuggestion",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenSuggestion)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

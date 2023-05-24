@@ -22,4 +22,5 @@ sealed class HomeScreenActions {
     object OpenEmptyView : HomeScreenActions()
     object OpenErrorView : HomeScreenActions()
     object OpenNotificationToast: HomeScreenActions()
+    object OpenSuggestion : HomeScreenActions()
 }

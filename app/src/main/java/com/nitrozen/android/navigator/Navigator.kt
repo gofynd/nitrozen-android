@@ -28,4 +28,5 @@ interface Navigator {
     fun openEmptyViewScreen()
     fun openErrorViewScreen()
     fun openNotificationToastScreen()
+    fun openNotificationSuggestionScreen()
 }

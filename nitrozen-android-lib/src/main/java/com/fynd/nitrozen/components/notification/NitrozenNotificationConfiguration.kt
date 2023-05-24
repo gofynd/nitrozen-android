@@ -31,4 +31,22 @@ object NitrozenNotificationConfiguration {
             ),
             secondaryButtonConfiguration = NitrozenButtonConfiguration.Text.Default
         )
+
+    data class SuggestionBanner(
+        val contentPadding: PaddingValues,
+        val itemSpacing: Dp,
+        val primaryButtonConfiguration: NitrozenButtonConfiguration.Filled,
+    ){
+        companion object
+    }
+
+    val SuggestionBanner.Companion.Default
+        @Composable
+        get() = SuggestionBanner(
+            contentPadding = PaddingValues(16.dp),
+            itemSpacing = 12.dp,
+            primaryButtonConfiguration = NitrozenButtonConfiguration.Filled.Default.copy(
+                minHeight = 32.dp
+            )
+        )
 }
