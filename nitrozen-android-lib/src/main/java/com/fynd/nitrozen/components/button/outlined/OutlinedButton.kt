@@ -1,11 +1,14 @@
 package com.fynd.nitrozen.components.button.outlined
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration.Default
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle
@@ -57,6 +60,13 @@ fun NitrozenOutlinedButton(
         shape = configuration.shape,
         enabled = enabled,
         contentPadding = configuration.contentPadding,
+        colors = ButtonDefaults.outlinedButtonColors(
+            backgroundColor = style.backgroundColor
+        ),
+        border = BorderStroke(
+            width = 1.dp,
+            color = style.borderColor
+        )
     ) {
         Text(
             text = text,

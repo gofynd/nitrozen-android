@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.textfield.*
@@ -122,11 +123,13 @@ fun NitrozenOutlinedTextField(
                 Text(
                     text = hint,
                     style = style.placeholderTextStyle,
-                    color = style.placeholderTextColor
+                    color = style.placeholderTextColor,
+                    maxLines = configuration.maxLine,
+                    overflow = TextOverflow.Ellipsis,
                 )
             },
-            singleLine = true,
-            maxLines = 1,
+            singleLine = configuration.maxLine == 1,
+            maxLines = configuration.maxLine,
             keyboardOptions = KeyboardOptions(
                 keyboardType = configuration.keyboardType,
                 imeAction = configuration.imeAction,

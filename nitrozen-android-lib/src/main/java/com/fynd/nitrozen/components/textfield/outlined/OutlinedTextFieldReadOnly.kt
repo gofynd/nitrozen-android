@@ -13,11 +13,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,6 +59,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
 
     Column(
         modifier = modifier
+            .alpha(0.4f)
             .fillMaxWidth()
             .onFocusChanged {
                 if (it.hasFocus) {
@@ -94,11 +97,13 @@ fun NitrozenOutlinedTextFieldReadOnly(
                 Text(
                     text = hint,
                     style = style.placeholderTextStyle,
-                    color = style.placeholderTextColor
+                    color = style.placeholderTextColor,
+                    maxLines = configuration.maxLine,
+                    overflow = TextOverflow.Ellipsis
                 )
             },
-            singleLine = true,
-            maxLines = 1,
+            singleLine = configuration.maxLine == 1,
+            maxLines = configuration.maxLine,
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon,
             shape = configuration.shape,

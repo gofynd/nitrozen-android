@@ -6,6 +6,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -16,12 +20,19 @@ import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 @Preview(showBackground = true)
 @Composable
 private fun NitrozenCheckBox_Normal() {
+    var checked by remember {
+        mutableStateOf(false)
+    }
     NitrozenTheme {
         NitrozenCheckBox(
             text = "CheckBox Normal",
-            onCheckedChange = {},
-            onTextClick = {},
-            checked = false,
+            onCheckedChange = {
+                  checked = !checked
+            },
+            onTextClick = {
+                  checked = !checked
+            },
+            checked = checked,
         )
     }
 }
@@ -91,7 +102,12 @@ fun NitrozenCheckBox(
                 text = text,
                 style = style.textStyle,
                 color = style.textColor,
-                modifier = Modifier.clickableWithoutRipple(onTextClick)
+                modifier = Modifier
+                    .then(
+                        if (enabled)
+                            Modifier.clickableWithoutRipple(onTextClick)
+                        else Modifier
+                    )
                     .padding(configuration.textPadding)
             )
         }

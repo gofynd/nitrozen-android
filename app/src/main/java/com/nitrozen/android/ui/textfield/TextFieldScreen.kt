@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration
+import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextField
 import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextFieldReadOnly
 import com.fynd.nitrozen.components.textfield.TextFieldState
@@ -112,6 +114,25 @@ fun TextFieldScreen(
                 hint = "Hint",
                 label = "Label",
                 onClicked = {}
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Text(
+                text = "Outlined Multiline",
+                style = NitrozenTheme.typography.headingXs
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            NitrozenOutlinedTextField(
+                value = "Multi line value that takes more then one line in the field",
+                hint = "Hint",
+                label = "Label",
+                onValueChange = {},
+                configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
+                    maxLine = 2
+                )
             )
 
             Spacer(modifier = Modifier.height(32.dp))

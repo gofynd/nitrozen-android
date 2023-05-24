@@ -43,6 +43,19 @@ NitrozenOutlinedTextFieldReadOnly(
 )
 ```
 
+## Outlined - Multiline
+```kotlin
+NitrozenOutlinedTextField(
+    value = "Multi line value that takes more then one line in the field",
+    hint = "Hint",
+    label = "Label",
+    onValueChange = {},
+    configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
+        maxLine = 2
+    )
+)
+```
+
 ## Outlined - With leading and trailing
 ```kotlin
 NitrozenOutlinedTextField(

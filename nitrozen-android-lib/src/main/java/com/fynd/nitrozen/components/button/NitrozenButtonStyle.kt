@@ -30,6 +30,8 @@ object NitrozenButtonStyle {
         val textColorEnabled: Color,
         val textColorDisabled: Color,
         val textStyle: TextStyle,
+        val backgroundColor: Color,
+        val borderColor: Color,
     ) {
         companion object
     }
@@ -40,6 +42,8 @@ object NitrozenButtonStyle {
             textColorEnabled = NitrozenTheme.colors.primary60,
             textColorDisabled = NitrozenTheme.colors.primary60.copy(alpha = 0.3F),
             textStyle = NitrozenTheme.typography.bodyMediumBold,
+            backgroundColor = NitrozenTheme.colors.background,
+            borderColor = NitrozenTheme.colors.grey60
         )
 
     data class Text(
