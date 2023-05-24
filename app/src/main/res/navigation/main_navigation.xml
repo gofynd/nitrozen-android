@@ -109,4 +109,9 @@
         android:name="com.nitrozen.android.ui.errorview.ErrorViewFragment"
         />
 
+    <fragment
+        android:id="@+id/fragmentNotificationToast"
+        android:name="com.nitrozen.android.ui.notification.toast.NotifiactionToastFragment"
+        />
+
 </navigation>

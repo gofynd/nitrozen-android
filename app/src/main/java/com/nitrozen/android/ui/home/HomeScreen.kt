@@ -220,5 +220,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "NotificationToast",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenNotificationToast)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
