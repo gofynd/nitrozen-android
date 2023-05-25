@@ -49,6 +49,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
     hint: String,
     label: String? = null,
     onClicked: () -> Unit,
+    enabled : Boolean = true,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     textFieldState: TextFieldState = TextFieldState.Idle(),
@@ -59,7 +60,11 @@ fun NitrozenOutlinedTextFieldReadOnly(
 
     Column(
         modifier = modifier
-            .alpha(0.4f)
+            .then(
+                if(enabled) Modifier
+                else Modifier
+                    .alpha(0.4f)
+            )
             .fillMaxWidth()
             .onFocusChanged {
                 if (it.hasFocus) {
