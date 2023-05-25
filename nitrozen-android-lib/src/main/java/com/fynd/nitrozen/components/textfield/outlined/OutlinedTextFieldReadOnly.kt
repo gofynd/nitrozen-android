@@ -89,7 +89,9 @@ fun NitrozenOutlinedTextFieldReadOnly(
         OutlinedTextField(
             value = value,
             onValueChange = { },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(configuration.fieldHeight),
             textStyle = style.textStyle,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = style.textColor,
