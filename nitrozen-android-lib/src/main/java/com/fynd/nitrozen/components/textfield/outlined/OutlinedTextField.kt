@@ -110,6 +110,7 @@ fun NitrozenOutlinedTextField(
                 }
             },
             modifier = Modifier.fillMaxWidth()
+                .height(configuration.fieldHeight)
                 .bringIntoViewRequester(textChangeBringIntoViewRequester),
             textStyle = style.textStyle,
             colors = TextFieldDefaults.outlinedTextFieldColors(
