@@ -33,7 +33,7 @@ object NitrozenTextFieldConfiguration {
             visualTransformation = VisualTransformation.None,
             shape = NitrozenTheme.shapes.rounded16,
             maxLine = 1,
-            fieldHeight = 48.dp
+            fieldHeight = 56.dp
         )
 
     data class OTP(
