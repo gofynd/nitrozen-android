@@ -20,6 +20,7 @@ object NitrozenTextFieldConfiguration {
         val shape: Shape,
         val maxLine: Int,
         val fieldHeight: Dp,
+        val maxCharacterConfiguration : MaxCharacterConfiguration
     ) {
         companion object
     }
@@ -33,7 +34,8 @@ object NitrozenTextFieldConfiguration {
             visualTransformation = VisualTransformation.None,
             shape = NitrozenTheme.shapes.rounded16,
             maxLine = 1,
-            fieldHeight = 56.dp
+            fieldHeight = 56.dp,
+            maxCharacterConfiguration = MaxCharacterConfiguration.Disabled,
         )
 
     data class OTP(

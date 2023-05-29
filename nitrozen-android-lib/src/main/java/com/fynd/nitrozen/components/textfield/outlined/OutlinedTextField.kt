@@ -11,8 +11,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
@@ -63,6 +66,29 @@ private fun NitrozenOutlinedTextField_Error() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+private fun NitrozenOutlinedTextField_Max() {
+    var value by remember {
+        mutableStateOf("")
+    }
+    NitrozenTheme {
+        NitrozenOutlinedTextField(
+            value = value,
+            hint = "Error",
+            onValueChange = {value = it},
+            label = "Lable",
+            textFieldState = TextFieldState.Error("Error message"),
+            configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
+                maxCharacterConfiguration = MaxCharacterConfiguration.Enabled(
+                    12,
+                    true
+                )
+            )
+        )
+    }
+}
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NitrozenOutlinedTextField(
@@ -85,18 +111,48 @@ fun NitrozenOutlinedTextField(
 
     val scope = rememberCoroutineScope()
 
+    val maxCharacterConfiguration = configuration.maxCharacterConfiguration
+
     Column(
         modifier = modifier.fillMaxWidth(),
     ) {
         if (label != null) {
-            Text(
-                text = label,
-                style = style.labelTextStyle,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp),
-                color = style.labelTextColor
-            )
+            when(maxCharacterConfiguration){
+                MaxCharacterConfiguration.Disabled->{
+                    Text(
+                        text = label,
+                        style = style.labelTextStyle,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 8.dp),
+                        color = style.labelTextColor
+                    )
+                }
+                is MaxCharacterConfiguration.Enabled -> {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                    ) {
+                        Text(
+                            text = label,
+                            style = style.labelTextStyle,
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(horizontal = 8.dp),
+                            color = style.labelTextColor
+                        )
+                        if(maxCharacterConfiguration.showMaxCharacter) {
+                            Text(
+                                modifier = Modifier
+                                    .padding(end = 8.dp),
+                                text = "${value.length}/${maxCharacterConfiguration.maxChar}",
+                                style = NitrozenTheme.typography.bodyXsReg,
+                                color = NitrozenTheme.colors.grey80
+                            )
+                        }
+                    }
+                }
+            }
 
             Spacer(modifier = Modifier.height(4.dp))
         }
@@ -104,12 +160,18 @@ fun NitrozenOutlinedTextField(
         OutlinedTextField(
             value = value,
             onValueChange = {
-                onValueChange.invoke(it)
+                val newText = if(maxCharacterConfiguration is MaxCharacterConfiguration.Enabled){
+                    it.take(maxCharacterConfiguration.maxChar)
+                }else{
+                    it
+                }
+                onValueChange.invoke(newText)
                 scope.launch {
                     textChangeBringIntoViewRequester.bringIntoView()
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .height(configuration.fieldHeight)
                 .bringIntoViewRequester(textChangeBringIntoViewRequester),
             textStyle = style.textStyle,
