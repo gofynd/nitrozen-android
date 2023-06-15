@@ -74,7 +74,9 @@ fun NitrozenCheckBox(
     text: String? = null,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    onTextClick: () -> Unit = {},
+    onTextClick: () -> Unit = {
+      onCheckedChange(!checked)
+    },
     enabled: Boolean = true,
     style: NitrozenCheckBoxStyle = NitrozenCheckBoxStyle.Default,
     configuration: NitrozenCheckBoxConfiguration = NitrozenCheckBoxConfiguration.Default,

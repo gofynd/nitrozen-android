@@ -9,6 +9,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -18,6 +19,8 @@ import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration.Default
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
+import com.fynd.nitrozen.utils.extensions.get
 
 @Preview(showBackground = true)
 @Composable
@@ -95,6 +98,8 @@ fun NitrozenFilledButton(
     style: NitrozenButtonStyle.Filled = NitrozenButtonStyle.Filled.Default,
     configuration: NitrozenButtonConfiguration.Filled = NitrozenButtonConfiguration.Filled.Default,
 ) {
+    val cutter = remember { MultipleEventsCutter.get() }
+
     val backgroundColor =
         if(isLoading){
             style.backgroundColorDisabled
@@ -106,7 +111,9 @@ fun NitrozenFilledButton(
         }
 
     TextButton(
-        onClick = onClick,
+        onClick = {
+              cutter.processEvent(onClick)
+        },
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = backgroundColor,
         ),
