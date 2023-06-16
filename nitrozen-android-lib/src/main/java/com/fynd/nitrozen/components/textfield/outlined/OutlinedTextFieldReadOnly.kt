@@ -28,6 +28,8 @@ import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Def
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.theme.typography.fontsNitrozen
+import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
+import com.fynd.nitrozen.utils.extensions.get
 
 @Preview(showBackground = true)
 @Composable
@@ -58,6 +60,8 @@ fun NitrozenOutlinedTextFieldReadOnly(
 ) {
     val focusManager = LocalFocusManager.current
 
+    val cutter = remember { MultipleEventsCutter.get() }
+
     Column(
         modifier = modifier
             .then(
@@ -68,7 +72,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
             .fillMaxWidth()
             .onFocusChanged {
                 if (it.hasFocus) {
-                    onClicked()
+                    cutter.processEvent(onClicked)
                     focusManager.clearFocus(force = true)
                 }
             },
