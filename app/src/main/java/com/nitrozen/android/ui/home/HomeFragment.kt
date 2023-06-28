@@ -58,6 +58,7 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenErrorView -> navigator.openErrorViewScreen()
             HomeScreenActions.OpenNotificationToast -> navigator.openNotificationToastScreen()
             HomeScreenActions.OpenSuggestion -> navigator.openNotificationSuggestionScreen()
+            HomeScreenActions.OpenAutoSizeText -> navigator.openAutoSizeTextScreen()
         }
     }
 }

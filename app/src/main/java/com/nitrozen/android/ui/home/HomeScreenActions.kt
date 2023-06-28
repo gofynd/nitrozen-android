@@ -23,4 +23,5 @@ sealed class HomeScreenActions {
     object OpenErrorView : HomeScreenActions()
     object OpenNotificationToast: HomeScreenActions()
     object OpenSuggestion : HomeScreenActions()
+    object OpenAutoSizeText : HomeScreenActions()
 }

@@ -136,4 +136,8 @@ class AppNavigator constructor(
     override fun openNotificationSuggestionScreen() {
         navController.navigate(R.id.fragmentNotificationSuggestion)
     }
+
+    override fun openAutoSizeTextScreen() {
+        navController.navigate(R.id.fragmentAutoSizeText)
+    }
 }

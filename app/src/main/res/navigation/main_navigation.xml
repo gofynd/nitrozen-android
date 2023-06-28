@@ -118,5 +118,8 @@
         android:id="@+id/fragmentNotificationSuggestion"
         android:name="com.nitrozen.android.ui.notification.suggestion.NotificationSuggestionFragment"
         />
-
+    <fragment
+        android:id="@+id/fragmentAutoSizeText"
+        android:name="com.nitrozen.android.ui.autosizetext.AutoSizeTextFragment"
+        />
 </navigation>

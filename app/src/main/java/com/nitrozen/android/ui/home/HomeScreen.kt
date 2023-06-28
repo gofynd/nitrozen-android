@@ -238,5 +238,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "AutoSizeText",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenAutoSizeText)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

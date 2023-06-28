@@ -60,7 +60,7 @@ object NitrozenButtonStyle {
         get() = Text(
             textColorEnabled = NitrozenTheme.colors.primary60,
             textColorDisabled = NitrozenTheme.colors.primary60.copy(alpha = 0.3F),
-            textStyle = NitrozenTheme.typography.bodyXsLink,
+            textStyle = NitrozenTheme.typography.bodyMediumBold,
             textDecoration = TextDecoration.None
         )
 }

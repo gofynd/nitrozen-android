@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration.Default
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle
@@ -132,10 +134,12 @@ fun NitrozenFilledButton(
             if (leading != null) {
                 leading()
             }
-            Text(
+            NitrozenAutoResizeText(
                 text = text,
-                style = style.textStyle,
-                color = style.textColor,
+                style = NitrozenAutoResizeTextStyle(
+                    textStyle = style.textStyle,
+                    textColor = style.textColor
+                )
             )
         }
     }
