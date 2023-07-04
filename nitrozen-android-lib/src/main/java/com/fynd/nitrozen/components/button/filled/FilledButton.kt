@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -138,7 +137,7 @@ fun NitrozenFilledButton(
                 text = text,
                 style = NitrozenAutoResizeTextStyle(
                     textStyle = style.textStyle,
-                    textColor = style.textColor
+                    textColor = style.textColor,
                 )
             )
         }
