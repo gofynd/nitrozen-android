@@ -67,7 +67,7 @@ object NitrozenTextFieldStyle {
             backgroundColor = NitrozenTheme.colors.background,
             placeholderTextColor = NitrozenTheme.colors.grey60,
             textColor = NitrozenTheme.colors.grey100,
-            textColorError = NitrozenTheme.colors.error50,
+            textColorError = NitrozenTheme.colors.error80,
             borderColor = NitrozenTheme.colors.grey60,
             borderColorError = NitrozenTheme.colors.error50,
             borderColorFocused = NitrozenTheme.colors.primary60,
