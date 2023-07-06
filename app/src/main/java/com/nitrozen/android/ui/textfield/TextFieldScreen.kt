@@ -76,7 +76,7 @@ fun TextFieldScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             NitrozenOutlinedTextField(
-                value = "Valid value",
+                value = "Valid value with g",
                 hint = "Hint",
                 onValueChange = {},
                 label = "Label",
@@ -131,7 +131,8 @@ fun TextFieldScreen(
                 label = "Label",
                 onValueChange = {},
                 configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
-                    maxLine = 2
+                    maxLine = 2,
+                    fieldHeight = NitrozenTextFieldConfiguration.Outlined.Default.fieldHeight * 2,
                 )
             )
 

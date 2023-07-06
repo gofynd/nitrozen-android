@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -18,12 +19,15 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
+import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
 import com.fynd.nitrozen.theme.NitrozenTheme
 import kotlinx.coroutines.launch
 
@@ -105,6 +109,14 @@ fun NitrozenOutlinedTextField(
 ) {
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
+    var isFocused by remember {
+        mutableStateOf(false)
+    }
+
+    val borderColor = if(isFocused && textFieldState is TextFieldState.Idle)
+        NitrozenTheme.colors.primary60
+    else textFieldState.borderColor
+
     val textChangeBringIntoViewRequester = remember {
         BringIntoViewRequester()
     }
@@ -157,7 +169,7 @@ fun NitrozenOutlinedTextField(
             Spacer(modifier = Modifier.height(4.dp))
         }
 
-        OutlinedTextField(
+        BaseOutlinedTextField(
             value = value,
             onValueChange = {
                 val newText = if(maxCharacterConfiguration is MaxCharacterConfiguration.Enabled){
@@ -173,12 +185,15 @@ fun NitrozenOutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(configuration.fieldHeight)
+                .onFocusChanged {
+                    isFocused = it.hasFocus
+                }
                 .bringIntoViewRequester(textChangeBringIntoViewRequester),
             textStyle = style.textStyle,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = style.textColor,
-                unfocusedBorderColor = textFieldState.borderColor,
-                focusedBorderColor = textFieldState.borderColor,
+                unfocusedBorderColor = borderColor,
+                focusedBorderColor = borderColor,
                 cursorColor = style.cursorColor,
                 backgroundColor = style.backgroundColor,
             ),

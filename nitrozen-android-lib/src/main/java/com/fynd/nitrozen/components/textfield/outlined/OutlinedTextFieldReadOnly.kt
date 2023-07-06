@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
+import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.theme.typography.fontsNitrozen
 import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
@@ -90,7 +91,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
             Spacer(modifier = Modifier.height(4.dp))
         }
 
-        OutlinedTextField(
+        BaseOutlinedTextField(
             value = value,
             onValueChange = { },
             modifier = Modifier
