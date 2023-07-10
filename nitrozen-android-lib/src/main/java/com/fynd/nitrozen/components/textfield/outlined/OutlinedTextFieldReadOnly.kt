@@ -65,11 +65,6 @@ fun NitrozenOutlinedTextFieldReadOnly(
 
     Column(
         modifier = modifier
-            .then(
-                if(enabled) Modifier
-                else Modifier
-                    .alpha(0.4f)
-            )
             .fillMaxWidth()
             .onFocusChanged {
                 if (it.hasFocus) {
@@ -103,7 +98,8 @@ fun NitrozenOutlinedTextFieldReadOnly(
                 unfocusedBorderColor = textFieldState.borderColor,
                 focusedBorderColor = textFieldState.borderColor,
                 cursorColor = style.cursorColor,
-                backgroundColor = style.backgroundColor,
+                backgroundColor = if(enabled) style.backgroundColor
+                else style.disabledBackgroundColor,
             ),
             placeholder = {
                 Text(

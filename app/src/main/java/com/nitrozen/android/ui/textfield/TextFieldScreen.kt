@@ -76,7 +76,7 @@ fun TextFieldScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             NitrozenOutlinedTextField(
-                value = "Valid value with g",
+                value = "Valid value",
                 hint = "Hint",
                 onValueChange = {},
                 label = "Label",
@@ -113,7 +113,8 @@ fun TextFieldScreen(
                 value = "ReadOnly Value",
                 hint = "Hint",
                 label = "Label",
-                onClicked = {}
+                enabled = false,
+                onClicked = {},
             )
 
             Spacer(modifier = Modifier.height(32.dp))

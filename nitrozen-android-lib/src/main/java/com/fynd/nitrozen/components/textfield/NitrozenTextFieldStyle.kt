@@ -17,6 +17,7 @@ object NitrozenTextFieldStyle {
         val textColor: Color,
         val cursorColor: Color,
         val backgroundColor: Color,
+        val disabledBackgroundColor: Color,
         val placeholderTextStyle: TextStyle,
         val placeholderTextColor: Color,
         val infoTextStyle: TextStyle,
@@ -33,6 +34,7 @@ object NitrozenTextFieldStyle {
             textColor = NitrozenTheme.colors.grey100,
             cursorColor = NitrozenTheme.colors.grey60,
             backgroundColor = Color.Transparent,
+            disabledBackgroundColor = NitrozenTheme.colors.grey40,
             placeholderTextStyle = NitrozenTheme.typography.bodySmall,
             placeholderTextColor = NitrozenTheme.colors.grey60,
             infoTextStyle = TextStyle(
