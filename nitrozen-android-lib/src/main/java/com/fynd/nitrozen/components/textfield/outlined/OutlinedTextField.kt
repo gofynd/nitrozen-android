@@ -24,6 +24,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
@@ -129,40 +131,27 @@ fun NitrozenOutlinedTextField(
         modifier = modifier.fillMaxWidth(),
     ) {
         if (label != null) {
-            when(maxCharacterConfiguration){
-                MaxCharacterConfiguration.Disabled->{
+            Row {
+                NitrozenAutoResizeText(
+                    text = label,
+                    style = NitrozenAutoResizeTextStyle(
+                        textStyle = style.labelTextStyle,
+                        textColor = style.labelTextColor,
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 8.dp),
+                )
+
+                if(maxCharacterConfiguration is MaxCharacterConfiguration.Enabled &&
+                    maxCharacterConfiguration.showMaxCharacter) {
                     Text(
-                        text = label,
-                        style = style.labelTextStyle,
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 8.dp),
-                        color = style.labelTextColor
+                            .padding(end = 8.dp),
+                        text = "${value.length}/${maxCharacterConfiguration.maxChar}",
+                        style = NitrozenTheme.typography.bodyXsReg,
+                        color = NitrozenTheme.colors.grey80
                     )
-                }
-                is MaxCharacterConfiguration.Enabled -> {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                    ) {
-                        Text(
-                            text = label,
-                            style = style.labelTextStyle,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(horizontal = 8.dp),
-                            color = style.labelTextColor
-                        )
-                        if(maxCharacterConfiguration.showMaxCharacter) {
-                            Text(
-                                modifier = Modifier
-                                    .padding(end = 8.dp),
-                                text = "${value.length}/${maxCharacterConfiguration.maxChar}",
-                                style = NitrozenTheme.typography.bodyXsReg,
-                                color = NitrozenTheme.colors.grey80
-                            )
-                        }
-                    }
                 }
             }
 
