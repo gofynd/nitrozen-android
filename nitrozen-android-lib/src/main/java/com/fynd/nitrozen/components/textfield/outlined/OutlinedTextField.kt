@@ -139,7 +139,7 @@ fun NitrozenOutlinedTextField(
                         textColor = style.labelTextColor,
                     ),
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .weight(1f)
                         .padding(start = 8.dp),
                 )
 
