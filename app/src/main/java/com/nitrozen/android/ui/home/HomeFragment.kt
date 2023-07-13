@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
             HomeScreenActions.OpenNotificationToast -> navigator.openNotificationToastScreen()
             HomeScreenActions.OpenSuggestion -> navigator.openNotificationSuggestionScreen()
             HomeScreenActions.OpenAutoSizeText -> navigator.openAutoSizeTextScreen()
+            HomeScreenActions.OpenTooltip -> navigator.openToolTipScreen()
         }
     }
 }

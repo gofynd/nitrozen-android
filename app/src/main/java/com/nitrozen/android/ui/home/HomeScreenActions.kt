@@ -24,4 +24,5 @@ sealed class HomeScreenActions {
     object OpenNotificationToast: HomeScreenActions()
     object OpenSuggestion : HomeScreenActions()
     object OpenAutoSizeText : HomeScreenActions()
+    object OpenTooltip : HomeScreenActions()
 }

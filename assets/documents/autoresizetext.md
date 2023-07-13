@@ -1,4 +1,4 @@
-# Stepper
+# AutoResizeText
 
 ## Text with no change
 ```kotlin

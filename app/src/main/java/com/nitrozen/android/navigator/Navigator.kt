@@ -30,4 +30,5 @@ interface Navigator {
     fun openNotificationToastScreen()
     fun openNotificationSuggestionScreen()
     fun openAutoSizeTextScreen()
+    fun openToolTipScreen()
 }

@@ -247,5 +247,14 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "Tooltip",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenTooltip)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

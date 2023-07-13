@@ -10,7 +10,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.textfield.MaxCharacterConfiguration
@@ -20,7 +25,9 @@ import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextField
 import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextFieldReadOnly
 import com.fynd.nitrozen.components.textfield.TextFieldState
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 import com.nitrozen.android.ui.components.ComponentAppBar
+import com.nitrozen.android.R
 
 @Preview
 @Composable
@@ -64,7 +71,10 @@ fun TextFieldScreen(
                 hint = "Hint",
                 onValueChange = {},
                 label = "Label",
-                textFieldState = TextFieldState.Idle("Message goes here")
+                textFieldState = TextFieldState.Idle("Message goes here"),
+                configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
+                    maxCharacterConfiguration = MaxCharacterConfiguration.Enabled(100, true)
+                )
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -159,7 +169,39 @@ fun TextFieldScreen(
                     Icon(imageVector = Icons.Default.Info, contentDescription = null)
                 }
             )
-        }
 
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = "Outlined With Tooltip",
+                style = NitrozenTheme.typography.headingXs
+            )
+
+            Spacer(modifier = Modifier.height(50.dp))
+
+            var tooltipVisible by remember { mutableStateOf(false) }
+
+            NitrozenOutlinedTextField(
+                value = "",
+                hint = "Hint",
+                onValueChange = {},
+                label = "Label",
+                anchorView = {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .clickableWithoutRipple {
+                                tooltipVisible = !tooltipVisible
+                            }
+                    )
+                },
+                toolTipText = "Your Text",
+                onDismissRequest = {
+                    tooltipVisible = false
+                },
+                toolTipVisibility = tooltipVisible
+            )
+        }
     }
 }

@@ -122,4 +122,8 @@
         android:id="@+id/fragmentAutoSizeText"
         android:name="com.nitrozen.android.ui.autosizetext.AutoSizeTextFragment"
         />
+    <fragment
+        android:id="@+id/fragmentTooltip"
+        android:name="com.nitrozen.android.ui.tooltip.TooltipFragment"
+        />
 </navigation>
