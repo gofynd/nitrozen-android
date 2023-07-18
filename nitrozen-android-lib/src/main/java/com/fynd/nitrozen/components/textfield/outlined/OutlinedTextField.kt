@@ -7,6 +7,7 @@ import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,7 +32,12 @@ import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
+import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
+import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
+import com.fynd.nitrozen.components.tooltip.TipEdgePosition
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
+import com.fynd.nitrozen.utils.tooltip.AnchorEdge
 import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
@@ -82,8 +89,8 @@ private fun NitrozenOutlinedTextField_Max() {
         NitrozenOutlinedTextField(
             value = value,
             hint = "Error",
-            onValueChange = {value = it},
-            label = "Lable",
+            onValueChange = { value = it },
+            label = "Label",
             textFieldState = TextFieldState.Error("Error message"),
             configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
                 maxCharacterConfiguration = MaxCharacterConfiguration.Enabled(
@@ -105,6 +112,10 @@ fun NitrozenOutlinedTextField(
     label: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    anchorView: @Composable (() -> Unit)? = null,
+    toolTipText: String? = null,
+    toolTipVisibility: Boolean = false,
+    onDismissRequest: () -> Unit = {},
     textFieldState: TextFieldState = TextFieldState.Idle(),
     style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
     configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
@@ -115,7 +126,7 @@ fun NitrozenOutlinedTextField(
         mutableStateOf(false)
     }
 
-    val borderColor = if(isFocused && textFieldState is TextFieldState.Idle)
+    val borderColor = if (isFocused && textFieldState is TextFieldState.Idle)
         NitrozenTheme.colors.primary60
     else textFieldState.borderColor
 
@@ -132,19 +143,42 @@ fun NitrozenOutlinedTextField(
     ) {
         if (label != null) {
             Row {
-                NitrozenAutoResizeText(
-                    text = label,
-                    style = NitrozenAutoResizeTextStyle(
-                        textStyle = style.labelTextStyle,
-                        textColor = style.labelTextColor,
-                    ),
+                Row(
                     modifier = Modifier
-                        .weight(1f)
-                        .padding(start = 8.dp),
-                )
+                        .weight(1f),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    NitrozenAutoResizeText(
+                        text = label,
+                        style = NitrozenAutoResizeTextStyle(
+                            textStyle = style.labelTextStyle,
+                            textColor = style.labelTextColor,
+                        ),
+                        modifier = Modifier
+                            .padding(start = 8.dp),
+                    )
 
-                if(maxCharacterConfiguration is MaxCharacterConfiguration.Enabled &&
-                    maxCharacterConfiguration.showMaxCharacter) {
+                    if (anchorView != null && toolTipText != null) {
+                        NitrozenTooltip(
+                            modifier = Modifier
+                                .padding(start = 5.dp),
+                            tooltipText = toolTipText,
+                            anchorView = anchorView,
+                            configuration = NitrozenToolTipConfiguration(
+                                anchorEdge = AnchorEdge.Top,
+                                tipEdgePosition = TipEdgePosition.MIDDLE
+                            ),
+                            visibility = toolTipVisibility,
+                            onDismissRequest = {
+                                onDismissRequest()
+                            }
+                        )
+                    }
+                }
+
+                if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled &&
+                    maxCharacterConfiguration.showMaxCharacter
+                ) {
                     Text(
                         modifier = Modifier
                             .padding(end = 8.dp),
@@ -161,9 +195,9 @@ fun NitrozenOutlinedTextField(
         BaseOutlinedTextField(
             value = value,
             onValueChange = {
-                val newText = if(maxCharacterConfiguration is MaxCharacterConfiguration.Enabled){
+                val newText = if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled) {
                     it.take(maxCharacterConfiguration.maxChar)
-                }else{
+                } else {
                     it
                 }
                 onValueChange.invoke(newText)

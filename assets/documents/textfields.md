@@ -72,5 +72,37 @@ NitrozenOutlinedTextField(
 )
 ```
 
+## Outlined - With Tooltip
+```kotlin
+var tooltipVisible by remember { mutableStateOf(false) }
+
+NitrozenOutlinedTextField(
+    value = "",
+    hint = "Hint",
+    onValueChange = {},
+    label = "Label",
+    anchorView = {
+        Icon(
+            painterResource(id = R.drawable.ic_tooltip_info),
+            contentDescription = null,
+            modifier = Modifier
+                .clickableWithoutRipple {
+                    tooltipVisible = !tooltipVisible
+                }
+        )
+    },
+    toolTipText = "Your Text",
+    onDismissRequest = {
+        tooltipVisible = false
+    },
+    toolTipVisibility = tooltipVisible
+)
+```
+
 ## Preview
-![](./../screenshots/textfields.png)
+![](../screenshots/textfields/textfields.png)
+
+## Preview
+|                                                 |                                               |
+|-------------------------------------------------|-----------------------------------------------|
+| ![](../screenshots/textfields/textfields_1.png) | ![](./../screenshots/textfields/textfields_2.png) |

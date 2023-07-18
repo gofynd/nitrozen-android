@@ -140,4 +140,8 @@ class AppNavigator constructor(
     override fun openAutoSizeTextScreen() {
         navController.navigate(R.id.fragmentAutoSizeText)
     }
+
+    override fun openToolTipScreen() {
+        navController.navigate(R.id.fragmentTooltip)
+    }
 }
