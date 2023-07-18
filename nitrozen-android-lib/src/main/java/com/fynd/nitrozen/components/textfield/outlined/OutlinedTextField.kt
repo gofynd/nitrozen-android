@@ -200,6 +200,7 @@ fun NitrozenOutlinedTextField(
             keyboardOptions = KeyboardOptions(
                 keyboardType = configuration.keyboardType,
                 imeAction = configuration.imeAction,
+                capitalization = configuration.capitalization
             ),
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon,

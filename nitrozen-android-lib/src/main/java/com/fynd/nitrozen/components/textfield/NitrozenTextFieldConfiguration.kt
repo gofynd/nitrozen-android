@@ -4,6 +4,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
@@ -20,7 +21,8 @@ object NitrozenTextFieldConfiguration {
         val shape: Shape,
         val maxLine: Int,
         val fieldHeight: Dp,
-        val maxCharacterConfiguration : MaxCharacterConfiguration
+        val maxCharacterConfiguration : MaxCharacterConfiguration,
+        val capitalization: KeyboardCapitalization
     ) {
         companion object
     }
@@ -36,6 +38,7 @@ object NitrozenTextFieldConfiguration {
             maxLine = 1,
             fieldHeight = 48.dp,
             maxCharacterConfiguration = MaxCharacterConfiguration.Disabled,
+            capitalization = KeyboardCapitalization.None
         )
 
     data class OTP(
