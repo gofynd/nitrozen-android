@@ -100,9 +100,6 @@ NitrozenOutlinedTextField(
 ```
 
 ## Preview
-![](../screenshots/textfields/textfields.png)
-
-## Preview
 |                                                 |                                               |
 |-------------------------------------------------|-----------------------------------------------|
 | ![](../screenshots/textfields/textfields_1.png) | ![](./../screenshots/textfields/textfields_2.png) |

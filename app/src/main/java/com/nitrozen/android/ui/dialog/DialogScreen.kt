@@ -69,12 +69,12 @@ fun DialogScreen(
                 }
             )
 
-            if(showDefaultDialog.value){
+            if (showDefaultDialog.value) {
                 NitrozenDialog(
                     title = "Your Order is on the way",
                     subTitle = "Eget duis vulputate enim, " +
-                        "iaculis ac faucibus magna faucibus." +
-                        " Magna elementum eu nibh non arcu eu, ",
+                            "iaculis ac faucibus magna faucibus." +
+                            " Magna elementum eu nibh non arcu eu, ",
                     positiveLabel = "Primary",
                     negativeLabel = "Secondary",
                     icon = R.drawable.ic_dialog_checked,
@@ -110,12 +110,19 @@ fun DialogScreen(
                 }
             )
 
-            if(showVerticalActions.value){
+            if (showVerticalActions.value) {
                 NitrozenDialog(
                     title = "Your Order is on the way",
-                    subTitle = "Eget duis vulputate enim, " +
-                        "iaculis ac faucibus magna faucibus." +
-                        " Magna elementum eu nibh non arcu eu, ",
+                    subTitle = "Lorem Ipsum is simply dummy text of the printing and " +
+                            "typesetting industry. Lorem Ipsum has been the industry's " +
+                            "standard dummy text ever since the 1500s, when an unknown " +
+                            "printer took a galley of type and scrambled it to make a " +
+                            "type specimen book. It has survived not only five centuries, " +
+                            "but also the leap into electronic typesetting, remaining " +
+                            "essentially unchanged. It was popularised in the 1960s with " +
+                            "the release of Letraset sheets containing Lorem Ipsum passages, " +
+                            "and more recently with desktop publishing software like Aldus " +
+                            "PageMaker including versions of Lorem Ipsum.",
                     positiveLabel = "Primary",
                     negativeLabel = "Secondary",
                     icon = R.drawable.ic_dialog_checked,
@@ -154,12 +161,12 @@ fun DialogScreen(
                 },
             )
 
-            if(showInformationalDialog.value){
+            if (showInformationalDialog.value) {
                 NitrozenDialog(
                     title = "Your Order is on the way",
                     subTitle = "Eget duis vulputate enim, " +
-                        "iaculis ac faucibus magna faucibus." +
-                        " Magna elementum eu nibh non arcu eu, ",
+                            "iaculis ac faucibus magna faucibus." +
+                            " Magna elementum eu nibh non arcu eu, ",
                     configuration = NitrozenDialogConfiguration.Default.copy(
                         textAlign = TextAlign.Start
                     ),
@@ -189,12 +196,12 @@ fun DialogScreen(
                 }
             )
 
-            if(showStickyDialog.value){
+            if (showStickyDialog.value) {
                 NitrozenDialog(
                     title = "Your Order is on the way",
                     subTitle = "Eget duis vulputate enim, " +
-                        "iaculis ac faucibus magna faucibus." +
-                        " Magna elementum eu nibh non arcu eu, ",
+                            "iaculis ac faucibus magna faucibus." +
+                            " Magna elementum eu nibh non arcu eu, ",
                     configuration = NitrozenDialogConfiguration.Default.copy(
                         showCancelIcon = false,
                         dismissOnClickOutside = false,
