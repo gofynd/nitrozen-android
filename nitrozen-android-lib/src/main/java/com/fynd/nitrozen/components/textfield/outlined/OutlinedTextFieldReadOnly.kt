@@ -23,14 +23,20 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
+import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
+import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
+import com.fynd.nitrozen.components.tooltip.TipEdgePosition
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.theme.typography.fontsNitrozen
 import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
 import com.fynd.nitrozen.utils.extensions.get
+import com.fynd.nitrozen.utils.tooltip.AnchorEdge
 
 @Preview(showBackground = true)
 @Composable
@@ -55,6 +61,10 @@ fun NitrozenOutlinedTextFieldReadOnly(
     enabled : Boolean = true,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    anchorView: @Composable (() -> Unit)? = null,
+    toolTipText: String? = null,
+    toolTipVisibility: Boolean = false,
+    onDismissRequest: () -> Unit = {},
     textFieldState: TextFieldState = TextFieldState.Idle(),
     style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
     configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
@@ -74,14 +84,38 @@ fun NitrozenOutlinedTextFieldReadOnly(
             },
     ) {
         if (label != null) {
-            Text(
-                text = label,
-                style = style.labelTextStyle,
+            Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp),
-                color = style.labelTextColor
-            )
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                NitrozenAutoResizeText(
+                    text = label,
+                    style = NitrozenAutoResizeTextStyle(
+                        textStyle = style.labelTextStyle,
+                        textColor = style.labelTextColor,
+                    ),
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                )
+
+                if (anchorView != null && toolTipText != null) {
+                    NitrozenTooltip(
+                        modifier = Modifier
+                            .padding(start = 5.dp),
+                        tooltipText = toolTipText,
+                        anchorView = anchorView,
+                        configuration = NitrozenToolTipConfiguration(
+                            anchorEdge = AnchorEdge.Top,
+                            tipEdgePosition = TipEdgePosition.MIDDLE
+                        ),
+                        visibility = toolTipVisibility,
+                        onDismissRequest = {
+                            onDismissRequest()
+                        }
+                    )
+                }
+            }
 
             Spacer(modifier = Modifier.height(4.dp))
         }

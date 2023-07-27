@@ -128,6 +128,40 @@ fun TextFieldScreen(
                 onClicked = {},
             )
 
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = "Outlined ReadOnly With Tooltip",
+                style = NitrozenTheme.typography.headingXs
+            )
+
+            Spacer(modifier = Modifier.height(50.dp))
+
+            var tooltipVisibleOutline by remember { mutableStateOf(false) }
+
+            NitrozenOutlinedTextFieldReadOnly(
+                value = "ReadOnly Value",
+                hint = "Hint",
+                label = "Label",
+                enabled = false,
+                onClicked = {},
+                anchorView = {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .clickableWithoutRipple {
+                                tooltipVisibleOutline = !tooltipVisibleOutline
+                            }
+                    )
+                },
+                toolTipText = "Your Text",
+                onDismissRequest = {
+                    tooltipVisibleOutline = false
+                },
+                toolTipVisibility = tooltipVisibleOutline
+            )
+
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
