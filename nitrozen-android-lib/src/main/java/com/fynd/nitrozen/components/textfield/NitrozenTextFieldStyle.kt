@@ -34,7 +34,7 @@ object NitrozenTextFieldStyle {
             textColor = NitrozenTheme.colors.grey100,
             cursorColor = NitrozenTheme.colors.grey60,
             backgroundColor = Color.Transparent,
-            disabledBackgroundColor = NitrozenTheme.colors.grey40,
+            disabledBackgroundColor = NitrozenTheme.colors.grey20,
             placeholderTextStyle = NitrozenTheme.typography.bodySmall,
             placeholderTextColor = NitrozenTheme.colors.grey60,
             infoTextStyle = TextStyle(
