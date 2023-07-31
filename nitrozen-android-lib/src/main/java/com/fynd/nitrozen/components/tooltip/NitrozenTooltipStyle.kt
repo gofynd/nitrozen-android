@@ -18,7 +18,7 @@ data class NitrozenTooltipStyle(
 val NitrozenTooltipStyle.Companion.Default
     @Composable
     get() = NitrozenTooltipStyle(
-        textStyle = NitrozenTheme.typography.bodyMediumBold,
+        textStyle = NitrozenTheme.typography.bodySmallRegular,
         textColor = NitrozenTheme.colors.inverse,
         backgroundColor = NitrozenTheme.colors.grey100
     )
