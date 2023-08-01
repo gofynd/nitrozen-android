@@ -14,15 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
-import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextConfiguration
 import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
 import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
-import com.fynd.nitrozen.components.tooltip.TipEdgePosition
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 import com.fynd.nitrozen.utils.tooltip.AnchorEdge
+import com.fynd.nitrozen.utils.tooltip.EdgePosition
 import com.nitrozen.android.ui.components.ComponentAppBar
 
 @Preview
@@ -88,7 +85,7 @@ fun ToolTipScreen(
                     },
                     configuration = NitrozenToolTipConfiguration(
                         anchorEdge = AnchorEdge.Top,
-                        tipEdgePosition = TipEdgePosition.MIDDLE
+                        edgePosition = EdgePosition(0.5f)
                     ),
                     visibility = tooltipTopVisible,
                     onDismissRequest = {
@@ -126,7 +123,7 @@ fun ToolTipScreen(
                     },
                     configuration = NitrozenToolTipConfiguration(
                         anchorEdge = AnchorEdge.Bottom,
-                        tipEdgePosition = TipEdgePosition.MIDDLE
+                        edgePosition = EdgePosition(0.5f)
                     ),
                     visibility = tooltipBottomVisible,
                     onDismissRequest = {
@@ -165,7 +162,7 @@ fun ToolTipScreen(
                     },
                     configuration = NitrozenToolTipConfiguration(
                         anchorEdge = AnchorEdge.Start,
-                        tipEdgePosition = TipEdgePosition.MIDDLE
+                        edgePosition = EdgePosition(0.5f)
                     ),
                     visibility = tooltipStartVisible,
                     onDismissRequest = {
@@ -204,7 +201,7 @@ fun ToolTipScreen(
                     },
                     configuration = NitrozenToolTipConfiguration(
                         anchorEdge = AnchorEdge.End,
-                        tipEdgePosition = TipEdgePosition.MIDDLE
+                        edgePosition = EdgePosition(0.5f)
                     ),
                     visibility = tooltipEndVisible,
                     onDismissRequest = {

@@ -2,13 +2,14 @@ package com.fynd.nitrozen.components.tooltip
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fynd.nitrozen.utils.tooltip.AnchorEdge
 import com.fynd.nitrozen.utils.tooltip.EdgePosition
 
 data class NitrozenToolTipConfiguration(
     val anchorEdge: AnchorEdge,
-    val tipEdgePosition: TipEdgePosition
+    val edgePosition: EdgePosition
 ) {
     companion object
 }
@@ -17,11 +18,5 @@ val NitrozenToolTipConfiguration.Companion.Default: NitrozenToolTipConfiguration
     @Composable
     get() = NitrozenToolTipConfiguration(
         anchorEdge = AnchorEdge.Top,
-        tipEdgePosition = TipEdgePosition.MIDDLE
+        edgePosition = EdgePosition(0.5f, 0.dp)
     )
-
-enum class TipEdgePosition(val edgePosition: EdgePosition) {
-    START(EdgePosition(0.01f)),
-    MIDDLE(EdgePosition(0.5f)),
-    STARTCENTERMID(EdgePosition((0.25f)))
-}

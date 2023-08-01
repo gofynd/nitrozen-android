@@ -1,42 +1,30 @@
 package com.fynd.nitrozen.components.textfield.outlined
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.relocation.BringIntoViewRequester
-import androidx.compose.foundation.relocation.bringIntoViewRequester
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
 import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
 import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
+import com.fynd.nitrozen.components.tooltip.Default
 import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
 import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
-import com.fynd.nitrozen.components.tooltip.TipEdgePosition
 import com.fynd.nitrozen.theme.NitrozenTheme
-import com.fynd.nitrozen.theme.typography.fontsNitrozen
 import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
 import com.fynd.nitrozen.utils.extensions.get
-import com.fynd.nitrozen.utils.tooltip.AnchorEdge
 
 @Preview(showBackground = true)
 @Composable
@@ -68,6 +56,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
     textFieldState: TextFieldState = TextFieldState.Idle(),
     style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
     configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
+    toolTipConfiguration: NitrozenToolTipConfiguration = NitrozenToolTipConfiguration.Default
 ) {
     val focusManager = LocalFocusManager.current
 
@@ -106,8 +95,8 @@ fun NitrozenOutlinedTextFieldReadOnly(
                         tooltipText = toolTipText,
                         anchorView = anchorView,
                         configuration = NitrozenToolTipConfiguration(
-                            anchorEdge = AnchorEdge.Top,
-                            tipEdgePosition = TipEdgePosition.MIDDLE
+                            anchorEdge = toolTipConfiguration.anchorEdge,
+                            edgePosition = toolTipConfiguration.edgePosition
                         ),
                         visibility = toolTipVisibility,
                         onDismissRequest = {

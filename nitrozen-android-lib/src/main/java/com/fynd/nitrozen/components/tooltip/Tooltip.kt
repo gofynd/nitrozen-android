@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.Text
@@ -21,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 import com.fynd.nitrozen.utils.tooltip.AnchorEdge
+import com.fynd.nitrozen.utils.tooltip.EdgePosition
 import com.fynd.nitrozen.utils.tooltip.Tooltip
 import com.fynd.nitrozen.utils.tooltip.TooltipStyle
 
@@ -51,7 +50,7 @@ fun NitrozenTooltipPreview() {
                 },
                 configuration = NitrozenToolTipConfiguration(
                     anchorEdge = AnchorEdge.Top,
-                    tipEdgePosition = TipEdgePosition.MIDDLE
+                    edgePosition = EdgePosition(0.5f)
                 ),
                 visibility = tooltipVisible,
                 onDismissRequest = {
@@ -83,7 +82,7 @@ fun NitrozenTooltip(
             visible = visibility,
             enterTransition = fadeIn(),
             exitTransition = fadeOut(),
-            tipPosition = configuration.tipEdgePosition.edgePosition,
+            tipPosition = configuration.edgePosition,
             tooltipStyle = TooltipStyle(
                 color = style.backgroundColor,
                 cornerRadius = NitrozenTheme.radius.medium,
