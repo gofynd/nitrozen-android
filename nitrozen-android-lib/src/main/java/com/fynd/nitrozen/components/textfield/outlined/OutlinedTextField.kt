@@ -16,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -92,6 +93,158 @@ private fun NitrozenOutlinedTextField_Max() {
         )
     }
 }
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun NitrozenOutlinedTextField(
+    modifier: Modifier = Modifier,
+    hint: String,
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    label: String? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    anchorView: @Composable (() -> Unit)? = null,
+    toolTipText: String? = null,
+    toolTipVisibility: Boolean = false,
+    onDismissRequest: () -> Unit = {},
+    textFieldState: TextFieldState = TextFieldState.Idle(),
+    style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
+    configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
+    toolTipConfiguration: NitrozenToolTipConfiguration = NitrozenToolTipConfiguration.Default
+) {
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
+
+    var isFocused by remember {
+        mutableStateOf(false)
+    }
+
+    val borderColor = if (isFocused && textFieldState is TextFieldState.Idle)
+        NitrozenTheme.colors.primary60
+    else textFieldState.borderColor
+
+    val textChangeBringIntoViewRequester = remember {
+        BringIntoViewRequester()
+    }
+
+    val scope = rememberCoroutineScope()
+
+    val maxCharacterConfiguration = configuration.maxCharacterConfiguration
+
+    Column(
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        if (label != null) {
+            Row {
+                Row(
+                    modifier = Modifier
+                        .weight(1f),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    NitrozenAutoResizeText(
+                        text = label,
+                        style = NitrozenAutoResizeTextStyle(
+                            textStyle = style.labelTextStyle,
+                            textColor = style.labelTextColor,
+                        ),
+                        modifier = Modifier
+                            .padding(start = 8.dp),
+                    )
+
+                    if (anchorView != null && toolTipText != null) {
+                        NitrozenTooltip(
+                            modifier = Modifier
+                                .padding(start = 5.dp),
+                            tooltipText = toolTipText,
+                            anchorView = anchorView,
+                            configuration = NitrozenToolTipConfiguration(
+                                anchorEdge = toolTipConfiguration.anchorEdge,
+                                edgePosition = toolTipConfiguration.edgePosition
+                            ),
+                            visibility = toolTipVisibility,
+                            onDismissRequest = {
+                                onDismissRequest()
+                            }
+                        )
+                    }
+                }
+
+                if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled &&
+                    maxCharacterConfiguration.showMaxCharacter
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .padding(end = 8.dp),
+                        text = "${value.text.length}/${maxCharacterConfiguration.maxChar}",
+                        style = NitrozenTheme.typography.bodyXsReg,
+                        color = NitrozenTheme.colors.grey80
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(4.dp))
+        }
+
+        BaseOutlinedTextField(
+            value = value,
+            onValueChange = {
+                val newText = if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled) {
+                    it.text.take(maxCharacterConfiguration.maxChar)
+                } else {
+                    it.text
+                }
+                onValueChange.invoke(it.copy(
+                    text = newText
+                ))
+                scope.launch {
+                    textChangeBringIntoViewRequester.bringIntoView()
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(configuration.fieldHeight)
+                .onFocusChanged {
+                    isFocused = it.hasFocus
+                }
+                .bringIntoViewRequester(textChangeBringIntoViewRequester),
+            textStyle = style.textStyle,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = style.textColor,
+                unfocusedBorderColor = borderColor,
+                focusedBorderColor = borderColor,
+                cursorColor = style.cursorColor,
+                backgroundColor = style.backgroundColor,
+            ),
+            placeholder = {
+                Text(
+                    text = hint,
+                    style = style.placeholderTextStyle,
+                    color = style.placeholderTextColor,
+                    maxLines = configuration.maxLine,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+            singleLine = configuration.maxLine == 1,
+            maxLines = configuration.maxLine,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = configuration.keyboardType,
+                imeAction = configuration.imeAction,
+                capitalization = configuration.capitalization
+            ),
+            leadingIcon = leadingIcon,
+            trailingIcon = trailingIcon,
+            keyboardActions = configuration.keyboardActions,
+            shape = configuration.shape,
+            visualTransformation = configuration.visualTransformation,
+        )
+
+        TextFieldMessage(
+            textFieldState = textFieldState,
+            textStyle = style.infoTextStyle
+        )
+    }
+}
+
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
