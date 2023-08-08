@@ -172,7 +172,8 @@ fun NitrozenOTPField(
 
         TextFieldMessage(
             textFieldState = state,
-            textStyle = style.infoTextStyle
+            textStyle = style.infoTextStyle,
+            paddingStart = 4.dp
         )
     }
 }
