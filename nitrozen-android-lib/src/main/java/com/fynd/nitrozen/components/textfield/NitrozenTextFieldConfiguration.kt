@@ -23,7 +23,7 @@ object NitrozenTextFieldConfiguration {
         val fieldHeight: Dp,
         val maxCharacterConfiguration : MaxCharacterConfiguration,
         val capitalization: KeyboardCapitalization,
-        val isClearTextEnabled : Boolean = true
+        val isClearTextEnabled : Boolean = false
     ) {
         companion object
     }
