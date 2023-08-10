@@ -412,7 +412,7 @@ fun NitrozenOutlinedTextField(
                                 },
                             painter = painterResource(id = R.drawable.ic_close_remove),
                             contentDescription = null,
-                            tint = NitrozenTheme.colors.grey100
+                            tint = NitrozenTheme.colors.grey80
                         )
                     }
                 }else null,
