@@ -9,7 +9,8 @@ import com.fynd.nitrozen.utils.tooltip.EdgePosition
 
 data class NitrozenToolTipConfiguration(
     val anchorEdge: AnchorEdge,
-    val edgePosition: EdgePosition
+    val edgePosition: EdgePosition,
+    val isAutoResizeEnabled : Boolean = false,
 ) {
     companion object
 }

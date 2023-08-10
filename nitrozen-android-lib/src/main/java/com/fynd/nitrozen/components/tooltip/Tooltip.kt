@@ -16,6 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.autosizetext.Default
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 import com.fynd.nitrozen.utils.tooltip.AnchorEdge
@@ -98,12 +101,22 @@ fun NitrozenTooltip(
                 onDismissRequest()
             }
         ) {
-            Text(
-                text = tooltipText,
-                modifier = Modifier.widthIn(max = 256.dp),
-                color = style.textColor,
-                style = style.textStyle
-            )
+            if(configuration.isAutoResizeEnabled){
+                NitrozenAutoResizeText(
+                    text = tooltipText,
+                    style = NitrozenAutoResizeTextStyle.Default.copy(
+                        textStyle = style.textStyle,
+                        textColor = style.textColor
+                    ),
+                )
+            }else {
+                Text(
+                    text = tooltipText,
+                    modifier = Modifier.widthIn(max = 256.dp),
+                    color = style.textColor,
+                    style = style.textStyle
+                )
+            }
         }
     }
 }
