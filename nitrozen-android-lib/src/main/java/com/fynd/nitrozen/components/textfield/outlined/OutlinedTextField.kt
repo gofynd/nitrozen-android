@@ -238,7 +238,7 @@ fun NitrozenOutlinedTextField(
             ),
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon
-                ?: if(configuration.isClearTextEnabled){
+                ?: if(configuration.isClearTextEnabled && value.text.isNotBlank()){
                     {
                         Icon(
                             modifier = Modifier
@@ -402,7 +402,7 @@ fun NitrozenOutlinedTextField(
             ),
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon
-                ?: if(configuration.isClearTextEnabled){
+                ?: if(configuration.isClearTextEnabled && value.isNotBlank()){
                     {
                         Icon(
                             modifier = Modifier
