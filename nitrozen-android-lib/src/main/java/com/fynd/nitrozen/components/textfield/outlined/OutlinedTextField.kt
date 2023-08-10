@@ -1,10 +1,12 @@
 package com.fynd.nitrozen.components.textfield.outlined
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -16,10 +18,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.R
 import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
 import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.textfield.*
@@ -30,6 +34,7 @@ import com.fynd.nitrozen.components.tooltip.Default
 import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
 import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
@@ -232,7 +237,21 @@ fun NitrozenOutlinedTextField(
                 capitalization = configuration.capitalization
             ),
             leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon,
+            trailingIcon = trailingIcon
+                ?: if(configuration.isClearTextEnabled){
+                    {
+                        Icon(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clickableWithoutRipple {
+                                    onValueChange(TextFieldValue(""))
+                                },
+                            painter = painterResource(id = R.drawable.ic_close_remove),
+                            contentDescription = null,
+                            tint = NitrozenTheme.colors.grey100
+                        )
+                    }
+                }else null,
             keyboardActions = configuration.keyboardActions,
             shape = configuration.shape,
             visualTransformation = configuration.visualTransformation,
@@ -382,7 +401,21 @@ fun NitrozenOutlinedTextField(
                 capitalization = configuration.capitalization
             ),
             leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon,
+            trailingIcon = trailingIcon
+                ?: if(configuration.isClearTextEnabled){
+                    {
+                        Icon(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clickableWithoutRipple {
+                                    onValueChange("")
+                                },
+                            painter = painterResource(id = R.drawable.ic_close_remove),
+                            contentDescription = null,
+                            tint = NitrozenTheme.colors.grey100
+                        )
+                    }
+                }else null,
             keyboardActions = configuration.keyboardActions,
             shape = configuration.shape,
             visualTransformation = configuration.visualTransformation,
