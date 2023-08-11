@@ -101,7 +101,7 @@ fun NitrozenTooltip(
                 onDismissRequest()
             }
         ) {
-            if(configuration.isAutoResizeEnabled){
+            if (configuration.isAutoResizeEnabled) {
                 NitrozenAutoResizeText(
                     text = tooltipText,
                     style = NitrozenAutoResizeTextStyle.Default.copy(
@@ -109,10 +109,11 @@ fun NitrozenTooltip(
                         textColor = style.textColor
                     ),
                 )
-            }else {
+            } else {
                 Text(
                     text = tooltipText,
-                    modifier = Modifier.widthIn(max = 256.dp),
+                    modifier = Modifier
+                        .widthIn(max = configuration.tooltipWidth),
                     color = style.textColor,
                     style = style.textStyle
                 )
