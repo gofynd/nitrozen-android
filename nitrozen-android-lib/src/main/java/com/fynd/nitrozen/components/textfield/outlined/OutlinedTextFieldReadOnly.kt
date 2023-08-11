@@ -94,10 +94,7 @@ fun NitrozenOutlinedTextFieldReadOnly(
                             .padding(start = 5.dp),
                         tooltipText = toolTipText,
                         anchorView = anchorView,
-                        configuration = NitrozenToolTipConfiguration(
-                            anchorEdge = toolTipConfiguration.anchorEdge,
-                            edgePosition = toolTipConfiguration.edgePosition
-                        ),
+                        configuration = toolTipConfiguration,
                         visibility = toolTipVisibility,
                         onDismissRequest = {
                             onDismissRequest()

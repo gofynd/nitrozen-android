@@ -15,7 +15,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.textfield.MaxCharacterConfiguration
@@ -24,10 +23,12 @@ import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Def
 import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextField
 import com.fynd.nitrozen.components.textfield.outlined.NitrozenOutlinedTextFieldReadOnly
 import com.fynd.nitrozen.components.textfield.TextFieldState
+import com.fynd.nitrozen.components.tooltip.Default
+import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
+import com.fynd.nitrozen.utils.tooltip.AnchorEdge
 import com.nitrozen.android.ui.components.ComponentAppBar
-import com.nitrozen.android.R
 
 @Preview
 @Composable
@@ -159,7 +160,10 @@ fun TextFieldScreen(
                 onDismissRequest = {
                     tooltipVisibleOutline = false
                 },
-                toolTipVisibility = tooltipVisibleOutline
+                toolTipVisibility = tooltipVisibleOutline,
+                toolTipConfiguration = NitrozenToolTipConfiguration.Default.copy(
+                    anchorEdge = AnchorEdge.Top
+                )
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -234,7 +238,10 @@ fun TextFieldScreen(
                 onDismissRequest = {
                     tooltipVisible = false
                 },
-                toolTipVisibility = tooltipVisible
+                toolTipVisibility = tooltipVisible,
+                toolTipConfiguration = NitrozenToolTipConfiguration.Default.copy(
+                    anchorEdge = AnchorEdge.Top
+                )
             )
         }
     }
