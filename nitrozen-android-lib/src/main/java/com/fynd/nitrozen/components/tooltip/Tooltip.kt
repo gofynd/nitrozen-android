@@ -113,7 +113,7 @@ fun NitrozenTooltip(
                 Text(
                     text = tooltipText,
                     modifier = Modifier
-                        .widthIn(max = configuration.tooltipWidth),
+                        .widthIn(max = configuration.tooltipMaxWidth),
                     color = style.textColor,
                     style = style.textStyle
                 )
