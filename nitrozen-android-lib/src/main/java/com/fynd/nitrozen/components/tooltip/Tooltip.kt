@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.autosizetext.Default
 import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextConfiguration
 import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
@@ -73,7 +74,8 @@ fun NitrozenTooltip(
     style: NitrozenTooltipStyle = NitrozenTooltipStyle.Default,
     configuration: NitrozenToolTipConfiguration = NitrozenToolTipConfiguration.Default,
     visibility: Boolean = false,
-    onDismissRequest: () -> Unit
+    onDismissRequest: () -> Unit,
+    autoResizeTextConfig: NitrozenAutoResizeTextConfiguration = NitrozenAutoResizeTextConfiguration.Default
 ) {
     Box(
         modifier = modifier,
@@ -108,6 +110,7 @@ fun NitrozenTooltip(
                         textStyle = style.textStyle,
                         textColor = style.textColor
                     ),
+                    configuration = autoResizeTextConfig
                 )
             } else {
                 Text(
