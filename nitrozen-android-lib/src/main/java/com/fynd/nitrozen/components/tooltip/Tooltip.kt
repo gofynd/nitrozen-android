@@ -105,6 +105,8 @@ fun NitrozenTooltip(
         ) {
             if (configuration.isAutoResizeEnabled) {
                 NitrozenAutoResizeText(
+                    modifier = Modifier
+                        .widthIn(max = configuration.tooltipMaxWidth),
                     text = tooltipText,
                     style = NitrozenAutoResizeTextStyle.Default.copy(
                         textStyle = style.textStyle,
