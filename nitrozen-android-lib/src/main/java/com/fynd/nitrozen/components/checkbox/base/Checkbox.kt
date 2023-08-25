@@ -65,6 +65,7 @@ import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import kotlin.math.floor
@@ -105,7 +106,8 @@ fun Checkbox(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: CheckboxColors = CheckboxDefaults.colors()
+    colors: CheckboxColors = CheckboxDefaults.colors(),
+    size : Dp
 ) {
     TriStateCheckbox(
         state = ToggleableState(checked),
@@ -113,7 +115,8 @@ fun Checkbox(
         interactionSource = interactionSource,
         enabled = enabled,
         colors = colors,
-        modifier = modifier
+        modifier = modifier,
+        size = size
     )
 }
 
@@ -151,7 +154,8 @@ fun TriStateCheckbox(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: CheckboxColors = CheckboxDefaults.colors()
+    colors: CheckboxColors = CheckboxDefaults.colors(),
+    size: Dp
 ) {
     val toggleableModifier =
         if (onClick != null) {
@@ -176,7 +180,8 @@ fun TriStateCheckbox(
             .then(if (onClick != null) { Modifier.minimumTouchTargetSize() } else { Modifier })
             .then(toggleableModifier)
             .padding(CheckboxDefaultPadding),
-        colors = colors
+        colors = colors,
+        size = size
     )
 }
 
@@ -270,7 +275,8 @@ private fun CheckboxImpl(
     enabled: Boolean,
     value: ToggleableState,
     modifier: Modifier,
-    colors: CheckboxColors
+    colors: CheckboxColors,
+    size : Dp
 ) {
     val transition = updateTransition(value)
     val checkDrawFraction by transition.animateFloat(
@@ -308,7 +314,7 @@ private fun CheckboxImpl(
     val checkColor by colors.checkmarkColor(value)
     val boxColor by colors.boxColor(enabled, value)
     val borderColor by colors.borderColor(enabled, value)
-    Canvas(modifier.wrapContentSize(Alignment.Center).requiredSize(CheckboxSize)) {
+    Canvas(modifier.wrapContentSize(Alignment.Center).requiredSize(size)) {
         val strokeWidthPx = floor(StrokeWidth.toPx())
         drawBox(
             boxColor = boxColor,
@@ -566,6 +572,6 @@ private const val CheckAnimationDuration = 100
 
 private val CheckboxRippleRadius = 24.dp
 private val CheckboxDefaultPadding = 2.dp
-private val CheckboxSize = 24.dp
+
 private val StrokeWidth = 1.dp
 private val RadiusSize = 4.dp

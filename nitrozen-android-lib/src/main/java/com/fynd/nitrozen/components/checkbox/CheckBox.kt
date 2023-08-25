@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.checkbox.base.*
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
@@ -63,7 +64,10 @@ private fun NitrozenCheckBox_Disabled() {
             onCheckedChange = {},
             onTextClick = {},
             checked = true,
-            enabled = false
+            enabled = false,
+            configuration = NitrozenCheckBoxConfiguration.Default.copy(
+                size = 16.dp
+            )
         )
     }
 }
@@ -90,8 +94,7 @@ fun NitrozenCheckBox(
     ) {
         CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
             Checkbox(
-                modifier = Modifier
-                    .size(configuration.size),
+                modifier = Modifier,
                 checked = checked,
                 enabled = enabled,
                 onCheckedChange = onCheckedChange,
@@ -101,6 +104,7 @@ fun NitrozenCheckBox(
                     disabledColor = style.checkedColor,
                     uncheckedColor = style.uncheckedColor,
                 ),
+                size = configuration.size
             )
         }
 
