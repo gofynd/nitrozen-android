@@ -3,6 +3,7 @@ package com.fynd.nitrozen.components.checkbox
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material.Text
@@ -89,7 +90,8 @@ fun NitrozenCheckBox(
     ) {
         CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
             Checkbox(
-                modifier = Modifier,
+                modifier = Modifier
+                    .size(configuration.size),
                 checked = checked,
                 enabled = enabled,
                 onCheckedChange = onCheckedChange,
