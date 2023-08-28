@@ -94,7 +94,8 @@ fun NitrozenCheckBox(
     ) {
         CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides false) {
             Checkbox(
-                modifier = Modifier,
+                modifier = Modifier
+                    .alignByBaseline(),
                 checked = checked,
                 enabled = enabled,
                 onCheckedChange = onCheckedChange,
