@@ -23,6 +23,7 @@ private fun DropDownPreview_Selected() {
         NitrozenDropDownTextField(
             modifier = Modifier.padding(8.dp),
             value = "Selected",
+            enabled = true,
             hint = "Hint",
             onClicked = {}
         )
@@ -37,6 +38,7 @@ private fun DropDownPreview_UnSelected() {
             modifier = Modifier.padding(8.dp),
             hint = "Hint",
             onClicked = {},
+            enabled = true,
         )
     }
 }
@@ -50,6 +52,7 @@ private fun DropDownPreview_State() {
             value = "Selected",
             hint = "Hint",
             onClicked = {},
+            enabled = true,
             textFieldState = TextFieldState.Success("Success")
         )
     }
@@ -60,6 +63,7 @@ private fun DropDownPreview_State() {
 fun NitrozenDropDownTextField(
     modifier: Modifier = Modifier,
     hint: String,
+    enabled : Boolean,
     onClicked: () -> Unit,
     value: String? = null,
     label: String? = null,
@@ -87,7 +91,8 @@ fun NitrozenDropDownTextField(
                 contentDescription = "Down Arrow",
                 tint = NitrozenTheme.colors.grey100
             )
-        }
+        },
+        enabled = enabled
     )
 }
 

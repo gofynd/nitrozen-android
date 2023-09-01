@@ -54,6 +54,9 @@ dependencies {
 * [Switch](./assets/documents/switch.md)
 * [TextField](./assets/documents/textfields.md)
 * [Typography](./assets/documents/typography.md)
+* [Notification Toast](./assets/documents/notification toast.md) 🆕
+* [Suggestion Banner](./assets/documents/suggestion banner.md) 🆕
+* [AutoResizeText](./assets/documents/autoresizetext.md) 🆕
 
 ## Contributors
 

@@ -27,4 +27,8 @@ interface Navigator {
     fun openDialogScreen()
     fun openEmptyViewScreen()
     fun openErrorViewScreen()
+    fun openNotificationToastScreen()
+    fun openNotificationSuggestionScreen()
+    fun openAutoSizeTextScreen()
+    fun openToolTipScreen()
 }

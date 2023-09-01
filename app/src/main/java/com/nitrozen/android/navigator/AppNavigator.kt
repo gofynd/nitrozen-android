@@ -128,4 +128,20 @@ class AppNavigator constructor(
     override fun openErrorViewScreen() {
         navController.navigate(R.id.fragmentErrorView)
     }
+
+    override fun openNotificationToastScreen() {
+        navController.navigate(R.id.fragmentNotificationToast)
+    }
+
+    override fun openNotificationSuggestionScreen() {
+        navController.navigate(R.id.fragmentNotificationSuggestion)
+    }
+
+    override fun openAutoSizeTextScreen() {
+        navController.navigate(R.id.fragmentAutoSizeText)
+    }
+
+    override fun openToolTipScreen() {
+        navController.navigate(R.id.fragmentTooltip)
+    }
 }

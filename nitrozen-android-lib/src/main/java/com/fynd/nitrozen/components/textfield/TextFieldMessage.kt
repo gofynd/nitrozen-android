@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.dp
 fun TextFieldMessage(
     textFieldState: TextFieldState,
     textStyle: TextStyle,
+    paddingStart: Dp = 8.dp
 ) {
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
@@ -35,14 +37,14 @@ fun TextFieldMessage(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .padding(top = 8.dp, start = 8.dp, end = 8.dp)
+                .padding(top = 8.dp, start = paddingStart, end = 8.dp)
         ) {
             val icon = textFieldState.icon
             if (icon != null) {
                 Image(
                     painter = icon,
                     contentDescription = null,
-                    modifier = Modifier.alignByBaseline()
+                    modifier = Modifier
                 )
                 Spacer(modifier = Modifier.width(8.dp))
             }
@@ -50,7 +52,7 @@ fun TextFieldMessage(
                 text = message,
                 style = textStyle,
                 color = textFieldState.infoTextColor,
-                modifier = Modifier.alignByBaseline()
+                modifier = Modifier
                     .bringIntoViewRequester(bringIntoViewRequester)
             )
         }

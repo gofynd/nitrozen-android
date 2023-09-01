@@ -6,21 +6,35 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.R
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
+import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
+import com.fynd.nitrozen.components.tooltip.Default
+import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
+import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.clickableWithoutRipple
 import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
@@ -62,6 +76,195 @@ private fun NitrozenOutlinedTextField_Error() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+private fun NitrozenOutlinedTextField_Max() {
+    var value by remember {
+        mutableStateOf("")
+    }
+    NitrozenTheme {
+        NitrozenOutlinedTextField(
+            value = value,
+            hint = "Error",
+            onValueChange = { value = it },
+            label = "Label",
+            textFieldState = TextFieldState.Error("Error message"),
+            configuration = NitrozenTextFieldConfiguration.Outlined.Default.copy(
+                maxCharacterConfiguration = MaxCharacterConfiguration.Enabled(
+                    12,
+                    true
+                )
+            )
+        )
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun NitrozenOutlinedTextField(
+    modifier: Modifier = Modifier,
+    hint: String,
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    label: String? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    anchorView: @Composable (() -> Unit)? = null,
+    toolTipText: String? = null,
+    toolTipVisibility: Boolean = false,
+    onDismissRequest: () -> Unit = {},
+    textFieldState: TextFieldState = TextFieldState.Idle(),
+    style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
+    configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
+    toolTipConfiguration: NitrozenToolTipConfiguration = NitrozenToolTipConfiguration.Default
+) {
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
+
+    var isFocused by remember {
+        mutableStateOf(false)
+    }
+
+    val borderColor = if (isFocused && textFieldState is TextFieldState.Idle)
+        NitrozenTheme.colors.primary60
+    else textFieldState.borderColor
+
+    val textChangeBringIntoViewRequester = remember {
+        BringIntoViewRequester()
+    }
+
+    val scope = rememberCoroutineScope()
+
+    val maxCharacterConfiguration = configuration.maxCharacterConfiguration
+
+    Column(
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        if (label != null) {
+            Row {
+                Row(
+                    modifier = Modifier
+                        .weight(1f),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    NitrozenAutoResizeText(
+                        text = label,
+                        style = NitrozenAutoResizeTextStyle(
+                            textStyle = style.labelTextStyle,
+                            textColor = style.labelTextColor,
+                        ),
+                        modifier = Modifier
+                            .padding(start = 8.dp),
+                    )
+
+                    if (anchorView != null && toolTipText != null) {
+                        NitrozenTooltip(
+                            modifier = Modifier
+                                .padding(start = 5.dp),
+                            tooltipText = toolTipText,
+                            anchorView = anchorView,
+                            configuration = NitrozenToolTipConfiguration(
+                                anchorEdge = toolTipConfiguration.anchorEdge,
+                                edgePosition = toolTipConfiguration.edgePosition
+                            ),
+                            visibility = toolTipVisibility,
+                            onDismissRequest = {
+                                onDismissRequest()
+                            }
+                        )
+                    }
+                }
+
+                if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled &&
+                    maxCharacterConfiguration.showMaxCharacter
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .padding(end = 8.dp),
+                        text = "${value.text.length}/${maxCharacterConfiguration.maxChar}",
+                        style = NitrozenTheme.typography.bodyXsReg,
+                        color = NitrozenTheme.colors.grey80
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(4.dp))
+        }
+
+        BaseOutlinedTextField(
+            value = value,
+            onValueChange = {
+                val newText = if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled) {
+                    it.text.take(maxCharacterConfiguration.maxChar)
+                } else {
+                    it.text
+                }
+                onValueChange.invoke(it.copy(
+                    text = newText
+                ))
+                scope.launch {
+                    textChangeBringIntoViewRequester.bringIntoView()
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(configuration.fieldHeight)
+                .onFocusChanged {
+                    isFocused = it.hasFocus
+                }
+                .bringIntoViewRequester(textChangeBringIntoViewRequester),
+            textStyle = style.textStyle,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = style.textColor,
+                unfocusedBorderColor = borderColor,
+                focusedBorderColor = borderColor,
+                cursorColor = style.cursorColor,
+                backgroundColor = style.backgroundColor,
+            ),
+            placeholder = {
+                Text(
+                    text = hint,
+                    style = style.placeholderTextStyle,
+                    color = style.placeholderTextColor,
+                    maxLines = configuration.maxLine,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+            singleLine = configuration.maxLine == 1,
+            maxLines = configuration.maxLine,
+            keyboardOptions = KeyboardOptions(
+                keyboardType = configuration.keyboardType,
+                imeAction = configuration.imeAction,
+                capitalization = configuration.capitalization
+            ),
+            leadingIcon = leadingIcon,
+            trailingIcon = trailingIcon
+                ?: if(configuration.isClearTextEnabled && value.text.isNotBlank()){
+                    {
+                        Icon(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clickableWithoutRipple {
+                                    onValueChange(TextFieldValue(""))
+                                },
+                            painter = painterResource(id = R.drawable.ic_close_remove),
+                            contentDescription = null,
+                            tint = NitrozenTheme.colors.grey80
+                        )
+                    }
+                }else null,
+            keyboardActions = configuration.keyboardActions,
+            shape = configuration.shape,
+            visualTransformation = configuration.visualTransformation,
+        )
+
+        TextFieldMessage(
+            textFieldState = textFieldState,
+            textStyle = style.infoTextStyle
+        )
+    }
+}
+
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NitrozenOutlinedTextField(
@@ -72,11 +275,24 @@ fun NitrozenOutlinedTextField(
     label: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    anchorView: @Composable (() -> Unit)? = null,
+    toolTipText: String? = null,
+    toolTipVisibility: Boolean = false,
+    onDismissRequest: () -> Unit = {},
     textFieldState: TextFieldState = TextFieldState.Idle(),
     style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
     configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
+    toolTipConfiguration: NitrozenToolTipConfiguration = NitrozenToolTipConfiguration.Default
 ) {
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
+
+    var isFocused by remember {
+        mutableStateOf(false)
+    }
+
+    val borderColor = if (isFocused && textFieldState is TextFieldState.Idle)
+        NitrozenTheme.colors.primary60
+    else textFieldState.borderColor
 
     val textChangeBringIntoViewRequester = remember {
         BringIntoViewRequester()
@@ -84,37 +300,84 @@ fun NitrozenOutlinedTextField(
 
     val scope = rememberCoroutineScope()
 
+    val maxCharacterConfiguration = configuration.maxCharacterConfiguration
+
     Column(
         modifier = modifier.fillMaxWidth(),
     ) {
         if (label != null) {
-            Text(
-                text = label,
-                style = style.labelTextStyle,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp),
-                color = style.labelTextColor
-            )
+            Row {
+                Row(
+                    modifier = Modifier
+                        .weight(1f),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    NitrozenAutoResizeText(
+                        text = label,
+                        style = NitrozenAutoResizeTextStyle(
+                            textStyle = style.labelTextStyle,
+                            textColor = style.labelTextColor,
+                        ),
+                        modifier = Modifier
+                            .padding(start = 8.dp),
+                    )
+
+                    if (anchorView != null && toolTipText != null) {
+                        NitrozenTooltip(
+                            modifier = Modifier
+                                .padding(start = 5.dp),
+                            tooltipText = toolTipText,
+                            anchorView = anchorView,
+                            configuration = toolTipConfiguration,
+                            visibility = toolTipVisibility,
+                            onDismissRequest = {
+                                onDismissRequest()
+                            }
+                        )
+                    }
+                }
+
+                if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled &&
+                    maxCharacterConfiguration.showMaxCharacter
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .padding(end = 8.dp),
+                        text = "${value.length}/${maxCharacterConfiguration.maxChar}",
+                        style = NitrozenTheme.typography.bodyXsReg,
+                        color = NitrozenTheme.colors.grey80
+                    )
+                }
+            }
 
             Spacer(modifier = Modifier.height(4.dp))
         }
 
-        OutlinedTextField(
+        BaseOutlinedTextField(
             value = value,
             onValueChange = {
-                onValueChange.invoke(it)
+                val newText = if (maxCharacterConfiguration is MaxCharacterConfiguration.Enabled) {
+                    it.take(maxCharacterConfiguration.maxChar)
+                } else {
+                    it
+                }
+                onValueChange.invoke(newText)
                 scope.launch {
                     textChangeBringIntoViewRequester.bringIntoView()
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(configuration.fieldHeight)
+                .onFocusChanged {
+                    isFocused = it.hasFocus
+                }
                 .bringIntoViewRequester(textChangeBringIntoViewRequester),
             textStyle = style.textStyle,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = style.textColor,
-                unfocusedBorderColor = textFieldState.borderColor,
-                focusedBorderColor = textFieldState.borderColor,
+                unfocusedBorderColor = borderColor,
+                focusedBorderColor = borderColor,
                 cursorColor = style.cursorColor,
                 backgroundColor = style.backgroundColor,
             ),
@@ -122,17 +385,34 @@ fun NitrozenOutlinedTextField(
                 Text(
                     text = hint,
                     style = style.placeholderTextStyle,
-                    color = style.placeholderTextColor
+                    color = style.placeholderTextColor,
+                    maxLines = configuration.maxLine,
+                    overflow = TextOverflow.Ellipsis,
                 )
             },
-            singleLine = true,
-            maxLines = 1,
+            singleLine = configuration.maxLine == 1,
+            maxLines = configuration.maxLine,
             keyboardOptions = KeyboardOptions(
                 keyboardType = configuration.keyboardType,
                 imeAction = configuration.imeAction,
+                capitalization = configuration.capitalization
             ),
             leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon,
+            trailingIcon = trailingIcon
+                ?: if(configuration.isClearTextEnabled && value.isNotBlank()){
+                    {
+                        Icon(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .clickableWithoutRipple {
+                                    onValueChange("")
+                                },
+                            painter = painterResource(id = R.drawable.ic_close_remove),
+                            contentDescription = null,
+                            tint = NitrozenTheme.colors.grey80
+                        )
+                    }
+                }else null,
             keyboardActions = configuration.keyboardActions,
             shape = configuration.shape,
             visualTransformation = configuration.visualTransformation,

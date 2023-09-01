@@ -220,5 +220,41 @@ fun HomeScreen(
             },
             modifier = Modifier.fillMaxWidth()
         )
+
+        NitrozenOutlinedButton(
+            text = "NotificationToast",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenNotificationToast)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "NotificationSuggestion",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenSuggestion)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "AutoSizeText",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenAutoSizeText)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        NitrozenOutlinedButton(
+            text = "Tooltip",
+            enabled = true,
+            onClick = {
+                onAction(HomeScreenActions.OpenTooltip)
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }

@@ -53,6 +53,7 @@ fun DropDownScreen(
                 modifier = Modifier
                     .padding(top = 16.dp),
                 label = "Label",
+                enabled = true,
                 hint = "Hint",
                 onClicked = {}
             )
@@ -71,6 +72,7 @@ fun DropDownScreen(
                 label = "Label",
                 value = "Selected Item",
                 hint = "Hint",
+                enabled = true,
                 onClicked = {}
             )
 
@@ -88,6 +90,7 @@ fun DropDownScreen(
                 value = "Selected Item",
                 hint = "Hint",
                 onClicked = {},
+                enabled = true,
                 textFieldState = TextFieldState.Idle("Subtitle")
             )
 
@@ -105,6 +108,7 @@ fun DropDownScreen(
                 label = "Label",
                 hint = "Hint",
                 onClicked = {},
+                enabled = true,
                 textFieldState = TextFieldState.Error("Error State")
             )
 
@@ -122,6 +126,7 @@ fun DropDownScreen(
                 label = "Label",
                 hint = "Hint",
                 onClicked = {},
+                enabled = true,
                 textFieldState = TextFieldState.Success("Success State")
             )
 

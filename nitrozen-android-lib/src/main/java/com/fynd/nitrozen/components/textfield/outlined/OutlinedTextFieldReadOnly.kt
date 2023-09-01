@@ -1,31 +1,30 @@
 package com.fynd.nitrozen.components.textfield.outlined
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.relocation.BringIntoViewRequester
-import androidx.compose.foundation.relocation.bringIntoViewRequester
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.textfield.*
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldConfiguration.Default
 import com.fynd.nitrozen.components.textfield.NitrozenTextFieldStyle.Default
+import com.fynd.nitrozen.components.textfield.outlined.base.BaseOutlinedTextField
+import com.fynd.nitrozen.components.tooltip.Default
+import com.fynd.nitrozen.components.tooltip.NitrozenToolTipConfiguration
+import com.fynd.nitrozen.components.tooltip.NitrozenTooltip
 import com.fynd.nitrozen.theme.NitrozenTheme
-import com.fynd.nitrozen.theme.typography.fontsNitrozen
+import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
+import com.fynd.nitrozen.utils.extensions.get
 
 @Preview(showBackground = true)
 @Composable
@@ -47,58 +46,92 @@ fun NitrozenOutlinedTextFieldReadOnly(
     hint: String,
     label: String? = null,
     onClicked: () -> Unit,
+    enabled : Boolean = true,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    anchorView: @Composable (() -> Unit)? = null,
+    toolTipText: String? = null,
+    toolTipVisibility: Boolean = false,
+    onDismissRequest: () -> Unit = {},
     textFieldState: TextFieldState = TextFieldState.Idle(),
     style: NitrozenTextFieldStyle.Outlined = NitrozenTextFieldStyle.Outlined.Default,
     configuration: NitrozenTextFieldConfiguration.Outlined = NitrozenTextFieldConfiguration.Outlined.Default,
+    toolTipConfiguration: NitrozenToolTipConfiguration = NitrozenToolTipConfiguration.Default
 ) {
     val focusManager = LocalFocusManager.current
+
+    val cutter = remember { MultipleEventsCutter.get() }
 
     Column(
         modifier = modifier
             .fillMaxWidth()
             .onFocusChanged {
                 if (it.hasFocus) {
-                    onClicked()
+                    cutter.processEvent(onClicked)
                     focusManager.clearFocus(force = true)
                 }
             },
     ) {
         if (label != null) {
-            Text(
-                text = label,
-                style = style.labelTextStyle,
+            Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp),
-                color = style.labelTextColor
-            )
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                NitrozenAutoResizeText(
+                    text = label,
+                    style = NitrozenAutoResizeTextStyle(
+                        textStyle = style.labelTextStyle,
+                        textColor = style.labelTextColor,
+                    ),
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                )
+
+                if (anchorView != null && toolTipText != null) {
+                    NitrozenTooltip(
+                        modifier = Modifier
+                            .padding(start = 5.dp),
+                        tooltipText = toolTipText,
+                        anchorView = anchorView,
+                        configuration = toolTipConfiguration,
+                        visibility = toolTipVisibility,
+                        onDismissRequest = {
+                            onDismissRequest()
+                        }
+                    )
+                }
+            }
 
             Spacer(modifier = Modifier.height(4.dp))
         }
 
-        OutlinedTextField(
+        BaseOutlinedTextField(
             value = value,
             onValueChange = { },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(configuration.fieldHeight),
             textStyle = style.textStyle,
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = style.textColor,
                 unfocusedBorderColor = textFieldState.borderColor,
                 focusedBorderColor = textFieldState.borderColor,
                 cursorColor = style.cursorColor,
-                backgroundColor = style.backgroundColor,
+                backgroundColor = if(enabled) style.backgroundColor
+                else style.disabledBackgroundColor,
             ),
             placeholder = {
                 Text(
                     text = hint,
                     style = style.placeholderTextStyle,
-                    color = style.placeholderTextColor
+                    color = style.placeholderTextColor,
+                    maxLines = configuration.maxLine,
+                    overflow = TextOverflow.Ellipsis
                 )
             },
-            singleLine = true,
-            maxLines = 1,
+            singleLine = configuration.maxLine == 1,
+            maxLines = configuration.maxLine,
             leadingIcon = leadingIcon,
             trailingIcon = trailingIcon,
             shape = configuration.shape,

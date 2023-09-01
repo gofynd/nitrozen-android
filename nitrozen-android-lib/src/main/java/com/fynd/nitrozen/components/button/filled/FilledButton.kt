@@ -4,20 +4,24 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration.Default
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
+import com.fynd.nitrozen.utils.extensions.get
 
 @Preview(showBackground = true)
 @Composable
@@ -95,6 +99,8 @@ fun NitrozenFilledButton(
     style: NitrozenButtonStyle.Filled = NitrozenButtonStyle.Filled.Default,
     configuration: NitrozenButtonConfiguration.Filled = NitrozenButtonConfiguration.Filled.Default,
 ) {
+    val cutter = remember { MultipleEventsCutter.get() }
+
     val backgroundColor =
         if(isLoading){
             style.backgroundColorDisabled
@@ -106,7 +112,9 @@ fun NitrozenFilledButton(
         }
 
     TextButton(
-        onClick = onClick,
+        onClick = {
+              cutter.processEvent(onClick)
+        },
         colors = ButtonDefaults.textButtonColors(
             backgroundColor = backgroundColor,
         ),
@@ -125,10 +133,12 @@ fun NitrozenFilledButton(
             if (leading != null) {
                 leading()
             }
-            Text(
+            NitrozenAutoResizeText(
                 text = text,
-                style = style.textStyle,
-                color = style.textColor,
+                style = NitrozenAutoResizeTextStyle(
+                    textStyle = style.textStyle,
+                    textColor = style.textColor,
+                )
             )
         }
     }

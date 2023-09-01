@@ -2,17 +2,22 @@ package com.fynd.nitrozen.components.button.text
 
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import com.fynd.nitrozen.components.autosizetext.Default
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration
 import com.fynd.nitrozen.components.button.NitrozenButtonConfiguration.Default
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle
 import com.fynd.nitrozen.components.button.NitrozenButtonStyle.Default
 import com.fynd.nitrozen.theme.NitrozenTheme
+import com.fynd.nitrozen.utils.extensions.MultipleEventsCutter
+import com.fynd.nitrozen.utils.extensions.get
 
 @Preview(showBackground = true)
 @Composable
@@ -62,6 +67,7 @@ fun NitrozenTextButton(
     style: NitrozenButtonStyle.Text = NitrozenButtonStyle.Text.Default,
     configuration: NitrozenButtonConfiguration.Text = NitrozenButtonConfiguration.Text.Default,
 ) {
+    val cutter = remember { MultipleEventsCutter.get() }
     val textColor =
         if (enabled)
             style.textColorEnabled
@@ -69,7 +75,9 @@ fun NitrozenTextButton(
             style.textColorDisabled
 
     TextButton(
-        onClick = onClick,
+        onClick = {
+            cutter.processEvent(onClick)
+        },
         colors = ButtonDefaults.textButtonColors(),
         modifier = modifier
             .heightIn(min = configuration.minHeight),
@@ -77,11 +85,13 @@ fun NitrozenTextButton(
         enabled = enabled,
         contentPadding = configuration.contentPadding,
     ) {
-        Text(
+        NitrozenAutoResizeText(
             text = text,
-            style = style.textStyle,
-            color = textColor,
-            textDecoration = style.textDecoration,
+            style = NitrozenAutoResizeTextStyle.Default.copy(
+                textStyle = style.textStyle,
+                textColor = textColor,
+                textDecoration = style.textDecoration
+            )
         )
     }
 }

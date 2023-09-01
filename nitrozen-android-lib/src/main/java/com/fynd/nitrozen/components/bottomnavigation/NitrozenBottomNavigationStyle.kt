@@ -11,7 +11,7 @@ data class NitrozenBottomNavigationStyle(
     val selectedTextColor: Color,
     val unselectedTextColor: Color,
     val textStyle: TextStyle,
-){
+) {
     companion object
 }
 
@@ -21,7 +21,7 @@ val NitrozenBottomNavigationStyle.Companion.Default
         selectedIconTint = NitrozenTheme.colors.primary50,
         unselectedIconTint = NitrozenTheme.colors.grey80.copy(alpha = 0.65F),
         selectedTextColor = NitrozenTheme.colors.grey100,
-        unselectedTextColor = NitrozenTheme.colors.grey80,
-        textStyle = NitrozenTheme.typography.bodyXxsReg,
+        unselectedTextColor = NitrozenTheme.colors.grey80.copy(alpha = 0.65F),
+        textStyle = NitrozenTheme.typography.bodyXxs
     )
 

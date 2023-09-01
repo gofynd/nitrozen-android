@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -40,7 +43,8 @@ private fun DialogPreview() {
     NitrozenTheme {
         NitrozenDialog(
             title = "Your Order is on the way",
-            subTitle = "Eget duis vulputate enim, iaculis ac faucibus magna faucibus. Magna elementum eu nibh non arcu eu, dolor nunc lacus. Vel eget augue vulputate aliquam. Ut facilisi egestas nec nunc. At maecenas placerat mauris pulvinar iaculis metus, dictum. ",
+            subTitle = "Eget duis vulputate enim, iaculis ac faucibus magna faucibus. Magna elementum eu nibh non arcu eu, dolor nunc lacus. Vel eget augue vulputate aliquam. Ut facilisi egestas nec nunc. At maecenas placerat mauris pulvinar iaculis metus, dictum. " +
+                    "Eget duis vulputate enim, iaculis ac faucibus magna faucibus. Magna elementum eu nibh non arcu eu, dolor nunc lacus. Vel eget augue vulputate aliquam. Ut facilisi egestas nec nunc. At maecenas placerat mauris pulvinar iaculis metus, dictum. ",
             positiveLabel = "Positive",
             negativeLabel = "Negative",
             onDismissRequest = {},
@@ -70,20 +74,20 @@ private fun DialogPreview() {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun NitrozenDialog(
-    showDialog : Boolean = true,
-    title : String,
-    subTitle : String,
+    showDialog: Boolean = true,
+    title: String,
+    subTitle: String,
     positiveLabel: String = "",
     negativeLabel: String = "",
     @DrawableRes icon: Int? = null,
     positiveButtonClick: (() -> Unit)? = null,
     negativeButtonClick: (() -> Unit)? = null,
-    configuration : NitrozenDialogConfiguration = NitrozenDialogConfiguration.Default,
+    configuration: NitrozenDialogConfiguration = NitrozenDialogConfiguration.Default,
     style: NitrozenDialogStyle = NitrozenDialogStyle.Default,
     onDismissRequest: () -> Unit,
 ) {
 
-    if(showDialog) {
+    if (showDialog) {
         Dialog(
             onDismissRequest = onDismissRequest,
             properties = DialogProperties(
@@ -181,7 +185,9 @@ fun NitrozenDialog(
 
                     Text(
                         modifier = Modifier
-                            .align(Alignment.CenterHorizontally),
+                            .align(Alignment.CenterHorizontally)
+                            .heightIn(max = 169.dp)
+                            .verticalScroll(rememberScrollState()),
                         textAlign = configuration.textAlign,
                         text = subTitle,
                         style = style.subTitleStyle,
