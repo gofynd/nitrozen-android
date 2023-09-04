@@ -33,6 +33,7 @@ import androidx.compose.material.ContentAlpha
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.minimumInteractiveComponentSize
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -177,7 +178,13 @@ fun TriStateCheckbox(
         enabled = enabled,
         value = state,
         modifier = modifier
-            .then(if (onClick != null) { Modifier.minimumTouchTargetSize() } else { Modifier })
+            .then(
+                if (onClick != null) {
+                    Modifier.minimumInteractiveComponentSize()
+                } else {
+                    Modifier
+                }
+            )
             .then(toggleableModifier)
             .padding(CheckboxDefaultPadding),
         colors = colors,

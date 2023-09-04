@@ -1,6 +1,7 @@
 package com.fynd.nitrozen.components.textfield.outlined.base
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.defaultMinSize
@@ -11,14 +12,18 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
 import androidx.compose.material.TextFieldColors
 import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.takeOrElse
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -78,10 +83,10 @@ import androidx.compose.ui.unit.dp
  * text field instead of wrapping onto multiple lines. The keyboard will be informed to not show
  * the return key as the [ImeAction]. Note that [maxLines] parameter will be ignored as the
  * maxLines attribute will be automatically set to 1
- * @param maxLines the maximum height in terms of maximum number of visible lines. Should be
- * equal or greater than 1. Note that this parameter will be ignored and instead maxLines will be
- * set to 1 if [singleLine] is set to true
- * [KeyboardOptions.imeAction] field.
+ * @param maxLines the maximum height in terms of maximum number of visible lines. It is required
+ * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
+ * @param minLines the minimum height in terms of minimum number of visible lines. It is required
+ * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
  * @param interactionSource the [MutableInteractionSource] representing the stream of
  * [Interaction]s for this OutlinedTextField. You can create and pass in your own remembered
  * [MutableInteractionSource] if you want to observe [Interaction]s and customize the
@@ -108,10 +113,11 @@ fun BaseOutlinedTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false,
-    maxLines: Int = Int.MAX_VALUE,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = MaterialTheme.shapes.small,
-    colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldColors(),
+    colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldColors()
 ) {
     // If color is not provided via the text style, use content color as a default
     val textColor = textStyle.color.takeOrElse {
@@ -123,7 +129,11 @@ fun BaseOutlinedTextField(
     BasicTextField(
         value = value,
         modifier = if (label != null) {
-            modifier.padding(top = 8.dp)
+            modifier
+                // Merge semantics at the beginning of the modifier chain to ensure padding is
+                // considered part of the text field.
+                .semantics(mergeDescendants = true) {}
+                .padding(top = OutlinedTextFieldTopPadding)
         } else {
             modifier
         }
@@ -143,6 +153,7 @@ fun BaseOutlinedTextField(
         interactionSource = interactionSource,
         singleLine = singleLine,
         maxLines = maxLines,
+        minLines = minLines,
         decorationBox = @Composable { innerTextField ->
             TextFieldDefaults.OutlinedTextFieldDecorationBox(
                 value = value,
@@ -228,9 +239,10 @@ fun BaseOutlinedTextField(
  * text field instead of wrapping onto multiple lines. The keyboard will be informed to not show
  * the return key as the [ImeAction]. Note that [maxLines] parameter will be ignored as the
  * maxLines attribute will be automatically set to 1
- * @param maxLines the maximum height in terms of maximum number of visible lines. Should be
- * equal or greater than 1. Note that this parameter will be ignored and instead maxLines will be
- * set to 1 if [singleLine] is set to true
+ * @param maxLines the maximum height in terms of maximum number of visible lines. It is required
+ * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
+ * @param minLines the minimum height in terms of minimum number of visible lines. It is required
+ * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
  * @param interactionSource the [MutableInteractionSource] representing the stream of
  * [Interaction]s for this OutlinedTextField. You can create and pass in your own remembered
  * [MutableInteractionSource] if you want to observe [Interaction]s and customize the
@@ -257,7 +269,8 @@ fun BaseOutlinedTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions(),
     singleLine: Boolean = false,
-    maxLines: Int = Int.MAX_VALUE,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = TextFieldDefaults.OutlinedTextFieldShape,
     colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldColors()
@@ -272,7 +285,11 @@ fun BaseOutlinedTextField(
     BasicTextField(
         value = value,
         modifier = if (label != null) {
-            modifier.padding(top = 8.dp)
+            modifier
+                // Merge semantics at the beginning of the modifier chain to ensure padding is
+                // considered part of the text field.
+                .semantics(mergeDescendants = true) {}
+                .padding(top = OutlinedTextFieldTopPadding)
         } else {
             modifier
         }
@@ -292,6 +309,7 @@ fun BaseOutlinedTextField(
         interactionSource = interactionSource,
         singleLine = singleLine,
         maxLines = maxLines,
+        minLines = minLines,
         decorationBox = @Composable { innerTextField ->
             TextFieldDefaults.OutlinedTextFieldDecorationBox(
                 value = value.text,
@@ -324,3 +342,6 @@ fun BaseOutlinedTextField(
         }
     )
 }
+
+
+internal val OutlinedTextFieldTopPadding = 8.dp
