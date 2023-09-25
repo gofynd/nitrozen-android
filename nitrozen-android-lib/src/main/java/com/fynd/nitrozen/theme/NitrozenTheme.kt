@@ -89,6 +89,11 @@ fun NitrozenTheme(
             fontSize = 12.sp,
             lineHeight = 16.sp,
         ),
+        bodyXxsBold = NitrozenTypography.getDefault().copy(
+            fontWeight = FontWeight.Bold,
+            fontSize = 12.sp,
+            lineHeight = 16.sp,
+        ),
         bodyXsLink = NitrozenTypography.getDefault().copy(
             fontWeight = FontWeight.Bold,
             fontSize = 14.sp,
