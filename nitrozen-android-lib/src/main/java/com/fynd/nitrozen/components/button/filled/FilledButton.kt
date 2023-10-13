@@ -96,6 +96,7 @@ fun NitrozenFilledButton(
     enabled: Boolean = true,
     isLoading: Boolean = false,
     leading: @Composable (() -> Unit)? = null,
+    trailing: @Composable (() -> Unit)? = null,
     style: NitrozenButtonStyle.Filled = NitrozenButtonStyle.Filled.Default,
     configuration: NitrozenButtonConfiguration.Filled = NitrozenButtonConfiguration.Filled.Default,
 ) {
@@ -140,6 +141,9 @@ fun NitrozenFilledButton(
                     textColor = style.textColor,
                 )
             )
+            if(trailing != null) {
+                trailing()
+            }
         }
     }
 }
