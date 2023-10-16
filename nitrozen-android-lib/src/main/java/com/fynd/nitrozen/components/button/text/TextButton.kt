@@ -64,6 +64,7 @@ fun NitrozenTextButton(
     text: String,
     onClick: () -> Unit,
     enabled: Boolean = true,
+    leading: (()->Unit)? = null,
     style: NitrozenButtonStyle.Text = NitrozenButtonStyle.Text.Default,
     configuration: NitrozenButtonConfiguration.Text = NitrozenButtonConfiguration.Text.Default,
 ) {
@@ -85,6 +86,7 @@ fun NitrozenTextButton(
         enabled = enabled,
         contentPadding = configuration.contentPadding,
     ) {
+        leading?.invoke()
         NitrozenAutoResizeText(
             text = text,
             style = NitrozenAutoResizeTextStyle.Default.copy(
