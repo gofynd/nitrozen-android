@@ -64,7 +64,7 @@ fun NitrozenTextButton(
     text: String,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    leading: (()->Unit)? = null,
+    leading: @Composable (()->Unit)? = null,
     style: NitrozenButtonStyle.Text = NitrozenButtonStyle.Text.Default,
     configuration: NitrozenButtonConfiguration.Text = NitrozenButtonConfiguration.Text.Default,
 ) {
