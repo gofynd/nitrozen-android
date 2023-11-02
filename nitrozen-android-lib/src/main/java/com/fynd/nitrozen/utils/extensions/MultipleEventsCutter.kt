@@ -15,7 +15,7 @@ private object MultipleEventsCutterImpl : MultipleEventsCutter {
     @Synchronized
     override fun processEvent(event: () -> Unit) {
         val now = System.currentTimeMillis()
-        if ( lastEventTimeMs  == 0L || now - lastEventTimeMs >= 300L) {
+        if ( lastEventTimeMs  == 0L || now - lastEventTimeMs >= 500L) {
             event.invoke()
             lastEventTimeMs = now
         }
