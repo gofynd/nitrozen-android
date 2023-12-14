@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -17,8 +18,13 @@ private fun NitrozenBottomNavigation() {
     NitrozenTheme {
         NitrozenBottomNavigation(
             items = listOf(
-                BottomNavItem(1, R.string.nit_bottom_nav_item_title, R.drawable.ic_nit_home),
-                BottomNavItem(2, R.string.nit_bottom_nav_item_title, R.drawable.ic_nit_home)
+                BottomNavItem(
+                    1, R.string.nit_bottom_nav_item_title,
+                    R.drawable.ic_nit_home,
+                    BottomNavItem.BadgeConfiguration.Enabled(2)
+                ),
+                BottomNavItem(2, R.string.nit_bottom_nav_item_title, R.drawable.ic_nit_home),
+
             ),
             onClick = {},
             selectedItem = BottomNavItem(1, R.string.nit_bottom_nav_item_title, R.drawable.ic_nit_home),
@@ -77,11 +83,40 @@ private fun RowScope.NitrozenBottomNavigationItem(
 
     BottomNavigationItem(
         icon = {
-            Icon(
-                painter = painterResource(id = item.icon),
-                contentDescription = stringResource(id = item.title),
-                tint = iconTint,
-            )
+            if (item.badgeConfiguration is BottomNavItem.BadgeConfiguration.Enabled){
+                BadgedBox(
+                    badge = {
+                        Badge(
+                            backgroundColor = NitrozenTheme.colors.error50,
+                            contentColor = NitrozenTheme.colors.background
+                        ) {
+                            val countText = if(item.badgeConfiguration.badgeCount > 9){
+                                "9+"
+                            }else{
+                                item.badgeConfiguration.badgeCount.toString()
+                            }
+                            Text(
+                                modifier = Modifier.align(Alignment.CenterVertically),
+                                text = countText,
+                                style = NitrozenTheme.typography.bodyXxsReg,
+                                color = NitrozenTheme.colors.background,
+                            )
+                        }
+                    }
+                ){
+                    Icon(
+                        painter = painterResource(id = item.icon),
+                        contentDescription = stringResource(id = item.title),
+                        tint = iconTint,
+                    )
+                }
+            }else {
+                Icon(
+                    painter = painterResource(id = item.icon),
+                    contentDescription = stringResource(id = item.title),
+                    tint = iconTint,
+                )
+            }
         },
         label = {
             Text(
