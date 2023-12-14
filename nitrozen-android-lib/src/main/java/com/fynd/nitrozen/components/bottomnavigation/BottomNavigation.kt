@@ -2,6 +2,7 @@ package com.fynd.nitrozen.components.bottomnavigation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -9,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.R
 
@@ -87,6 +89,7 @@ private fun RowScope.NitrozenBottomNavigationItem(
                 BadgedBox(
                     badge = {
                         Badge(
+                            modifier = Modifier.padding(top = 4.dp),
                             backgroundColor = NitrozenTheme.colors.error50,
                             contentColor = NitrozenTheme.colors.background
                         ) {
