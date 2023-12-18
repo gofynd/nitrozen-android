@@ -9,6 +9,7 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -65,6 +66,21 @@ private fun NitrozenOutlinedButton_Leading() {
 
 @Preview(showBackground = true)
 @Composable
+private fun NitrozenOutlinedButton_Trailing() {
+    NitrozenTheme {
+        NitrozenOutlinedButton(
+            text = "Outlined Button Disabled",
+            onClick = {},
+            enabled = false,
+            trailing = {
+                Icon(imageVector = Icons.Default.ExitToApp, contentDescription = null)
+            }
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
 private fun NitrozenOutlinedButton_Loading() {
     NitrozenTheme {
         NitrozenOutlinedButton(
@@ -84,6 +100,7 @@ fun NitrozenOutlinedButton(
     enabled: Boolean = true,
     onClick: () -> Unit,
     leading: @Composable (() -> Unit)? = null,
+    trailing: @Composable (() -> Unit)? = null,
     isLoading: Boolean = false,
     style: NitrozenButtonStyle.Outlined = NitrozenButtonStyle.Outlined.Default,
     configuration: NitrozenButtonConfiguration.Outlined = NitrozenButtonConfiguration.Outlined.Default,
@@ -128,6 +145,9 @@ fun NitrozenOutlinedButton(
                     textColor = color,
                 )
             )
+            if (trailing != null) {
+                trailing()
+            }
         }
     }
 }
