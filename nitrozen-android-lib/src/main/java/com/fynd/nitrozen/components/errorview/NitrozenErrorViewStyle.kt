@@ -15,5 +15,7 @@ val NitrozenErrorViewStyle.Companion.Default
     @Composable
     get() = NitrozenErrorViewStyle(
         titleTextStyle = NitrozenTheme.typography.headingXxs,
-        subTitleTextStyle = NitrozenTheme.typography.bodySmall
+        subTitleTextStyle = NitrozenTheme.typography.bodySmall.copy(
+            color = NitrozenTheme.colors.grey80
+        )
     )

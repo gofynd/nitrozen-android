@@ -9,6 +9,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -80,7 +81,9 @@ fun NitrozenOTPField(
     style: NitrozenTextFieldStyle.OTP = NitrozenTextFieldStyle.OTP.Default,
     configuration: NitrozenTextFieldConfiguration.OTP = NitrozenTextFieldConfiguration.OTP.Default,
 ) {
-    val focusRequester = FocusRequester.Default
+    val focusRequester = remember {
+        FocusRequester()
+    }
 
     LaunchedEffect(key1 = Unit, block = {
         if (focus) {

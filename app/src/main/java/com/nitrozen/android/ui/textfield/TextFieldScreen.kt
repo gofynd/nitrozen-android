@@ -1,5 +1,6 @@
 package com.nitrozen.android.ui.textfield
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -15,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fynd.nitrozen.components.textfield.MaxCharacterConfiguration
@@ -44,6 +46,7 @@ private fun PreviewButtonsScreen() {
 fun TextFieldScreen(
     onBackClick: () -> Unit
 ) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -126,7 +129,9 @@ fun TextFieldScreen(
                 hint = "Hint",
                 label = "Label",
                 enabled = false,
-                onClicked = {},
+                onClicked = {
+                    Toast.makeText(context, "text", Toast.LENGTH_SHORT).show()
+                },
             )
 
             Spacer(modifier = Modifier.height(16.dp))

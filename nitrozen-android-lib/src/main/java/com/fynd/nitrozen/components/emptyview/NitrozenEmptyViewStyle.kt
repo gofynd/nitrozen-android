@@ -15,5 +15,7 @@ val NitrozenEmptyViewStyle.Companion.Default
     @Composable
     get() = NitrozenEmptyViewStyle(
         titleTextStyle = NitrozenTheme.typography.headingXxs,
-        subTitleTextStyle = NitrozenTheme.typography.bodySmall
+        subTitleTextStyle = NitrozenTheme.typography.bodySmall.copy(
+            color = NitrozenTheme.colors.grey80
+        )
     )
