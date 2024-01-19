@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -75,6 +76,7 @@ fun NitrozenSuggestionBanner(
 
         Image(
             modifier = Modifier
+                .size(40.dp)
                 .constrainAs(iconRef) {
                     top.linkTo(parent.top)
                     start.linkTo(parent.start)
@@ -89,7 +91,6 @@ fun NitrozenSuggestionBanner(
                     top.linkTo(parent.top)
                     end.linkTo(cancelRef.start)
                     start.linkTo(iconRef.end, margin = configuration.itemSpacing)
-                    bottom.linkTo(iconRef.bottom)
                     width = Dimension.fillToConstraints
                 },
             text = title,
@@ -97,6 +98,9 @@ fun NitrozenSuggestionBanner(
                 textStyle = style.titleStyle,
                 textColor = style.titleTextColor
             ),
+            configuration = NitrozenAutoResizeTextConfiguration.Default.copy(
+                maxLines = 2
+            )
         )
         Icon(
             modifier = Modifier
@@ -119,7 +123,7 @@ fun NitrozenSuggestionBanner(
                 .constrainAs(subTitleRef) {
                     start.linkTo(titleRef.start)
                     end.linkTo(titleRef.end)
-                    top.linkTo(iconRef.bottom, 4.dp)
+                    top.linkTo(titleRef.bottom, 4.dp)
                     width = Dimension.fillToConstraints
                     visibility = if(subtitle!= null) Visibility.Visible
                                 else Visibility.Gone
