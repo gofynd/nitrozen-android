@@ -110,7 +110,6 @@ fun NitrozenSuggestionBanner(
                 .constrainAs(cancelRef) {
                     start.linkTo(titleRef.end, configuration.itemSpacing)
                     top.linkTo(parent.top)
-                    bottom.linkTo(iconRef.bottom)
                     end.linkTo(parent.end)
                     width = Dimension.wrapContent
                 },
