@@ -36,6 +36,7 @@ object NitrozenNotificationConfiguration {
         val contentPadding: PaddingValues,
         val itemSpacing: Dp,
         val primaryButtonConfiguration: NitrozenButtonConfiguration.Filled,
+        val iconSize : Dp,
     ){
         companion object
     }
@@ -46,7 +47,8 @@ object NitrozenNotificationConfiguration {
             contentPadding = PaddingValues(16.dp),
             itemSpacing = 12.dp,
             primaryButtonConfiguration = NitrozenButtonConfiguration.Filled.Default.copy(
-                minHeight = 32.dp
-            )
+                minHeight = 32.dp,
+            ),
+            iconSize = 32.dp
         )
 }

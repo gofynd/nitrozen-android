@@ -37,7 +37,7 @@ import com.fynd.nitrozen.components.notification.toast.NotificationAction
 import com.fynd.nitrozen.theme.NitrozenTheme
 import com.fynd.nitrozen.utils.extensions.clickableWithUnBoundedRipple
 
-@Preview
+@Preview(widthDp = 350)
 @Composable
 private fun NitrozenSuggestionBannerPreview() {
     NitrozenTheme {
@@ -76,7 +76,7 @@ fun NitrozenSuggestionBanner(
 
         Image(
             modifier = Modifier
-                .size(40.dp)
+                .size(configuration.iconSize)
                 .constrainAs(iconRef) {
                     top.linkTo(parent.top)
                     start.linkTo(parent.start)
