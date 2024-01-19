@@ -23,6 +23,10 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.constraintlayout.compose.Visibility
 import androidx.core.graphics.blue
 import com.fynd.nitrozen.R
+import com.fynd.nitrozen.components.autosizetext.Default
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeText
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextConfiguration
+import com.fynd.nitrozen.components.autosizetext.NitrozenAutoResizeTextStyle
 import com.fynd.nitrozen.components.button.filled.NitrozenFilledButton
 import com.fynd.nitrozen.components.notification.NitrozenNotificationConfiguration
 import com.fynd.nitrozen.components.notification.NitrozenNotificationConfiguration.Default
@@ -39,7 +43,7 @@ private fun NitrozenSuggestionBannerPreview() {
         NitrozenSuggestionBanner(
             modifier = Modifier
                 .fillMaxWidth(),
-            title = "With love, from nitrozen",
+            title = "With love, from nitrozen test terst test test",
             subtitle = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
             icon = R.drawable.ic_success_text_field,
             primaryAction = NotificationAction("Task"){}
@@ -79,7 +83,7 @@ fun NitrozenSuggestionBanner(
             contentDescription = null,
         )
 
-        Text(
+        NitrozenAutoResizeText(
             modifier = Modifier
                 .constrainAs(titleRef) {
                     top.linkTo(parent.top)
@@ -89,10 +93,10 @@ fun NitrozenSuggestionBanner(
                     width = Dimension.fillToConstraints
                 },
             text = title,
-            style = style.titleStyle,
-            color = style.titleTextColor,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            style = NitrozenAutoResizeTextStyle.Default.copy(
+                textStyle = style.titleStyle,
+                textColor = style.titleTextColor
+            ),
         )
         Icon(
             modifier = Modifier
